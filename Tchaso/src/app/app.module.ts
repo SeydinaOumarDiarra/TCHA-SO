@@ -12,6 +12,7 @@ import { ServiceComponent } from './Services/service/service.component';
 import { SpecialiteComponent } from './Specialites/specialite/specialite.component';
 import { UtilisateurComponent } from './Utilisateurs/utilisateur/utilisateur.component';
 import { VilleComponent } from './Villes/ville/ville.component';
+import { AjoutServiceComponent } from './Services/ajout-service/ajout-service.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VilleComponent } from './Villes/ville/ville.component';
     ServiceComponent,
     SpecialiteComponent,
     UtilisateurComponent,
-    VilleComponent
+    VilleComponent,
+    AjoutServiceComponent
   ],
   imports: [
     BrowserModule,
