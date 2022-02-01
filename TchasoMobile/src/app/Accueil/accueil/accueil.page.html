@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>accueil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <swiper [config]="detailConfig" class="details">
+      <ng-template swiperSlide *ngFor="let detail of details">
+          <img [src]="detail?.detail" />
+      </ng-template>
+    </swiper>
+</ion-row>
+</ion-content>
