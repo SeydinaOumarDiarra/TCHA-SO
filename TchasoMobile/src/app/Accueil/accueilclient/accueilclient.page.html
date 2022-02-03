@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <a class="icon-person"> <b style="font-size: 15px; color: black;">Seydina </b><ion-icon name="person"></ion-icon></a>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-slides [options]="slideOptsa" style="width: 100%; height: 80px;">
+      <ion-slide style="width: 200%; height: 80px;">
+          <img src="../../../assets/images/entete1.png" style="width: 100%; height: 80px;">
+      </ion-slide>
+      <ion-slide style="width: 100%; height: 80px;">
+        <img src="../../../assets/images/entete1.png" style="width: 100%; height: 80px;">
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <ion-row class="bare-grise">
+    <p style="color: white; margin: 10px 0px 0px 50px;">Services TCHA-SO</p>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <a (click)="showServices()" style="text-align: center">
+        <ion-card>
+          <ion-card-content>
+            <p>Ménages</p>
+          </ion-card-content>
+        </ion-card>
+      </a>
+      
+    </ion-col>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-content>
+          <p>Constructions</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-content>
+          <p>Artisanats</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-content>
+          <p>Technologies</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  
+</ion-content>

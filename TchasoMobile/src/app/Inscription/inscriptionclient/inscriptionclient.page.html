@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <ion-img src="../../../assets/images/entete1.png" alt="img-entete" class="img-entete"></ion-img>
+  <ion-img src="../../../assets/images/logo.png" alt="img-logo" class="img-logo"></ion-img>
+
+    <h4 style="text-align: center; font-size: 25px; color: #684f0e;"><b>Inscription</b></h4>
+  <form novalidate>
+    <ion-card>
+      <ion-list>
+        <ion-item class="box1">
+          <ion-input name="name" type="text" placeholder="Votre nom"></ion-input>
+          <ion-icon name="person"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Votre prénom"></ion-input>
+          <ion-icon name="person"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Genre"></ion-input>
+          <ion-icon name="body"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Votre numéro"></ion-input>
+          <ion-icon name="call"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Nom d'utilisateur"></ion-input>
+          <ion-icon name="person"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Mot de passe"></ion-input>
+          <ion-icon name="key"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button type="submit" color="warning" expand="block">S'inscrire</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" (click)="login()"  class="btn-inscription">Annuler</ion-button>
+      </ion-col>
+    </ion-row> 
+  </form>
+</ion-content>

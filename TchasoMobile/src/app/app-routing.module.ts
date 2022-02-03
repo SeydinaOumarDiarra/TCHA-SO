@@ -19,6 +19,30 @@ const routes: Routes = [
     path: 'accueil',
     loadChildren: () => import('./Accueil/accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'inscriptionclient',
+    loadChildren: () => import('./Inscription/inscriptionclient/inscriptionclient.module').then( m => m.InscriptionclientPageModule)
+  },
+  {
+    path: 'inscriptiontravailleur',
+    loadChildren: () => import('./Inscription/inscriptiontravailleur/inscriptiontravailleur.module').then( m => m.InscriptiontravailleurPageModule)
+  },
+  {
+    path: 'accueilclient',
+    loadChildren: () => import('./Accueil/accueilclient/accueilclient.module').then( m => m.AccueilclientPageModule)
+  },
+  {
+    path: 'popupservice',
+    loadChildren: () => import('./Popups/popupservice/popupservice.module').then( m => m.PopupservicePageModule)
+  },
+  {
+    path: 'specialite',
+    loadChildren: () => import('./Specialites/specialite/specialite.module').then( m => m.SpecialitePageModule)
+  },
+  {
+    path: 'travailleur',
+    loadChildren: () => import('./Specialites/travailleur/travailleur.module').then( m => m.TravailleurPageModule)
+  },
 ];
 
 @NgModule({
