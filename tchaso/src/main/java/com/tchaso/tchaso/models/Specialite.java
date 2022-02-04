@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Etat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,9 @@ public class Specialite {
 
     @Column(name = "nomspe")
     private String nomspe;
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.actif;
 
     @ManyToOne
     private Service service;

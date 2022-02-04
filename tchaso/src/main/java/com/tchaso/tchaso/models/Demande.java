@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Etat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +23,9 @@ public class Demande {
 
     @Column(name = "motifdemande")
     private String motifdemande;
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.actif;
 
     @Column(name = "datedemande")
     private Date datedemande;

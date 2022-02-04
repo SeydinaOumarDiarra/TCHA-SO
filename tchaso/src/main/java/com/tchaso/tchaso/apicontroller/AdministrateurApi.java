@@ -16,7 +16,7 @@ public interface AdministrateurApi {
     @PostMapping(value = APP_ROOT +  "/administrateur/ajout")
     Administrateur add_administrateur(@RequestBody Administrateur administrateur);
 
-    @PutMapping(value = APP_ROOT +  "/update/{idadministrateur}")
+    @PutMapping(value = APP_ROOT +  "/updateadmin/{idadministrateur}")
     Administrateur update_administrateur(@RequestBody Administrateur administrateur,@PathVariable("idadministrateur")Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/administrateur/all")

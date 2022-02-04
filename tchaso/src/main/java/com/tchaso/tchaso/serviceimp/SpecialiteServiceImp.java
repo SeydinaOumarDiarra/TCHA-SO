@@ -53,6 +53,6 @@ public class SpecialiteServiceImp implements SpecialiteService {
             log.error("Specialite id est null");
             return ;
         }
-        specialiteRepository.deleteById(Id);
+        specialiteRepository.delete_specialite(Id);
     }
 }

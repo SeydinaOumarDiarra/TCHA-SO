@@ -12,7 +12,7 @@ public interface SpecialiteApi {
     @PostMapping(value = APP_ROOT +  "/specialite/ajout")
     Specialite add_specialite(@RequestBody Specialite specialite);
 
-    @PutMapping(value = APP_ROOT +  "/update/{idspecialite}")
+    @PutMapping(value = APP_ROOT +  "/updatespecialite/{idspecialite}")
     Specialite update_specialite(@RequestBody Specialite specialite, @PathVariable("idspecialite") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/specialite/all")

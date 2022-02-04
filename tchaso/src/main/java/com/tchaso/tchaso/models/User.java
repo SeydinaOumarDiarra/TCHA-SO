@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Etat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,7 +27,8 @@ public class User implements Serializable {
     @Column(name = "genre")
     private String genre;
 
-    private Etat etat;
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.actif;
 
     @Column(name = "login")
     private String login;

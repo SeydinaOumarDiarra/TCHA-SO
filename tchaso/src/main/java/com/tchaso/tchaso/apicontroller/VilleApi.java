@@ -11,7 +11,7 @@ public interface VilleApi {
     @PostMapping(value = APP_ROOT +  "/ville/ajout")
     Ville add_ville(@RequestBody Ville ville);
 
-    @PutMapping(value = APP_ROOT +  "/update/{idVille}")
+    @PutMapping(value = APP_ROOT +  "/updateville/{idVille}")
     Ville update_ville(@RequestBody Ville ville,@PathVariable("idVille") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/ville/all")

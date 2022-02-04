@@ -5,8 +5,14 @@ import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.NoResultException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Service
@@ -20,6 +26,7 @@ public class TravailleurServiceImp implements TravailleurService {
 
     @Override
     public Travailleur add_travailleur(Travailleur travailleur) {
+
         return travailleurRepository.save(travailleur);
     }
 
@@ -48,7 +55,7 @@ public class TravailleurServiceImp implements TravailleurService {
 
     @Override
     public void delete_travailleur(Integer Id) {
-        travailleurRepository.deleteById(Id);
+        travailleurRepository.delete_travailleur(Id);
     }
 
     @Override

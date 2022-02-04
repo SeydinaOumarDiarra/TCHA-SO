@@ -54,6 +54,6 @@ public class CompetenceServiceImp implements CompetenceService {
             log.error("Competence id est null");
             return ;
         }
-        competenceRepository.deleteById(Id);
+        competenceRepository.delete_competence(Id);
     }
 }

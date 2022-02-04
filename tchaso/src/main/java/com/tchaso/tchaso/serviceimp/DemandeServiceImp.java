@@ -53,6 +53,6 @@ public class DemandeServiceImp implements DemandeService {
             log.error("Demande id est null");
             return ;
         }
-        demandeRepository.deleteById(Id);
+        demandeRepository.delete_demande(Id);
     }
 }

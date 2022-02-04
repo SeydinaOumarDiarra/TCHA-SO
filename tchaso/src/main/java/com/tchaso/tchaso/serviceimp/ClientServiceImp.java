@@ -51,7 +51,7 @@ public class ClientServiceImp implements ClientService {
 
     @Override
     public void delete_client(Integer Id) {
-        clientRepository.deleteById(Id);
+        clientRepository.delete_client(Id);
     }
 
     @Override

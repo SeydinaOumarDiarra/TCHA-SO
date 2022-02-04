@@ -55,7 +55,7 @@ public class ServiceServiceImp implements ServiceService {
             log.error("Service id est null");
             return ;
         }
-        serviceRepository.deleteById(Id);
+        serviceRepository.delete_service(Id);
     }
 
 

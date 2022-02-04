@@ -32,7 +32,6 @@ public class AdministrateurServiceImp implements AdministrateurService {
         admin.setNom(administrateur.getNom());
         admin.setPrenom(administrateur.getPrenom());
         admin.setEmail(administrateur.getEmail());
-        admin.setProfil(administrateur.getProfil());
         admin.setEtat(administrateur.getEtat());
         return null;
     }
@@ -57,7 +56,7 @@ public class AdministrateurServiceImp implements AdministrateurService {
             log.error("Administrateur id est null");
             return ;
         }
-        administrateurRepository.deleteById(Id);
+        administrateurRepository.delete_admin(Id);
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface DemandeApi {
     @PostMapping(value = APP_ROOT +  "/demande/ajout")
     Demande add_demande(@RequestBody Demande demande);
 
-    @PutMapping(value = APP_ROOT +  "/updatedmd/{iddemande}")
+    @PutMapping(value = APP_ROOT +  "/updatedemande/{iddemande}")
     Demande update_demande(@RequestBody Demande demande ,@PathVariable("iddemande") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/demande/all")

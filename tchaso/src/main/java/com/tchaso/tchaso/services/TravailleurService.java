@@ -3,6 +3,8 @@ package com.tchaso.tchaso.services;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.models.Travailleur;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

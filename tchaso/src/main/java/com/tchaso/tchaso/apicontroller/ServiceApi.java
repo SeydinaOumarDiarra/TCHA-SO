@@ -12,7 +12,7 @@ public interface ServiceApi {
     @PostMapping(value = APP_ROOT +  "/service/ajout")
     Service add_service(@RequestBody Service service);
 
-    @PutMapping(value = APP_ROOT +  "/update/{idservice}")
+    @PutMapping(value = APP_ROOT +  "/updateservice/{idservice}")
     Service update_service(@RequestBody Service service, @PathVariable("idservice") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/service/all")

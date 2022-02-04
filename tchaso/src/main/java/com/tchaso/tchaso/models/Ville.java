@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Etat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,9 @@ public class Ville {
 
     @Column(name = "nomville")
     private String nomville;
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.actif;
 
     @ManyToOne
     private Travailleur travailleur;

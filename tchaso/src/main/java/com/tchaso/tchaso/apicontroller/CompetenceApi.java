@@ -12,7 +12,7 @@ public interface CompetenceApi {
     @PostMapping(value = APP_ROOT +  "/competence/ajout")
     Competence add_competence(@RequestBody Competence competence);
 
-    @PutMapping(value = APP_ROOT +  "/update/{idcompetence}")
+    @PutMapping(value = APP_ROOT +  "/updatecompetence/{idcompetence}")
     Competence update_competence(@RequestBody Competence competence, @PathVariable("idcompetence") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/competence/all")

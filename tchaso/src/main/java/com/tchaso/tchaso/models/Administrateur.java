@@ -1,5 +1,7 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Etat;
+import com.tchaso.tchaso.enumeration.Profile;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +17,7 @@ public class Administrateur extends User  {
 
     @Column(name = "email")
     private String email;
-    private Profile profil;
+    @Enumerated(EnumType.STRING)
+    private Profile profile = Profile.admin;
 
 }

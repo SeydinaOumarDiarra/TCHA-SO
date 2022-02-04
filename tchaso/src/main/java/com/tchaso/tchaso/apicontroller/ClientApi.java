@@ -19,7 +19,7 @@ public interface ClientApi {
     @PostMapping(value = APP_ROOT +  "/client/ajout")
     Client add_client(@RequestBody Client client);
 
-    @PutMapping(value = APP_ROOT +  "/updateclt/{idclient}")
+    @PutMapping(value = APP_ROOT +  "/updateclient/{idclient}")
     Client update_client(@RequestBody Client client, @PathVariable("idclient") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/client/all")
