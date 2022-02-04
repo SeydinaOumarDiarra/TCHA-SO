@@ -18,6 +18,12 @@ public class AdministrateurController implements AdministrateurApi {
     public AdministrateurController(AdministrateurService administrateurService){
         this.administrateurService = administrateurService;
     }
+
+    @Override
+    public Administrateur authentification(String username, String password) {
+        return administrateurService.authentification(username, password);
+    }
+
     @Override
     public Administrateur add_administrateur(Administrateur administrateur) {
         return administrateurService.add_administrateur(administrateur);

@@ -4,4 +4,5 @@ import com.tchaso.tchaso.models.Administrateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdministrateurRepository extends JpaRepository<Administrateur,Integer> {
+    Administrateur findOneByLoginAndPassword(String login,String password);
 }

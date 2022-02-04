@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Competence {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "description")

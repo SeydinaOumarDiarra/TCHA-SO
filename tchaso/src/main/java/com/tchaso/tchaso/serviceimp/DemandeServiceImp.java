@@ -4,9 +4,11 @@ import com.tchaso.tchaso.models.Demande;
 import com.tchaso.tchaso.repository.DemandeRepository;
 import com.tchaso.tchaso.services.DemandeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DemandeServiceImp implements DemandeService {
 
     DemandeRepository demandeRepository;

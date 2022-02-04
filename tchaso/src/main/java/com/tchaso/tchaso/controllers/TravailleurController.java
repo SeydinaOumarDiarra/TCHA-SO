@@ -19,6 +19,11 @@ public class TravailleurController implements TravailleurApi {
     }
 
     @Override
+    public Travailleur authentification(String username, String password) {
+        return travailleurService.authentification(username, password);
+    }
+
+    @Override
     public Travailleur add_travailleur(Travailleur travailleur) {
         return travailleurService.add_travailleur(travailleur);
     }

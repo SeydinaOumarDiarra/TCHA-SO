@@ -1,10 +1,12 @@
 package com.tchaso.tchaso.serviceimp;
 
+import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 @Service
@@ -47,5 +49,15 @@ public class TravailleurServiceImp implements TravailleurService {
     @Override
     public void delete_travailleur(Integer Id) {
         travailleurRepository.deleteById(Id);
+    }
+
+    @Override
+    public Travailleur authentification(String login, String password) {
+        try {
+            Travailleur travailleur = travailleurRepository.findOneByLoginAndPassword(login, password);
+            return travailleur;
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

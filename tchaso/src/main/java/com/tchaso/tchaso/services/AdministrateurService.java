@@ -14,4 +14,7 @@ public interface AdministrateurService {
     public Administrateur afficher_administrateur_by_id(Integer Id);
 
     public void delete_administrateur(Integer Id);
+
+    //Authentification
+    public Administrateur authentification(String login, String password);
 }

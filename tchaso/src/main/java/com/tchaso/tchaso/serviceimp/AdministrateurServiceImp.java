@@ -6,6 +6,7 @@ import com.tchaso.tchaso.services.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 @Service
@@ -47,5 +48,15 @@ public class AdministrateurServiceImp implements AdministrateurService {
     @Override
     public void delete_administrateur(Integer Id) {
         administrateurRepository.deleteById(Id);
+    }
+
+    @Override
+    public Administrateur authentification(String login, String password) {
+        try {
+            Administrateur administrateur = administrateurRepository.findOneByLoginAndPassword(login, password);
+            return administrateur;
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

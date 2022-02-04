@@ -21,6 +21,11 @@ public class ClientController implements ClientApi {
     }
 
     @Override
+    public Client authentification(String username, String password) {
+        return clientService.authentification(username, password);
+    }
+
+    @Override
     public Client add_client(Client client) {
         return clientService.add_client(client);
     }

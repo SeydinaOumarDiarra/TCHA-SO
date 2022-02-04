@@ -9,6 +9,10 @@ import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
 
 public interface AdministrateurApi {
 
+    @GetMapping(value = APP_ROOT + "/log-admin/{login}/{password}")
+    @ResponseBody
+    public Administrateur authentification(@PathVariable("login") String username, @PathVariable("password") String password);
+
     @PostMapping(value = APP_ROOT +  "/administrateur/ajout")
     Administrateur add_administrateur(@RequestBody Administrateur administrateur);
 

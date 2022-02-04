@@ -14,7 +14,7 @@ import java.util.Date;
 public class Demande {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "statutdemande")

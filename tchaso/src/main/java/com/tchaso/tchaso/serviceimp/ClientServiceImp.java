@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.serviceimp;
 
+import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.repository.ClientRepository;
 import com.tchaso.tchaso.services.ClientService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Id;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 @Service
@@ -49,6 +51,16 @@ public class ClientServiceImp implements ClientService {
     @Override
     public void delete_client(Integer Id) {
         clientRepository.deleteById(Id);
+    }
+
+    @Override
+    public Client authentification(String login, String password) {
+        try {
+            Client client = clientRepository.findOneByLoginAndPassword(login, password);
+            return client;
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 

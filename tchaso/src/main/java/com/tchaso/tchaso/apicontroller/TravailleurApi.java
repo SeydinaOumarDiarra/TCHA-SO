@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.apicontroller;
 
+import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Travailleur;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +9,10 @@ import java.util.List;
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
 
 public interface TravailleurApi {
+
+    @GetMapping(value = APP_ROOT + "/log-travailleur/{login}/{password}")
+    @ResponseBody
+    public Travailleur authentification(@PathVariable("login") String username, @PathVariable("password") String password);
 
     @PostMapping(value = APP_ROOT + "/travailleur/ajout")
     Travailleur add_travailleur(@RequestBody Travailleur travailleur);
