@@ -29,8 +29,7 @@ public class User implements Serializable {
     @Column(name = "genre")
     private String genre;
 
-    @Column(name = "etat")
-    private String etat;
+    private Etat etat;
 
     @Column(name = "login")
     private String login;

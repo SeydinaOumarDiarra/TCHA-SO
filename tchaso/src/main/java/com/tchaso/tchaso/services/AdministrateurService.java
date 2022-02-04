@@ -7,11 +7,11 @@ import java.util.List;
 public interface AdministrateurService {
     public Administrateur add_administrateur(Administrateur administrateur);
 
-    public Administrateur update_administrateur(Administrateur administrateur);
+    public Administrateur update_administrateur(Integer Id,Administrateur administrateur);
 
     public List<Administrateur> list_administrateur();
 
-    public Administrateur afficher_administrateur_by_id(Long id);
+    public Administrateur afficher_administrateur_by_id(Integer Id);
 
-    public void delete_administrateur(Long id);
+    public void delete_administrateur(Integer Id);
 }

@@ -8,12 +8,12 @@ public interface ServiceService {
 
     public Service add_service(Service service);
 
-    public Service update_service(Service service);
+    public Service update_service(Integer Id,Service service);
 
     public List<Service> list_service();
 
-    public Service afficher_service_by_id(Long id);
+    public Service afficher_service_by_id(Integer Id);
 
-    public void delete_service(Long id);
+    public void delete_service(Integer Id);
 
 }

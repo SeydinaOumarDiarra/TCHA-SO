@@ -1,33 +1,55 @@
 package com.tchaso.tchaso.serviceimp;
 
 import com.tchaso.tchaso.models.Client;
+import com.tchaso.tchaso.repository.ClientRepository;
 import com.tchaso.tchaso.services.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
 import java.util.List;
 
+@Service
 public class ClientServiceImp implements ClientService {
+
+    ClientRepository clientRepository;
+
+    @Autowired
+    public ClientServiceImp(ClientRepository clientRepository){
+        this.clientRepository = clientRepository;
+    }
+
+
     @Override
     public Client add_client(Client client) {
-        return null;
+        return clientRepository.save(client);
     }
 
     @Override
-    public Client update_client(Client client) {
-        return null;
+    public Client update_client(Integer Id, Client client) {
+        Client clt = clientRepository.findById(Id).get();
+        clt.setNom(client.getNom());
+        clt.setPrenom(client.getPrenom());
+        clt.setGenre(client.getGenre());
+        clt.setEtat(client.getEtat());
+        clt.setNumWhasapp(client.getNumWhasapp());
+        return clientRepository.save(clt);
     }
 
     @Override
     public List<Client> list_client() {
-        return null;
+        return clientRepository.findAll();
     }
 
     @Override
-    public Client afficher_client_by_id(Long id) {
-        return null;
+    public Client afficher_client_by_id(Integer Id) {
+        return clientRepository.findById(Id).get();
     }
 
     @Override
-    public void delete_client(Long id) {
-
+    public void delete_client(Integer Id) {
+        clientRepository.deleteById(Id);
     }
+
+
 }

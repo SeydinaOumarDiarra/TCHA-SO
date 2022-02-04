@@ -9,12 +9,12 @@ public interface TravailleurService {
 
     public Travailleur add_travailleur(Travailleur travailleur);
 
-    public Travailleur update_travailleur(Travailleur travailleur);
+    public Travailleur update_travailleur(Integer Id,Travailleur travailleur);
 
     public List<Travailleur> list_travailleur();
 
-    public Travailleur afficher_travailleur_by_id(Long id);
+    public Travailleur afficher_travailleur_by_id(Integer Id );
 
-    public void delete_travailleur(Long id);
+    public void delete_travailleur(Integer Id );
 
 }
