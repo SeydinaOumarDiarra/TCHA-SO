@@ -5,12 +5,13 @@ import com.tchaso.tchaso.apicontroller.ClientApi;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController //@RestController nous permettent de définir des URL et le code à exécuter quand ces dernières sont requêtées
-
+@CrossOrigin("*")
 public class ClientController implements ClientApi {
 
     private ClientService clientService;

@@ -4,11 +4,13 @@ import com.tchaso.tchaso.apicontroller.SpecialiteApi;
 import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.services.SpecialiteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class SpecialiteController implements SpecialiteApi {
 
     private SpecialiteService specialiteService;

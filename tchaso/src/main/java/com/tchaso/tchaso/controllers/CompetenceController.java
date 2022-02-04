@@ -4,11 +4,13 @@ import com.tchaso.tchaso.apicontroller.CompetenceApi;
 import com.tchaso.tchaso.models.Competence;
 import com.tchaso.tchaso.services.CompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class CompetenceController implements CompetenceApi {
 
     private CompetenceService competenceService;

@@ -3,6 +3,7 @@ package com.tchaso.tchaso.serviceimp;
 import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.repository.AdministrateurRepository;
 import com.tchaso.tchaso.services.AdministrateurService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 @Service
+@Slf4j
 public class AdministrateurServiceImp implements AdministrateurService {
 
     AdministrateurRepository administrateurRepository;
@@ -42,11 +44,19 @@ public class AdministrateurServiceImp implements AdministrateurService {
 
     @Override
     public Administrateur afficher_administrateur_by_id(Integer Id) {
+        if (Id == null ){
+            log.error("Administrateur id est null");
+            return null;
+        }
         return administrateurRepository.findById(Id).get();
     }
 
     @Override
     public void delete_administrateur(Integer Id) {
+        if (Id == null ){
+            log.error("Administrateur id est null");
+            return ;
+        }
         administrateurRepository.deleteById(Id);
     }
 

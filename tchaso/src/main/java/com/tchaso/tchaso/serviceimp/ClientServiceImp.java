@@ -45,6 +45,7 @@ public class ClientServiceImp implements ClientService {
 
     @Override
     public Client afficher_client_by_id(Integer Id) {
+
         return clientRepository.findById(Id).get();
     }
 

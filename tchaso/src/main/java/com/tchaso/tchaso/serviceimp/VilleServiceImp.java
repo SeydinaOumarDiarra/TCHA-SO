@@ -3,11 +3,13 @@ package com.tchaso.tchaso.serviceimp;
 import com.tchaso.tchaso.models.Ville;
 import com.tchaso.tchaso.repository.VilleRepository;
 import com.tchaso.tchaso.services.VilleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class VilleServiceImp implements VilleService {
 
     VilleRepository villeRepository;
@@ -35,11 +37,19 @@ public class VilleServiceImp implements VilleService {
 
     @Override
     public Ville afficher_ville_by_id(Integer Id) {
+        if (Id == null ){
+            log.error("Ville id est null");
+            return null;
+        }
         return villeRepository.findById(Id).get();
     }
 
     @Override
     public void delete_ville(Integer Id) {
+        if (Id == null ){
+            log.error("Ville id est null");
+            return ;
+        }
         villeRepository.deleteById(Id);
     }
 }

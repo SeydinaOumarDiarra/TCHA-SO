@@ -3,12 +3,14 @@ package com.tchaso.tchaso.serviceimp;
 import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.repository.SpecialiteRepository;
 import com.tchaso.tchaso.services.SpecialiteService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class SpecialiteServiceImp implements SpecialiteService {
 
     SpecialiteRepository specialiteRepository;
@@ -38,11 +40,19 @@ public class SpecialiteServiceImp implements SpecialiteService {
 
     @Override
     public Specialite afficher_specialite_by_id(Integer Id) {
+        if (Id == null ){
+            log.error("Specialite id est null");
+            return null;
+        }
         return specialiteRepository.findById(Id).get();
     }
 
     @Override
     public void delete_specialite(Integer Id) {
+        if (Id == null ){
+            log.error("Specialite id est null");
+            return ;
+        }
         specialiteRepository.deleteById(Id);
     }
 }

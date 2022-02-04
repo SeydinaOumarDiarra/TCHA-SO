@@ -3,11 +3,13 @@ package com.tchaso.tchaso.serviceimp;
 import com.tchaso.tchaso.models.Service;
 import com.tchaso.tchaso.repository.ServiceRepository;
 import com.tchaso.tchaso.services.ServiceService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @org.springframework.stereotype.Service
+@Slf4j
 public class ServiceServiceImp implements ServiceService {
 
     ServiceRepository serviceRepository;
@@ -40,11 +42,19 @@ public class ServiceServiceImp implements ServiceService {
 
     @Override
     public Service afficher_service_by_id(Integer Id) {
+        if (Id == null ){
+            log.error("Service id est null");
+            return null;
+        }
         return serviceRepository.findById(Id).get();
     }
 
     @Override
     public void delete_service(Integer Id) {
+        if (Id == null ){
+            log.error("Service id est null");
+            return ;
+        }
         serviceRepository.deleteById(Id);
     }
 
