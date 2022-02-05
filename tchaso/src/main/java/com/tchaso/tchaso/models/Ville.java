@@ -23,7 +23,5 @@ public class Ville {
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.actif;
 
-    @ManyToOne
-    private Travailleur travailleur;
 
 }

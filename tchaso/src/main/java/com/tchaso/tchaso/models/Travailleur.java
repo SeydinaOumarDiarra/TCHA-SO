@@ -28,6 +28,9 @@ public class Travailleur extends User {
     @ManyToOne
     private Specialite specialite;
 
+    @ManyToOne
+    private Ville ville;
+
 
 
 }
