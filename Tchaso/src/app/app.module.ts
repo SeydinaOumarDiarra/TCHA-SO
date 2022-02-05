@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import{ HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +17,16 @@ import { SpecialiteComponent } from './Specialites/specialite/specialite.compone
 import { UtilisateurComponent } from './Utilisateurs/utilisateur/utilisateur.component';
 import { VilleComponent } from './Villes/ville/ville.component';
 import { AjoutServiceComponent } from './Services/ajout-service/ajout-service.component';
+import { ModifierServiceComponent } from './Services/modifier-service/modifier-service.component';
+import { AjoutSpecialiteComponent } from './Specialites/ajout-specialite/ajout-specialite.component';
+import { ModifierSpecialiteComponent } from './Specialites/modifier-specialite/modifier-specialite.component';
+import { AjoutVilleComponent } from './Villes/ajout-ville/ajout-ville.component';
+import { ModifierVilleComponent } from './Villes/modifier-ville/modifier-ville.component';
+import { AjoutAdminComponent } from './Utilisateurs/Administrateur/ajout-admin/ajout-admin.component';
+import { ModifierAdminComponent } from './Utilisateurs/Administrateur/modifier-admin/modifier-admin.component';
+import { ModifierTravailleurComponent } from './Utilisateurs/Travailleur/modifier-travailleur/modifier-travailleur.component';
+import { AjoutTravailleurComponent } from './Utilisateurs/Travailleur/ajout-travailleur/ajout-travailleur.component';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +39,25 @@ import { AjoutServiceComponent } from './Services/ajout-service/ajout-service.co
     SpecialiteComponent,
     UtilisateurComponent,
     VilleComponent,
-    AjoutServiceComponent
+    AjoutServiceComponent,
+    ModifierServiceComponent,
+    AjoutSpecialiteComponent,
+    ModifierSpecialiteComponent,
+    AjoutVilleComponent,
+    ModifierVilleComponent,
+    AjoutAdminComponent,
+    ModifierAdminComponent,
+    ModifierTravailleurComponent,
+    AjoutTravailleurComponent,
   ],
   imports: [
     BrowserModule,
     Ng2SearchPipeModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@
             <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
                 <div class="d-md-flex"> 
                     <ol class="breadcrumb ms-auto">
-                        <li> <a href="ajout-exercice" class="btn btn-orange ">
+                        <li> <a href="ajoutville" class="btn btn-orange ">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                             <b> Ajouter une ville </b>
                         </a></li>
@@ -27,14 +27,14 @@
                     <div class="d-md-flex mb-3">
                         <div class="row col-md-12 col-lg-12 col-sm-12">
                             <div class="col-md-6 col-lg-6 col-sm-6">
-                                <h3 class="box-title mb-0">Liste des spécialités</h3>
+                                <h3 class="box-title mb-0">Liste des villes</h3>
                             </div>
                             <div class="col-md-6 col-lg-6 col-sm-6">
                                 <form role="search" >
                                     <a href="" class="active">
-                                        <i class="fa fa-search"></i>
+                                        <i class="fa fa-search" style="color: #f5bb20;"></i>
                                     </a>
-                                    <input type="text" name="search" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
+                                    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
                                 </form>
                             </div>
                         </div>
@@ -45,18 +45,16 @@
                                 <tr>
                                     <th class="border-top-0"><b>#</b></th>
                                     <th class="border-top-0"><b>Nom</b></th>
-                                    <th class="border-top-0"><b>Description</b></th>
                                     <th class="border-top-0"><b>Action</b></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
+                                <tr *ngFor="let liste of listeVilles | filter:searchText">
+                                    <td class="txt-oflo">{{liste.id}}</td>
+                                    <td class="txt-oflo">{{liste.nomville}}</td>
                                     <td>
                                         <span class="text-success alignement">
-                                            <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/modifierville', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
                                             <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>

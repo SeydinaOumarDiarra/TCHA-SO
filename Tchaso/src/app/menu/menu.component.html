@@ -33,7 +33,7 @@
                                 <span class="hide-menu"><b>Gestion Villes</b></span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item" *ngIf="adminConnect.profil === 'super_admin'">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="utilisateurs" aria-expanded="false">
                                 <i class="fa fa-users" aria-hidden="true" style="color: #f5bb20;"></i>
                                 <span class="hide-menu"><b>Gestion Utilisateurs</b></span>
@@ -48,7 +48,7 @@
                         
                         
                         <li class="sidebar-item" style="padding-top: 30px;">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="logout()" aria-expanded="false">
                                 <i class="fas fa-sign-out-alt" aria-hidden="true" style="color: #f5bb20; font-weight: bold; font-size: 25px;"></i>
                                 <span class="hide-menu" style="color: #f5bb20; font-weight: bold;"><b>DECONNEXION</b></span>
                             </a>

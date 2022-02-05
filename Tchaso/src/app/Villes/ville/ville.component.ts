@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServivevilleService } from '../serviveville.service';
 
 @Component({
   selector: 'app-ville',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ville.component.scss']
 })
 export class VilleComponent implements OnInit {
-
-  constructor() { }
+  searchText= '';
+  listeVilles: any;
+  constructor(
+    public service: ServivevilleService
+  ) { }
 
   ngOnInit(): void {
+    this.getAllVille();
+  }
+
+  getAllVille(){
+    this.service.getAllVilles().subscribe((data:any)=> {
+      this.listeVilles = data;
+    })
   }
 
 }

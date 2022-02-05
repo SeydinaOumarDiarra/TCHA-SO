@@ -9,10 +9,15 @@
             <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
                 <div class="d-md-flex"> 
                     <ol class="breadcrumb ms-auto">
-                        <li> <a href="ajout-exercice" class="btn btn-orange ">
+                        <li> <a class="btn btn-orange">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                             <b> Ajouter un utilisateur </b>
-                        </a></li>
+                            <div class="btn-orange-content">
+                                <a href="ajoutadmin"><p>Administrateurs</p></a>
+                                <a href="ajouttravailleur"><p>Travailleurs</p></a>
+                            </div>
+                        </a>
+                    </li>
                     </ol>
                 </div>
             </div>
@@ -27,8 +32,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ms-auto">
                         <label>Trier par : </label>
-                        <select class="form-select shadow-none row border-top">
-                            <option>Tous</option>
+                        <select class="form-select shadow-none row border-top" (change)="users($event)">
                             <option>Clients</option>
                             <option>Travailleurs</option>
                             <option>Administrateurs</option>
@@ -49,21 +53,76 @@
                             <div class="col-md-6 col-lg-6 col-sm-6">
                                 <form role="search" >
                                     <a href="" class="active">
-                                        <i class="fa fa-search"></i>
+                                        <i class="fa fa-search" style="color: #f5bb20;"></i>
                                     </a>
-                                    <input type="text" name="search" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
+                                    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table no-wrap">
+
+                        <!-- Affichage Par défaut -->
+                        <table class="table no-wrap" *ngIf="adminEtat === false && clientEtat === false  && travailleurEtat === false">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Nom</b></th>
+                                    <th class="border-top-0"><b>Prénom</b></th>
+                                    <th class="border-top-0"><b>Action</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo"></td>
+                                    <td>
+                                        <span class="text-success alignement">
+                                            <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
+                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Affichage Administrateurs -->
+                        <table class="table no-wrap" *ngIf="adminEtat === true">
                             <thead>
                                 <tr>
                                     <th class="border-top-0"><b>#</b></th>
                                     <th class="border-top-0"><b>Nom</b></th>
                                     <th class="border-top-0"><b>Prénom</b></th>
                                     <th class="border-top-0"><b>Type</b></th>
+                                    <th class="border-top-0"><b>Action</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                    <td class="txt-oflo">{{liste.id}}</td>
+                                    <td class="txt-oflo">{{liste.nom}}</td>
+                                    <td class="txt-oflo">{{liste.prenom}}</td>
+                                    <td class="txt-oflo">{{liste.profil}}</td>
+                                    <td>
+                                        <span class="text-success alignement">
+                                            <a [routerLink]="['/modifieradmin', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
+                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Affichage client -->
+                        <table class="table no-wrap" *ngIf="clientEtat === true">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Nom</b></th>
+                                    <th class="border-top-0"><b>Prénom</b></th>
                                     <th class="border-top-0"><b>Action</b></th>
                                 </tr>
                             </thead>
@@ -83,6 +142,35 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                         <!-- Affichage travailleurs -->
+                         <table class="table no-wrap" *ngIf="travailleurEtat === true">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Nom</b></th>
+                                    <th class="border-top-0"><b>Prénom</b></th>
+                                    <th class="border-top-0"><b>Spécialité</b></th>
+                                    <th class="border-top-0"><b>Action</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo"></td>
+                                    <td>
+                                        <span class="text-success alignement">
+                                            <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
+                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
