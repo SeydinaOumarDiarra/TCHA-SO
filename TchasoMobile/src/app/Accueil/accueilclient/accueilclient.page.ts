@@ -9,7 +9,8 @@ import { PopupservicePage } from 'src/app/Popups/popupservice/popupservice.page'
   styleUrls: ['./accueilclient.page.scss'],
 })
 export class AccueilclientPage implements OnInit {
-
+customers: any;
+customer: any;
   public slideOptsa = {
     grabCursor: true,
     autoplay: {
@@ -175,6 +176,8 @@ export class AccueilclientPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.customers =  localStorage.getItem('userClient');
+    this.customer = JSON.parse(this.customers)
   }
 
 

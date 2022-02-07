@@ -1,5 +1,7 @@
 {
   "name": "Tchaso",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
