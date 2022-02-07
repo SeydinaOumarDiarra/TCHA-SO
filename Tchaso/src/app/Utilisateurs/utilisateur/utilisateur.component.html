@@ -73,10 +73,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr >
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
+                                <tr *ngFor= 'let liste of customers | filter:searchText'>
+                                    <td class="txt-oflo">{{liste?.id}}</td>
+                                    <td class="txt-oflo">{{liste?.nom}}</td>
+                                    <td class="txt-oflo">{{liste?.prenom}}</td>
                                     <td>
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
@@ -127,11 +127,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                    <td class="txt-oflo">{{liste?.id}}</td>
+                                    <td class="txt-oflo">{{liste?.nom}}</td>
+                                    <td class="txt-oflo">{{liste?.prenom}}</td>
                                     <td>
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
@@ -155,11 +154,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
-                                    <td class="txt-oflo"></td>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                    <td class="txt-oflo">{{liste?.id}}</td>
+                                    <td class="txt-oflo">{{liste?.nom}}</td>
+                                    <td class="txt-oflo">{{liste?.prenom}}</td>
+                                    <td class="txt-oflo">{{liste?.specialite.nomsp}}</td>
+                                    <th class="border-top-0"><b>Action</b></th>
                                     <td>
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>

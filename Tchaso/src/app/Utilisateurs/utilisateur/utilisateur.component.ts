@@ -10,6 +10,8 @@ export class UtilisateurComponent implements OnInit {
   searchText = '';
   utilisateurs: any;
   admins: any;
+  workers: any;
+  customers: any;
   adminEtat = false;
   clientEtat = false;
   travailleurEtat = false;
@@ -24,8 +26,16 @@ export class UtilisateurComponent implements OnInit {
     this.userService.getAllAdmins().subscribe((data: any)=>{
       this.admins = data;
   });
+  this.userService.getAllTravailleurs().subscribe((data: any)=>{
+    this.workers = data;
+  });
+  this.userService.getAllClients().subscribe((data: any)=>{
+    this.customers = data;
+  });
     this.adminEtat;
     this.clientEtat;
+    this.travailleurEtat; 
+    
   }
 
   users(event: any){
@@ -35,23 +45,20 @@ export class UtilisateurComponent implements OnInit {
       this.adminEtat = false;
       this.travailleurEtat = false;
       this.clientEtat = true;
+      this.utilisateurs = this.customers;
     }
     if(event.target.value == 'Administrateurs'){
       this.clientEtat = false;
       this.travailleurEtat = false;
       this.adminEtat = true;
       this.utilisateurs = this.admins;
-      console.log(this.utilisateurs);
-      
     }
 
     if(event.target.value == 'Travailleurs'){
       this.clientEtat = false;
       this.adminEtat = false;
       this.travailleurEtat = true;
-      this.utilisateurs = this.admins;
-      console.log(this.utilisateurs);
-      
+      this.utilisateurs = this.workers;    
     }
   }
     
