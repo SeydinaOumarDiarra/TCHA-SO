@@ -30,9 +30,9 @@ public class Demande {
     @Column(name = "datedemande")
     private Date datedemande;
 
-    @ManyToOne
+    @OneToOne
     private Client client;
 
-    @ManyToOne
+    @OneToOne
     private Travailleur travailleur;
 }

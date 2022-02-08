@@ -17,7 +17,7 @@ public class Client extends User  {
     @Column(name = "profession")
     private String profession;
 
-    @Column(name = "iconservice")
+    @Column(name = "photo")
     private String photo;
 
     @Enumerated(EnumType.STRING)

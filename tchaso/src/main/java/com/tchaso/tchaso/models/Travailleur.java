@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Travailleur extends User {
 
 
-    @Column(name = "iconservice")
+    @Column(name = "photo")
     private String photo;
 
     @Column(name = "pieceiden")
