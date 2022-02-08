@@ -7,11 +7,12 @@ import com.tchaso.tchaso.models.Travailleur;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface TravailleurService {
 
-    public Travailleur add_travailleur(Travailleur travailleur);
+    public Travailleur add_travailleur(Travailleur travailleur, MultipartFile image, MultipartFile piece) throws IOException;
 
     public Travailleur update_travailleur(Integer Id,Travailleur travailleur);
 
@@ -21,7 +22,7 @@ public interface TravailleurService {
 
     public void delete_travailleur(Integer Id );
 
-    public void uploadpicture(MultipartFile image) ;
+    //public void uploadpicture(MultipartFile image) ;
 
     //Authentification
     public Travailleur verifilogin(String login);

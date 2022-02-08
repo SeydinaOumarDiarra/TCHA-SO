@@ -18,6 +18,6 @@ public class Administrateur extends User  {
     @Column(name = "email")
     private String email;
     @Enumerated(EnumType.STRING)
-    private Profile profile = Profile.admin;
+    private Profile profile;
 
 }

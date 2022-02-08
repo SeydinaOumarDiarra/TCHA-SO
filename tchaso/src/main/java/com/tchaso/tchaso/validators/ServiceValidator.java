@@ -14,11 +14,15 @@ public class ServiceValidator {
         if (service == null){
             errors.add("Veuillez renseigner la description du service");
             errors.add("Veuillez renseigner le nom du service");
+            errors.add("Veuillez renseigner l'icone de service");
             return errors;
         }
 
         if (!StringUtils.hasLength(service.getDescription())){
             errors.add("Veuillez renseigner la description du service");
+        }
+        if (!StringUtils.hasLength(service.getIcone())){
+            errors.add("Veuillez renseigner l'icone de service");
         }
         if (!StringUtils.hasLength(service.getNomser())){
             errors.add("Veuillez renseigner le nom du service");

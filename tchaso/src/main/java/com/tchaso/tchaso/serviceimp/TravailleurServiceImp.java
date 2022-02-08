@@ -1,13 +1,19 @@
 package com.tchaso.tchaso.serviceimp;
 
 import com.tchaso.tchaso.enumeration.Type;
+import com.tchaso.tchaso.models.FileUploadUtil;
 import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.persistence.NoResultException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,9 +30,19 @@ public class TravailleurServiceImp implements TravailleurService {
     }
 
     @Override
-    public Travailleur add_travailleur(Travailleur travailleur) {
-
-        return travailleurRepository.save(travailleur);
+    public Travailleur add_travailleur(Travailleur travailleur,
+                                       @RequestParam("image") MultipartFile multipartFilePhoto,
+                                       @RequestParam("piece") MultipartFile multipartFilePiece) throws IOException {
+        String fileNamePhoto = StringUtils.cleanPath(multipartFilePhoto.getOriginalFilename());
+        String fileNamePiece = StringUtils.cleanPath(multipartFilePiece.getOriginalFilename());
+        travailleur.setPhoto(fileNamePhoto);
+        travailleur.setPieceiden(fileNamePiece);
+        Travailleur tr = travailleurRepository.save(travailleur);
+        String uploadDirPhoto = "src/main/resources/photo/photo" + tr.getId();
+        String uploadDirPiece = "src/main/resources/piece/piece" + tr.getId();
+        FileUploadUtil.saveFile(uploadDirPhoto, fileNamePhoto, multipartFilePhoto);
+        FileUploadUtil.saveFile(uploadDirPiece, fileNamePiece, multipartFilePiece);
+        return tr;
     }
 
     @Override
@@ -55,20 +71,6 @@ public class TravailleurServiceImp implements TravailleurService {
     @Override
     public void delete_travailleur(Integer Id) {
         travailleurRepository.delete_travailleur(Id);
-    }
-
-    @Override
-    public void uploadpicture(MultipartFile image)  {
-        try{
-            if (image.isEmpty()){
-                throw  new Exception("Cet fichier n'existe pas");
-            }
-            Path path = Paths.get("D:/ProjetTchaso/Backend/tchaso/src/main/resources/photo/");
-            Files.copy(image.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     @Override

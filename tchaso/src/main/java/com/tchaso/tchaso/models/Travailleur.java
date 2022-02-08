@@ -1,10 +1,8 @@
 package com.tchaso.tchaso.models;
 
-import com.tchaso.tchaso.enumeration.Profile;
 import com.tchaso.tchaso.enumeration.Type;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -16,7 +14,7 @@ import javax.persistence.*;
 public class Travailleur extends User {
 
 
-    @Column(name = "photo")
+    @Column(name = "iconservice")
     private String photo;
 
     @Column(name = "pieceiden")
@@ -25,9 +23,6 @@ public class Travailleur extends User {
 
     @Column(name = "quartier")
     private String quartier;
-
-    @Lob
-    private byte[] fileByte;
 
     @Enumerated(EnumType.STRING)
     private Type type = Type.travailleur;

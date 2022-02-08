@@ -1,11 +1,16 @@
 package com.tchaso.tchaso.serviceimp;
 
+import com.tchaso.tchaso.models.FileUploadUtil;
 import com.tchaso.tchaso.models.Service;
 import com.tchaso.tchaso.repository.ServiceRepository;
 import com.tchaso.tchaso.services.ServiceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -22,8 +27,14 @@ public class ServiceServiceImp implements ServiceService {
 
 
     @Override
-    public Service add_service(Service service) {
-        return serviceRepository.save(service);
+    public Service add_service(Service service,
+                               @RequestParam("image") MultipartFile multipartFilePhoto) throws IOException {
+        String fileNamePhoto = StringUtils.cleanPath(multipartFilePhoto.getOriginalFilename());
+        service.setIcone(fileNamePhoto);
+        Service serv = serviceRepository.save(service);
+        String uploadDirPhoto = "src/main/resources/iconservice/icon" + serv.getId();
+        FileUploadUtil.saveFile(uploadDirPhoto, fileNamePhoto, multipartFilePhoto);
+        return serv;
     }
 
     @Override
@@ -31,6 +42,7 @@ public class ServiceServiceImp implements ServiceService {
         Service serv = serviceRepository.findById(Id).get();
         serv.setDescription(service.getDescription());
         serv.setNomser(service.getNomser());
+        serv.setIcone(service.getIcone());
         return serviceRepository.save(serv);
     }
 

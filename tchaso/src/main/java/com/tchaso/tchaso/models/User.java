@@ -28,7 +28,7 @@ public class User implements Serializable {
     private String genre;
 
     @Enumerated(EnumType.STRING)
-    private Etat etat = Etat.actif;
+    private Etat etat;
 
     @Column(name = "login")
     private String login;

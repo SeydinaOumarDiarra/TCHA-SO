@@ -5,8 +5,11 @@ import com.tchaso.tchaso.models.Service;
 import com.tchaso.tchaso.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -21,8 +24,8 @@ public class ServiceController implements ServiceApi {
     }
 
     @Override
-    public Service add_service(Service service) {
-        return serviceService.add_service(service);
+    public Service add_service(Service service,@RequestParam("image") MultipartFile multipartFile) throws IOException {
+        return serviceService.add_service(service,multipartFile);
     }
 
     @Override

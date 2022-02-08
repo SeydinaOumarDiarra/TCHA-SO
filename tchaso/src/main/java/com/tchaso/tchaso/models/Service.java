@@ -23,6 +23,9 @@ public class Service {
     @Column(name = "nomser")
     private String nomser;
 
+    @Column(name = "icone")
+    private String icone;
+
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.actif;
 

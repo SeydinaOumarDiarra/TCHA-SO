@@ -3,12 +3,16 @@ package com.tchaso.tchaso.controllers;
 import com.tchaso.tchaso.apicontroller.TravailleurApi;
 import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Travailleur;
+import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -16,6 +20,7 @@ import java.util.List;
 public class TravailleurController implements TravailleurApi {
 
     private TravailleurService travailleurService;
+    private TravailleurRepository travailleurRepository;
 
     @Autowired
     public TravailleurController(TravailleurService travailleurService){
@@ -40,10 +45,10 @@ public class TravailleurController implements TravailleurApi {
     public static String uploadDir = System.getProperty("user.home") + "C:/Users/ousmane.kane/Tchaso/profil/";
 
     @Override
-    public Travailleur add_travailleur(Travailleur travailleur, MultipartFile file)  {
-       travailleur.setPhoto(file.getOriginalFilename());
-       travailleurService.uploadpicture(file);
-       return travailleurService.add_travailleur(travailleur);
+    public Travailleur add_travailleur(Travailleur travailleur,
+                                       @RequestParam("image") MultipartFile multipartFile,
+                                       @RequestParam("piece") MultipartFile multipartFilePiece) throws IOException {
+        return travailleurService.add_travailleur(travailleur, multipartFile, multipartFilePiece);
     }
 
 

@@ -9,6 +9,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
@@ -29,8 +30,9 @@ public interface TravailleurApi {
 
 
     @PostMapping(value = APP_ROOT + "/travailleur/ajout")
-     Travailleur add_travailleur (@RequestBody Travailleur travailleur,
-                                 @RequestParam("image") MultipartFile file);
+     Travailleur add_travailleur (Travailleur travailleur,
+                                 @RequestParam("image") MultipartFile multipartFile,
+                                  @RequestParam("piece") MultipartFile piece) throws IOException;
 
     @PutMapping(value = APP_ROOT +  "/updatetravailleur/{idTravailleur}")
     Travailleur update_travailleur(@RequestBody Travailleur travailleur,@PathVariable("idTravailleur") Integer Id);
