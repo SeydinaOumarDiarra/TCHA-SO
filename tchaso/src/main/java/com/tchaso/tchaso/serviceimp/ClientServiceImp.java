@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.serviceimp;
 
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.repository.ClientRepository;
@@ -55,6 +56,16 @@ public class ClientServiceImp implements ClientService {
     }
 
     @Override
+    public Client verifilogin(String login) {
+        try {
+            Client client = clientRepository.findOneByLogin(login);
+            return client;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
     public Client authentification(String login, String password) {
         try {
             Client client = clientRepository.findOneByLoginAndPassword(login, password);
@@ -63,6 +74,28 @@ public class ClientServiceImp implements ClientService {
             return null;
         }
     }
+
+    @Override
+    public Client auth(String login, String password, Type type) {
+        try {
+            Client client = clientRepository.findOneByLoginAndPasswordAndType(login, password, type);
+            return client;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    /*
+    * @Override
+    public Client loginClient(String login, String password, String type) {
+        try {
+            Client client = clientRepository.loginClient(login, password, type);
+            return client;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+    * */
 
 
 }

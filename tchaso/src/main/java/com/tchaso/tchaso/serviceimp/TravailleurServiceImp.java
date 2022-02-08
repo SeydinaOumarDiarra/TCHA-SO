@@ -1,11 +1,10 @@
 package com.tchaso.tchaso.serviceimp;
 
-import com.tchaso.tchaso.models.Client;
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.NoResultException;
@@ -59,6 +58,31 @@ public class TravailleurServiceImp implements TravailleurService {
     }
 
     @Override
+    public void uploadpicture(MultipartFile image)  {
+        try{
+            if (image.isEmpty()){
+                throw  new Exception("Cet fichier n'existe pas");
+            }
+            Path path = Paths.get("D:/ProjetTchaso/Backend/tchaso/src/main/resources/photo/");
+            Files.copy(image.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Travailleur verifilogin(String login) {
+        try {
+            Travailleur travailleur = travailleurRepository.findOneByLogin(login);
+            return travailleur;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+
+    @Override
     public Travailleur authentification(String login, String password) {
         try {
             Travailleur travailleur = travailleurRepository.findOneByLoginAndPassword(login, password);
@@ -67,4 +91,17 @@ public class TravailleurServiceImp implements TravailleurService {
             return null;
         }
     }
+
+    @Override
+    public Travailleur authtravailleur(String login, String password, Type type) {
+        try {
+            Travailleur travailleur = travailleurRepository.findOneByLoginAndPasswordAndType(login, password, type);
+            return travailleur;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+
 }
+

@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.apicontroller;
 
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.models.Client;
 import org.springframework.http.MediaType;
@@ -14,6 +15,16 @@ public interface ClientApi {
     @GetMapping(value = APP_ROOT + "/log-client/{login}/{password}")
     @ResponseBody
     public Client authentification(@PathVariable("login") String username, @PathVariable("password") String password);
+
+    @GetMapping(value = APP_ROOT + "/logclient/{login}")
+    @ResponseBody
+    public Client verifilogin(@PathVariable("login") String username);
+
+
+    @GetMapping(value = APP_ROOT + "/logclient/{login}/{password}/{type}")
+     @ResponseBody
+     public Client auth(@PathVariable("login") String username, @PathVariable("password") String password,@PathVariable("type") Type type);
+
 
 
     @PostMapping(value = APP_ROOT +  "/client/ajout")

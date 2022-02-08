@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.services;
 
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.models.Client;
 
@@ -20,6 +21,8 @@ public interface ClientService {
     public void delete_client(Integer Id);
 
     //Authentification
+    public Client verifilogin(String login);
     public Client authentification(String login, String password);
+    public Client auth(String login, String password, Type type);
 
 }

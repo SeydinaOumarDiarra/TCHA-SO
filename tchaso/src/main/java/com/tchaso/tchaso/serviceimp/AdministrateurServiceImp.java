@@ -33,7 +33,7 @@ public class AdministrateurServiceImp implements AdministrateurService {
         admin.setPrenom(administrateur.getPrenom());
         admin.setEmail(administrateur.getEmail());
         admin.setEtat(administrateur.getEtat());
-        return null;
+        return administrateurRepository.save(admin);
     }
 
     @Override

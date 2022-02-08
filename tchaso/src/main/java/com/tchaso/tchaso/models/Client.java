@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.models;
 
+import com.tchaso.tchaso.enumeration.Type;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,9 @@ public class Client extends User  {
 
     @Column(name = "photo")
     private String photo;
+
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
     @ManyToOne
     private Administrateur administrateur;

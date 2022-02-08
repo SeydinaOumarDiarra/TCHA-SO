@@ -1,5 +1,6 @@
 package com.tchaso.tchaso.services;
 
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.models.Travailleur;
@@ -20,7 +21,12 @@ public interface TravailleurService {
 
     public void delete_travailleur(Integer Id );
 
+    public void uploadpicture(MultipartFile image) ;
+
     //Authentification
+    public Travailleur verifilogin(String login);
     public Travailleur authentification(String login, String password);
+    public Travailleur authtravailleur(String login, String password, Type type);
+
 
 }

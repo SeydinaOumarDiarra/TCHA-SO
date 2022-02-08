@@ -2,6 +2,7 @@ package com.tchaso.tchaso.controllers;
 
 
 import com.tchaso.tchaso.apicontroller.ClientApi;
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,16 @@ public class ClientController implements ClientApi {
     @Override
     public Client authentification(String username, String password) {
         return clientService.authentification(username, password);
+    }
+
+    @Override
+    public Client verifilogin(String username) {
+        return clientService.verifilogin(username);
+    }
+
+    @Override
+    public Client auth(String username, String password, Type type) {
+        return clientService.auth(username, password, type);
     }
 
     @Override

@@ -1,12 +1,13 @@
 package com.tchaso.tchaso.controllers;
 
 import com.tchaso.tchaso.apicontroller.TravailleurApi;
+import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.services.TravailleurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -27,9 +28,25 @@ public class TravailleurController implements TravailleurApi {
     }
 
     @Override
-    public Travailleur add_travailleur(Travailleur travailleur) {
-        return travailleurService.add_travailleur(travailleur);
+    public Travailleur verifilogin(String username) {
+        return travailleurService.verifilogin(username);
     }
+
+    @Override
+    public Travailleur authtravailleur(String username, String password, Type type) {
+        return travailleurService.authtravailleur(username, password, type);
+    }
+
+    public static String uploadDir = System.getProperty("user.home") + "C:/Users/ousmane.kane/Tchaso/profil/";
+
+    @Override
+    public Travailleur add_travailleur(Travailleur travailleur, MultipartFile file)  {
+       travailleur.setPhoto(file.getOriginalFilename());
+       travailleurService.uploadpicture(file);
+       return travailleurService.add_travailleur(travailleur);
+    }
+
+
 
     @Override
     public Travailleur update_travailleur(Travailleur travailleur,Integer Id) {
