@@ -77,4 +77,14 @@ public class TravailleurController implements TravailleurApi {
     public void delete_travailleur(Integer Id) {
         travailleurService.delete_travailleur(Id);
     }
+
+    @Override
+    public byte[] getpHOTO(Integer Id) throws IOException {
+        return travailleurService.getpHOTO(Id);
+    }
+
+    @Override
+    public byte[] getpiece(Integer Id) throws IOException {
+        return travailleurService.getpiece(Id);
+    }
 }

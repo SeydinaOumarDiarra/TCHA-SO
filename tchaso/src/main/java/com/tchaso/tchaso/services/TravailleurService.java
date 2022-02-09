@@ -1,10 +1,7 @@
 package com.tchaso.tchaso.services;
 
 import com.tchaso.tchaso.enumeration.Type;
-import com.tchaso.tchaso.models.Client;
-import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.models.Travailleur;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -21,6 +18,10 @@ public interface TravailleurService {
     public Travailleur afficher_travailleur_by_id(Integer Id );
 
     public void delete_travailleur(Integer Id );
+
+    public byte[] getpHOTO(Integer Id) throws IOException;
+
+    public byte[] getpiece(Integer Id) throws IOException;
 
     public List<Travailleur> afficher_travailleur_specialite(Integer Id);
 

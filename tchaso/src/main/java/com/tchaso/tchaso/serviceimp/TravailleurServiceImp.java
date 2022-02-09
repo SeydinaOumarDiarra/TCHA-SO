@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.NoResultException;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Service
@@ -51,6 +55,11 @@ public class TravailleurServiceImp implements TravailleurService {
         trv.setEtat(travailleur.getEtat());
         trv.setQuartier(travailleur.getQuartier());
         trv.setPhoto(travailleur.getPhoto());
+        trv.setLogin(travailleur.getLogin());
+        trv.setPassword(travailleur.getPassword());
+        trv.setSpecialite(travailleur.getSpecialite());
+        trv.setVille(travailleur.getVille());
+        trv.setNumWhasapp(travailleur.getNumWhasapp());
         trv.setAdministrateur(travailleur.getAdministrateur());
         return travailleurRepository.save(trv);
     }
@@ -68,6 +77,24 @@ public class TravailleurServiceImp implements TravailleurService {
     @Override
     public void delete_travailleur(Integer Id) {
         travailleurRepository.delete_travailleur(Id);
+    }
+
+    @Override
+    public byte[] getpHOTO(Integer Id) throws IOException {
+        Travailleur trv = travailleurRepository.findById(Id).get();
+        String iconPhoto = trv.getPhoto();
+        File file = new File("src/main/resources/photo/photo"+ trv.getId() +"/" +iconPhoto);
+        Path path = Paths.get(file.toURI());
+        return Files.readAllBytes(path);
+    }
+
+    @Override
+    public byte[] getpiece(Integer Id) throws IOException {
+        Travailleur trv = travailleurRepository.findById(Id).get();
+        String iconPiece = trv.getPieceiden();
+        File file = new File("src/main/resources/piece/piece"+ trv.getId() +"/" +iconPiece);
+        Path path = Paths.get(file.toURI());
+        return Files.readAllBytes(path);
     }
 
     @Override
