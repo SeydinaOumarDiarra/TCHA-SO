@@ -41,6 +41,11 @@ public class SpecialiteController implements SpecialiteApi {
     }
 
     @Override
+    public Specialite afficher_service_specialite(Integer Id) {
+        return specialiteService.afficher_service_specialite(Id);
+    }
+
+    @Override
     public void delete_specialite(Integer Id) {
         specialiteService.delete_specialite(Id);
     }

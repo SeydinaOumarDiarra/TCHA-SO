@@ -21,6 +21,9 @@ public interface SpecialiteApi {
     @GetMapping(value = APP_ROOT +  "/specialite/{idspecialite}")
     Specialite afficher_specialite_by_id(@PathVariable("idspecialite") Integer Id);
 
+    @GetMapping(value = APP_ROOT +  "/spec/{idspec}")
+    Specialite afficher_service_specialite(@PathVariable("idspec") Integer Id);
+
     @DeleteMapping(value = APP_ROOT +  "/specialite/delette/{idspecialite}")
     void delete_specialite(@PathVariable("idspecialite") Integer Id);
 

@@ -13,4 +13,7 @@ public interface SpecialiteRepository extends JpaRepository<Specialite,Integer> 
     @Modifying
     @Query(value="UPDATE  Specialite SET etat = 'inactif' WHERE id = :id ")
     void delete_specialite(@Param("id") Integer Id);
+
+    @Query(value="SELECT s FROM Specialite s WHERE s.service.id =:id ")
+    Specialite specialiteByService(@Param("id") Integer Id);
 }

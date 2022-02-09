@@ -48,6 +48,15 @@ public class SpecialiteServiceImp implements SpecialiteService {
     }
 
     @Override
+    public Specialite afficher_service_specialite(Integer Id) {
+        if (Id == null ){
+            log.error("Specialite id est null");
+            return null;
+        }
+        return specialiteRepository.specialiteByService(Id);
+    }
+
+    @Override
     public void delete_specialite(Integer Id) {
         if (Id == null ){
             log.error("Specialite id est null");
