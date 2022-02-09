@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { PopupservicePage } from 'src/app/Popups/popupservice/popupservice.page';
+import { environment } from 'src/environments/environment';
+import { AccueilService } from './service/accueil.service';
 
 @Component({
   selector: 'app-accueilclient',
@@ -11,6 +13,8 @@ import { PopupservicePage } from 'src/app/Popups/popupservice/popupservice.page'
 export class AccueilclientPage implements OnInit {
 customers: any;
 customer: any;
+listeServices: any;
+iconimage = environment.ICONIMAGE;
   public slideOptsa = {
     grabCursor: true,
     autoplay: {
@@ -173,22 +177,31 @@ customer: any;
   constructor(
     public router: Router,
     public popover: PopoverController,
+    public service: AccueilService
   ) { }
 
   ngOnInit() {
-    this.customers =  localStorage.getItem('userClient');
-    this.customer = JSON.parse(this.customers)
+    this.customers =  localStorage.getItem('user');
+    this.customer = JSON.parse(this.customers);
+    this.getAllService();
+    this.iconimage;
+  }
+
+  getAllService(){
+    this.service.getAllServices().subscribe((data:any)=> {
+      this.listeServices = data;
+    })
   }
 
 
-  async showServices() {
-    //console.log('Data', data);
-    //this.service.setByPanneauPopup(data);
+  async showServices(data: any) {
+    this.service.setByServ(data);
+    this.service.SpecialitesByService(data.id).subscribe((spe: any)=>{
+      this.service.setByServicePopup(spe);
+    })
     const popover = await this.popover.create({
       component: PopupservicePage,
       cssClass:'taille',
-      //event: data,
-      
       translucent: false
     });
     await popover.present();

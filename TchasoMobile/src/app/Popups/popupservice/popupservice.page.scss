@@ -2,12 +2,15 @@
     width: 100%;
 }
 .chiffre{
-    margin-left: 120px; 
+    text-align: center; 
     background-color: #f5bb20; 
     border-radius: 30px;
 }
 .close{
-    margin-left: 200px; 
     font-size: 35px;
     color: red;
+}
+ion-col{color: black;}
+img{
+    height: 30px;
 }

@@ -44,20 +44,21 @@ customer: any;
   }
 
   async inscription(form: NgForm){
-    //console.log(form.value);
     const load = await this.loading.create({
         message: 'Patientez...',
         backdropDismiss: false,
         mode: 'ios'
     });
     await load.present();
-    this.customer = {nom: form.value["nom"], prenom: form.value["prenom"], genre: form.value["genre"], telephone: form.value["telephone"], login: form.value["username"], password: form.value["password"]};
+    this.customer = {nom: form.value["nom"], prenom: form.value["prenom"], genre: form.value["genre"], 
+                    numWhasapp: form.value["telephone"], login: form.value["username"],
+                    password: form.value["password"], etat: 'actif', type: 'client'};
     
     if(form.value["password"] == form.value["repeatpassword"]){
       this.service.inscriptionClient(this.customer)      
       .subscribe((response: any) => {
               load.dismiss();
-              localStorage.setItem('userClient', JSON.stringify(response));
+              localStorage.setItem('user', JSON.stringify(response));
               this.router.navigate(['/accueilclient']);
           }
       );

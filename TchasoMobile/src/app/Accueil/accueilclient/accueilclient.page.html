@@ -21,41 +21,18 @@
     </ion-slides>
   </ion-row>
   <ion-row class="bare-grise">
-    <p style="color: white; margin: 10px 0px 0px 50px;">Services TCHA-SO</p>
+    <p style="color: white; margin: 10px auto auto 50px;">Services TCHA-SO</p>
   </ion-row>
   <ion-row>
-    <ion-col size="6">
-      <a (click)="showServices()" style="text-align: center">
+    <ion-col size="large" size="6"  *ngFor="let liste of listeServices">
+      <a (click)="showServices(liste)" style="text-align: center">
         <ion-card>
           <ion-card-content>
-            <p>Ménages</p>
+            <ion-img class="imgC" src="{{iconimage}} + {{liste.id}}"></ion-img>
+            <p class="nomP">{{liste.nomser}}</p>
           </ion-card-content>
         </ion-card>
       </a>
-      
-    </ion-col>
-    <ion-col size="6">
-      <ion-card>
-        <ion-card-content>
-          <p>Constructions</p>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="6">
-      <ion-card>
-        <ion-card-content>
-          <p>Artisanats</p>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col size="6">
-      <ion-card>
-        <ion-card-content>
-          <p>Technologies</p>
-        </ion-card-content>
-      </ion-card>
     </ion-col>
   </ion-row>
   
