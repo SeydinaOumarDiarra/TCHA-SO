@@ -47,4 +47,9 @@ public class ServiceController implements ServiceApi {
     public void delete_service(Integer Id) {
         serviceService.delete_service(Id);
     }
+
+    @Override
+    public byte[] getIcon(Integer Id) throws IOException {
+        return serviceService.getIcon(Id);
+    }
 }

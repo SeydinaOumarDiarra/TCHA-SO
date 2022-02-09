@@ -18,4 +18,6 @@ public interface ServiceService {
 
     public void delete_service(Integer Id);
 
+    public byte[] getIcon(Integer Id) throws IOException;
+
 }

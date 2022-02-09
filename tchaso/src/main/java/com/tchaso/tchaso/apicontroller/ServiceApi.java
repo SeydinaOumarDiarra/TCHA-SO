@@ -1,6 +1,7 @@
 package com.tchaso.tchaso.apicontroller;
 
 import com.tchaso.tchaso.models.Service;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,5 +26,8 @@ public interface ServiceApi {
 
     @DeleteMapping(value = APP_ROOT +  "/service/delette/{idservice}")
     void delete_service(@PathVariable("idservice") Integer Id);
+
+    @GetMapping(value = APP_ROOT +  "/iconservice/{idservice}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    byte[] getIcon(@PathVariable("idservice") Integer Id) throws IOException;
 
 }

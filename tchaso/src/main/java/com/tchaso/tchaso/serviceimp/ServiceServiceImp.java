@@ -7,10 +7,15 @@ import com.tchaso.tchaso.services.ServiceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -43,6 +48,7 @@ public class ServiceServiceImp implements ServiceService {
         serv.setDescription(service.getDescription());
         serv.setNomser(service.getNomser());
         serv.setIcone(service.getIcone());
+        serv.setAdministrateur(service.getAdministrateur());
         return serviceRepository.save(serv);
     }
 
@@ -68,6 +74,15 @@ public class ServiceServiceImp implements ServiceService {
             return ;
         }
         serviceRepository.delete_service(Id);
+    }
+
+    @Override
+    public byte[] getIcon(@PathVariable(name="id") Integer id) throws IOException {
+        Service serv = serviceRepository.findById(id).get();
+        String iconName = serv.getIcone();
+        File file = new File("src/main/resources/iconservice/icon"+ serv.getId() +"/" +iconName);
+        Path path = Paths.get(file.toURI());
+        return Files.readAllBytes(path);
     }
 
 

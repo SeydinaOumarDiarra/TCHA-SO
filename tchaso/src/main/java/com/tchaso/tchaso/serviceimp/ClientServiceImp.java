@@ -36,6 +36,7 @@ public class ClientServiceImp implements ClientService {
         clt.setGenre(client.getGenre());
         clt.setEtat(client.getEtat());
         clt.setNumWhasapp(client.getNumWhasapp());
+        clt.setAdministrateur(client.getAdministrateur());
         return clientRepository.save(clt);
     }
 

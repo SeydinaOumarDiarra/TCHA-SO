@@ -55,6 +55,7 @@ public class TravailleurServiceImp implements TravailleurService {
         trv.setEtat(travailleur.getEtat());
         trv.setQuartier(travailleur.getQuartier());
         trv.setPhoto(travailleur.getPhoto());
+        trv.setAdministrateur(travailleur.getAdministrateur());
         return travailleurRepository.save(trv);
     }
 
