@@ -22,6 +22,8 @@ public interface TravailleurService {
 
     public void delete_travailleur(Integer Id );
 
+    public List<Travailleur> afficher_travailleur_specialite(Integer Id);
+
 
     //public void uploadpicture(MultipartFile image) ;
 

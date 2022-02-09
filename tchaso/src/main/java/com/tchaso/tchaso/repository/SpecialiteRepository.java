@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 public interface SpecialiteRepository extends JpaRepository<Specialite,Integer> {
@@ -15,5 +16,5 @@ public interface SpecialiteRepository extends JpaRepository<Specialite,Integer> 
     void delete_specialite(@Param("id") Integer Id);
 
     @Query(value="SELECT s FROM Specialite s WHERE s.service.id =:id ")
-    Specialite specialiteByService(@Param("id") Integer Id);
+    List<Specialite> specialiteByService(@Param("id") Integer Id);
 }

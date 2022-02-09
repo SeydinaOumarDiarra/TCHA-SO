@@ -5,6 +5,7 @@ import com.tchaso.tchaso.models.FileUploadUtil;
 import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.TravailleurRepository;
 import com.tchaso.tchaso.services.TravailleurService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@Slf4j
 public class TravailleurServiceImp implements TravailleurService {
 
     TravailleurRepository travailleurRepository;
@@ -66,6 +68,15 @@ public class TravailleurServiceImp implements TravailleurService {
     @Override
     public void delete_travailleur(Integer Id) {
         travailleurRepository.delete_travailleur(Id);
+    }
+
+    @Override
+    public List<Travailleur> afficher_travailleur_specialite(Integer Id) {
+        if (Id == null ){
+            log.error("Specialite id est null");
+            return null;
+        }
+        return travailleurRepository.specialiteByService(Id);
     }
 
     @Override

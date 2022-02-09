@@ -2,6 +2,7 @@ package com.tchaso.tchaso.apicontroller;
 
 import com.tchaso.tchaso.enumeration.Type;
 import com.tchaso.tchaso.models.Client;
+import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.models.Travailleur;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,9 @@ public interface TravailleurApi {
 
     @GetMapping(value = APP_ROOT +  "/travailleur/{idTravailleur}")
     Travailleur afficher_travailleur_by_id(@PathVariable("idTravailleur") Integer Id );
+
+    @GetMapping(value = APP_ROOT +  "/trava/{idtrv}")
+    List<Travailleur> afficher_travailleur_specialite(@PathVariable("idtrv") Integer Id);
 
     @DeleteMapping(value = APP_ROOT +  "/travailleur/delette/{idTravailleur}")
     void delete_travailleur(@PathVariable("idTravailleur") Integer Id );

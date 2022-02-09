@@ -69,6 +69,11 @@ public class TravailleurController implements TravailleurApi {
     }
 
     @Override
+    public List<Travailleur> afficher_travailleur_specialite(Integer Id) {
+        return travailleurService.afficher_travailleur_specialite(Id);
+    }
+
+    @Override
     public void delete_travailleur(Integer Id) {
         travailleurService.delete_travailleur(Id);
     }

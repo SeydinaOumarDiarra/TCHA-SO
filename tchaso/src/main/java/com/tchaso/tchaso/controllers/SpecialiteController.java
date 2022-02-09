@@ -41,7 +41,7 @@ public class SpecialiteController implements SpecialiteApi {
     }
 
     @Override
-    public Specialite afficher_service_specialite(Integer Id) {
+    public List<Specialite> afficher_service_specialite(Integer Id) {
         return specialiteService.afficher_service_specialite(Id);
     }
 

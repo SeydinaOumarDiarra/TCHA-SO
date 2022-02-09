@@ -14,7 +14,7 @@ public interface SpecialiteService {
 
     public Specialite afficher_specialite_by_id(Integer Id);
 
-    public Specialite afficher_service_specialite(Integer Id);
+    public List<Specialite> afficher_service_specialite(Integer Id);
 
     public void delete_specialite(Integer Id);
 
