@@ -81,7 +81,7 @@
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailclient', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>
@@ -104,12 +104,12 @@
                                     <td class="txt-oflo">{{liste.id}}</td>
                                     <td class="txt-oflo">{{liste.nom}}</td>
                                     <td class="txt-oflo">{{liste.prenom}}</td>
-                                    <td class="txt-oflo">{{liste.profil}}</td>
+                                    <td class="txt-oflo">{{liste.profile}}</td>
                                     <td>
                                         <span class="text-success alignement">
                                             <a [routerLink]="['/modifieradmin', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailadmin', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>
@@ -135,7 +135,7 @@
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailclient', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>
@@ -158,7 +158,7 @@
                                     <td class="txt-oflo">{{liste?.id}}</td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
-                                    <td class="txt-oflo">{{liste?.specialite.nomsp}}</td>
+                                    <td class="txt-oflo">{{liste?.specialite.nomspe}}</td>
                                     <th class="border-top-0"><b>Action</b></th>
                                     <td>
                                         <span class="text-success alignement">

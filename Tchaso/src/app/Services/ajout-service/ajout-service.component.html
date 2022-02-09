@@ -29,7 +29,7 @@
             <div class="col-lg-6 col-xlg-3 col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form #AjoutForm="ngForm" (ngSubmit)="AjoutService(AjoutForm)" autocomplete="off" class="form-horizontal form-material">
+                        <form #AjoutForm="ngForm" (ngSubmit)="AjoutService(AjoutForm)" autocomplete="off" class="form-horizontal form-material"  enctype="multipart/form-data">
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Nom Service *</label>
                                 <div class="col-md-12 border-bottom p-0">
@@ -50,6 +50,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Icon image *</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input #file type="file" accept=".jpg, .jpeg, .png" placeholder="Choisir une image"
+                                                class="form-control p-0 border-0" name="photo" ngModel #photo="ngModel" (change)="preview(file.files)" required>
+                                    <div [hidden]="photo.valid || photo.pristine" class="alert alert-danger">
+                                        L'icon image est obligatoire
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span style="color:red;" *ngIf="message">{{message}}</span>
+                                <img [src]="imgURL" height="200" *ngIf="imgURL">
+                              </div>
                             
                             <div class="form-group mb-4">
                                 <div class="col-sm-12 align-button">

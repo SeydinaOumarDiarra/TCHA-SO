@@ -26,6 +26,10 @@ import { AjoutAdminComponent } from './Utilisateurs/Administrateur/ajout-admin/a
 import { ModifierAdminComponent } from './Utilisateurs/Administrateur/modifier-admin/modifier-admin.component';
 import { ModifierTravailleurComponent } from './Utilisateurs/Travailleur/modifier-travailleur/modifier-travailleur.component';
 import { AjoutTravailleurComponent } from './Utilisateurs/Travailleur/ajout-travailleur/ajout-travailleur.component';
+import { DetailClientComponent } from './Utilisateurs/Client/detail-client/detail-client.component';
+import { DetailAdminComponent } from './Utilisateurs/Administrateur/detail-admin/detail-admin.component';
+import { DetailSpecialiteComponent } from './Specialites/detail-specialite/detail-specialite.component';
+import { ProfilComponent } from './Profil/profil/profil.component';
 
 
 @NgModule({
@@ -49,6 +53,10 @@ import { AjoutTravailleurComponent } from './Utilisateurs/Travailleur/ajout-trav
     ModifierAdminComponent,
     ModifierTravailleurComponent,
     AjoutTravailleurComponent,
+    DetailClientComponent,
+    DetailAdminComponent,
+    DetailSpecialiteComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,

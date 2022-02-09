@@ -91,8 +91,8 @@
                                     <div class="col-md-12 border-bottom p-0">
                                         <select  class="form-control p-0 border-0" name="profil" id="singleSelect" ngModel #profil="ngModel" required>
                                             <option value="">---Sélectionner un profil---</option> 
-                                            <option  value="1">Administrateur</option>
-                                            <option  value="0">Super Administrateur</option>
+                                            <option  value="admin">Administrateur</option>
+                                            <option  value="super_admin">Super Administrateur</option>
                                         </select>
                                         <div [hidden]="profil.valid || profil.pristine" class="alert alert-danger">
                                             Le profil est obligatoire

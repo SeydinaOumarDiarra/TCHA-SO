@@ -48,10 +48,10 @@ existeEmail = false;
         'nom': form.value['nom'],
         'prenom': form.value['prenom'],
         'genre': form.value['genre'],
-        'etat': '0',
+        'etat': 'actif',
         'email': form.value['email'],
         'login': form.value['login'],
-        'profil': form.value['profil'],
+        'profile': form.value['profil'],
         'password': "Tcha"+ form.value['prenom'].substr(0, 3)+ form.value['nom'].substr(0, 3),
       }
 

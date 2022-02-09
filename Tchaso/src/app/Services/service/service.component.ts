@@ -1,4 +1,6 @@
+import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ServivesserviceService } from '../servivesservice.service';
 
 @Component({
@@ -9,12 +11,14 @@ import { ServivesserviceService } from '../servivesservice.service';
 export class ServiceComponent implements OnInit {
   searchText= '';
   listeServices: any;
+  iconimage = environment.ICONIMAGE;
   constructor(
     public service: ServivesserviceService
   ) { }
 
   ngOnInit(): void {
     this.getAllService();
+    this.iconimage;
   }
 
   getAllService(){

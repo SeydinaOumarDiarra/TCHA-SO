@@ -58,7 +58,7 @@
                                         <span class="text-success alignement">
                                             <a [routerLink]="['/modifierspecialite', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailspecialite', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>

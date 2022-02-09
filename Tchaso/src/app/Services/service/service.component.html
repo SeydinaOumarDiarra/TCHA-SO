@@ -50,15 +50,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let liste of listeServices | filter:searchText">
-                                    <td class="txt-oflo">{{liste.id}}</td>
+                                <tr *ngFor="let liste of listeServices| filter:searchText">
+                                    <td class="txt-oflo"><img src="{{iconimage}} + {{liste.id}}" style="height: 25px;"></td>
                                     <td class="txt-oflo">{{liste.nomser}}</td>
                                     <td class="txt-oflo">{{liste.description}}</td>
                                     <td>
                                         <span class="text-success alignement">
                                             <a [routerLink]="['/modifierservice', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>

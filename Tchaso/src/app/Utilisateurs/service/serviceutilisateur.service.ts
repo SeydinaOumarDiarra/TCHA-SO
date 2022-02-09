@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -28,8 +29,11 @@ export class ServiceutilisateurService {
   }
 
   // Gestion Travailleur
-  public addTravailleur(travailleur: any) {
-    return this.http.post(this.host+"/travailleur/ajout", travailleur)
+  public addTravailleur(travailleur: any, photo: File, piece: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append("image", photo);
+    formData.append("piece", piece);
+    return this.http.post(this.host+"/travailleur/ajout", formData)
   }
   public getAllTravailleurs(){
     return this.http.get(this.host+"/travailleur/all")
@@ -42,6 +46,9 @@ export class ServiceutilisateurService {
   }
   public deleteTravailleur(id:any) {
     return this.http.delete(this.host+"/travailleur/delette/"+id);
+  }
+  public checkLogTravailleur(login:any) {
+    return this.http.get(this.host+`/logtravailleur/${login}`);
   }
 
   // Gestion Clients

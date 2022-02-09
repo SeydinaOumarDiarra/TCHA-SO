@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,8 +10,10 @@ export class ServivesserviceService {
   host = environment.URL
   constructor(private http: HttpClient) { }
 
-  public addService(service: any) {
-    return this.http.post(this.host+"/service/ajout", service)
+  public addService(service: any, image: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append("image", image);
+    return this.http.post(this.host+"/service/ajout", formData)
   }
 
   public getAllServices(){
@@ -27,5 +30,9 @@ export class ServivesserviceService {
 
   public deleteService(id:any) {
     return this.http.delete(this.host+"/service/delette/"+id);
+  }
+
+  public getIcon(id:any) {
+    return this.http.get(this.host+"/iconservice/"+id);
   }
 }
