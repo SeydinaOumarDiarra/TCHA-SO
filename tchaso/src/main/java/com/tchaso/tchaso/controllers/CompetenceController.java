@@ -44,4 +44,9 @@ public class CompetenceController implements CompetenceApi {
     public void delete_competence(Integer Id) {
         competenceService.delete_competence(Id);
     }
+
+    @Override
+    public List<Competence> afficher_competence_travailleur(Integer Id) {
+        return competenceService.afficher_competence_travailleur(Id);
+    }
 }

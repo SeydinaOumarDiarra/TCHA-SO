@@ -1,6 +1,7 @@
 package com.tchaso.tchaso.serviceimp;
 
 import com.tchaso.tchaso.models.Competence;
+import com.tchaso.tchaso.models.Travailleur;
 import com.tchaso.tchaso.repository.CompetenceRepository;
 import com.tchaso.tchaso.services.CompetenceService;
 import lombok.extern.slf4j.Slf4j;
@@ -55,5 +56,14 @@ public class CompetenceServiceImp implements CompetenceService {
             return ;
         }
         competenceRepository.delete_competence(Id);
+    }
+
+    @Override
+    public List<Competence> afficher_competence_travailleur(Integer Id) {
+        if (Id == null ){
+            log.error("Specialite id est null");
+            return null;
+        }
+        return competenceRepository.competenceByTravailleur(Id);
     }
 }

@@ -2,6 +2,7 @@ package com.tchaso.tchaso.services;
 
 
 import com.tchaso.tchaso.models.Competence;
+import com.tchaso.tchaso.models.Travailleur;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,5 +20,7 @@ public interface CompetenceService {
     public Competence afficher_competence_by_id( Integer Id);
 
     public void delete_competence( Integer Id);
+
+    public List<Competence> afficher_competence_travailleur(Integer Id);
 
 }

@@ -2,6 +2,8 @@ package com.tchaso.tchaso.apicontroller;
 
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Competence;
+import com.tchaso.tchaso.models.Specialite;
+import com.tchaso.tchaso.models.Travailleur;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -52,5 +54,13 @@ public interface CompetenceApi {
             @ApiResponse(code = 200, message = "La competence a été supprimer avec succèss")
     })
     void delete_competence(@PathVariable("idservice") Integer Id);
+
+    @GetMapping(value = APP_ROOT +  "/compe/{idcomp}")
+    @ApiOperation(value = "Recherche une compétence par ID", notes = "Cette methode permet de rechercher les competences par d'un travailleur donné", response = Competence.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "La compétence se trouve dans la base de donnée"),
+            @ApiResponse(code = 404, message = "Aucune compétence n'existe dans la base de donnée")
+    })
+    List<Competence> afficher_competence_travailleur(@PathVariable("idcomp") Integer Id);
 
 }
