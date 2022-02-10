@@ -1,9 +1,9 @@
 package com.tchaso.tchaso.apicontroller;
 
 import com.tchaso.tchaso.enumeration.Type;
-import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Specialite;
 import com.tchaso.tchaso.models.Travailleur;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
-
+@Api(APP_ROOT + "/travailleur")
 public interface TravailleurApi {
 
     @GetMapping(value = APP_ROOT + "/log-travailleur/{login}/{password}")
@@ -85,16 +85,24 @@ public interface TravailleurApi {
     List<Travailleur> afficher_travailleur_specialite(@PathVariable("idtrv") Integer Id);
 
     @DeleteMapping(value = APP_ROOT +  "/travailleur/delette/{idTravailleur}")
-    @ApiOperation(value = "Supprime un client", notes = "Cette methode permet de supprimer un travailleur ", response = Client.class)
+    @ApiOperation(value = "Supprime un client", notes = "Cette methode permet de supprimer un travailleur ", response = Specialite.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Le travailleur a été supprimer avec succèss")
     })
     void delete_travailleur(@PathVariable("idTravailleur") Integer Id );
 
     @GetMapping(value = APP_ROOT +  "/phototravailleur/{idtrav}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    @ApiOperation(value = "Ajoute une photo", notes = "Cette methode permet d'ajouter une photo ", response = Specialite.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "ajouter avec succèss")
+    })
     byte[] getpHOTO(@PathVariable("idtrav") Integer Id) throws IOException;
 
     @GetMapping(value = APP_ROOT +  "/piecetravailleur/{idtrav}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    @ApiOperation(value = "Ajoute une photo", notes = "Cette methode permet d'ajouter une photo ", response = Specialite.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "ajouter avec succèss")
+    })
     byte[] getpiece(@PathVariable("idtrav") Integer Id) throws IOException;
 
 }

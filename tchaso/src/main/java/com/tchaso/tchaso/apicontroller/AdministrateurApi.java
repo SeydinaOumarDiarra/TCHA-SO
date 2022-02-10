@@ -1,7 +1,6 @@
 package com.tchaso.tchaso.apicontroller;
 
 import com.tchaso.tchaso.models.Administrateur;
-import com.tchaso.tchaso.models.Client;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -11,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
-@Api(APP_ROOT + "/administrateur")
 
+@Api(APP_ROOT + "/administrateur")
 public interface AdministrateurApi {
 
     @GetMapping(value = APP_ROOT + "/log-admin/{login}/{password}")

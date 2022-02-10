@@ -36,6 +36,9 @@ public class Travailleur extends User {
     @ManyToOne
     private Ville ville;
 
+    @ManyToOne
+    private Travailleur travailleur;
+
 
 
 }

@@ -3,6 +3,7 @@ package com.tchaso.tchaso.apicontroller;
 import com.tchaso.tchaso.models.Competence;
 import com.tchaso.tchaso.models.Demande;
 import com.tchaso.tchaso.models.Service;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
 
+@Api(APP_ROOT + "/service")
 public interface ServiceApi {
 
     @PostMapping(value = APP_ROOT +  "/service/ajout")
@@ -56,6 +58,10 @@ public interface ServiceApi {
     void delete_service(@PathVariable("idservice") Integer Id);
 
     @GetMapping(value = APP_ROOT +  "/iconservice/{idservice}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    @ApiOperation(value = "Ajoute une photo", notes = "Cette methode permet d'ajouter une photo ", response = Service.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "ajouter avec succèss")
+    })
     byte[] getIcon(@PathVariable("idservice") Integer Id) throws IOException;
 
 }

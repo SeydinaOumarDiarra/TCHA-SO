@@ -5,7 +5,8 @@ import com.tchaso.tchaso.models.Administrateur;
 import java.util.List;
 
 public interface AdministrateurService {
-    public Administrateur add_administrateur(Administrateur administrateur);
+
+    public Administrateur add_administrateur(Administrateur administrateur) ;
 
     public Administrateur update_administrateur(Integer Id,Administrateur administrateur);
 

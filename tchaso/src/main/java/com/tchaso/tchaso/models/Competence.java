@@ -26,7 +26,5 @@ public class Competence {
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.actif;
 
-    @ManyToOne
-    private Specialite specialite;
 
 }

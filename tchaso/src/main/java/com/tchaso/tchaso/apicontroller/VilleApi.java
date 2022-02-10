@@ -3,6 +3,7 @@ package com.tchaso.tchaso.apicontroller;
 import com.tchaso.tchaso.models.Client;
 import com.tchaso.tchaso.models.Demande;
 import com.tchaso.tchaso.models.Ville;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
 
+@Api(APP_ROOT + "/villle")
 public interface VilleApi {
 
     @PostMapping(value = APP_ROOT +  "/ville/ajout")

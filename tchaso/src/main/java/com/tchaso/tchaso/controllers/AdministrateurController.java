@@ -3,6 +3,7 @@ package com.tchaso.tchaso.controllers;
 import com.tchaso.tchaso.apicontroller.AdministrateurApi;
 import com.tchaso.tchaso.models.Administrateur;
 import com.tchaso.tchaso.services.AdministrateurService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.Id;
 import java.util.List;
 
+import static com.tchaso.tchaso.utils.Constant.APP_ROOT;
+
 @RestController
 @CrossOrigin("*")
+
 public class AdministrateurController implements AdministrateurApi {
 
     private AdministrateurService administrateurService;
