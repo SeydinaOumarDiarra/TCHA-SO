@@ -7,12 +7,29 @@ import { environment } from 'src/environments/environment';
 })
 export class SpecialiteService {
   host = environment.URL;
+  tra: any;
   
   constructor(private http: HttpClient) { }
 
+  setTrav(data: any){
+    this.tra = data
+  }
+  getTrav(){
+    return this.tra;
+  }
    // Get travailleurs par spécialité
    public getTravailleur(id: any) {
     return this.http.get(this.host+`/trava/${id}`);
+  }
+
+   // Get detail travailleur
+   public getDetailTravailleur(id: any) {
+    return this.http.get(this.host+`/travailleur/${id}`);
+  }
+
+   // Get competences par travailleurs
+   public getCompetenceByTravailleur(id: any) {
+    return this.http.get(this.host+`/compe/${id}`)
   }
   
 }

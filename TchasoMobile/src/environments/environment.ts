@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   URL: 'http://localhost:8080/tchaso/v1',
   ICONIMAGE: 'http://localhost:8080/tchaso/v1/iconservice/',
-  PHOTO: 'http://localhost:8080/tchaso/v1/photo/'
+  PHOTO: 'http://localhost:8080/tchaso/v1/phototravailleur/'
 };
 
 /*

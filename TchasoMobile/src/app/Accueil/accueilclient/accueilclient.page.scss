@@ -1,6 +1,6 @@
-ion-content, ion-toolbar{
-    --background:rgb(212, 210, 208);
-}
+// ion-content, ion-toolbar{
+//     --background:rgb(212, 210, 208);
+// }
 
 .bare-grise{
     height: 40px; 
@@ -9,12 +9,11 @@ ion-content, ion-toolbar{
     background-color:  #684f0e;
 }
 .icon-person{
-    margin: 0px 0px 0px 120px; 
+    float: right; 
     font-size: 25px;
     color: #684f0e;
 }
 .icon-notify{
-    margin: 0px 0px 0px 220px; 
     font-size: 20px;
     color: #684f0e;
 }

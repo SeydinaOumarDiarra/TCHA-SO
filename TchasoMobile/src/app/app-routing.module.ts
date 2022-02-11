@@ -40,8 +40,12 @@ const routes: Routes = [
     loadChildren: () => import('./Specialites/specialite/specialite.module').then( m => m.SpecialitePageModule)
   },
   {
-    path: 'travailleur',
+    path: 'travailleur/:id',
     loadChildren: () => import('./Specialites/travailleur/travailleur.module').then( m => m.TravailleurPageModule)
+  },
+  {
+    path: 'ajout-demande',
+    loadChildren: () => import('./Demande/ajout-demande/ajout-demande.module').then( m => m.AjoutDemandePageModule)
   },
 ];
 

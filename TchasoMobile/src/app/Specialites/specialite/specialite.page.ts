@@ -12,7 +12,9 @@ import { SpecialiteService } from '../service/specialite.service';
 export class SpecialitePage implements OnInit {
 tr: any;
 travailleurs: any;
+specialite: any;
 image = environment.PHOTO;
+
   constructor(
     public router: Router,
     public service: SpecialiteService,
@@ -23,7 +25,7 @@ image = environment.PHOTO;
     this.tr = this.servicePopup.getTravailleurs();
     this.service.getTravailleur(this.tr).subscribe((data: any)=>{
       this.travailleurs = data;
-      console.log(this.travailleurs);
+      this.specialite = this.travailleurs[0].specialite.nomspe;
     });
     this.image;
   }

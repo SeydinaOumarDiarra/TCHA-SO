@@ -11,7 +11,7 @@
 
 <ion-content>
   <div class="header">
-    <h2>Ousmane Kané</h2>
+    <h2>{{travailleur?.prenom}} {{travailleur?.nom}}</h2>
   </div>
   <div class="space-between">
     <!-- <div class="followings">
@@ -26,7 +26,7 @@
   <div class="flex">
     <div class="border-white">
       <div class="img-box">
-        <img src="../../assets/elon-musk.jpg">
+        <img src="{{image}} + {{travailleur?.id}}">
       </div>
     </div>
   </div>
@@ -35,15 +35,15 @@
       <ion-card>
         <ion-item lines="none">
           <ion-avatar slot="start">
-            <img src="../../assets/elon-musk.jpg" />
+            <img src="{{image}} + {{travailleur?.id}}" />
           </ion-avatar>
           <ion-label>
-            <h2 style="font-size: 12px;"><b>Ousmane Kané</b></h2>
-            <p>Electicien</p>
+            <h2 style="font-size: 12px;"><b>{{travailleur?.prenom}} {{travailleur?.nom}}</b></h2>
+            <p>{{travailleur?.specialite.nomspe}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none" class="tweet">
-          <ion-label text-wrap>Bamako, Hippodrome Rue 2222, Porte 2027</ion-label>
+          <ion-label text-wrap>{{travailleur?.ville.nomville}}, {{travailleur?.quartier}}</ion-label>
         </ion-item>
       </ion-card>
 
@@ -51,48 +51,38 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size="12">
-        <img src="./madison.jpg" />
-        <ion-card-header>
-          <ion-card-title style="font-size: 20px;">Compétence 1</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-          Wisconsin Territory in 1836.
-        </ion-card-content>
-    </ion-col>
+    <ion-card-header>
+      <ion-card-title style="font-size: 25px;  font-weight: bold;">Compétences</ion-card-title>
+    </ion-card-header>
   </ion-row>
-  <ion-row>
-    <ion-col size="11">
-      
-        <img src="./madison.jpg" />
+  <ion-row *ngFor="let c of competences">
+    <ion-col size="12">
         <ion-card-header>
-          <ion-card-title style="font-size: 20px;">Compétence 2</ion-card-title>
+          <ion-card-title>
+           
+            <p style="font-size: 20px; color: #684f0e;">
+              <ion-icon name="checkmark-outline" style="font-weight: bold;"></ion-icon>
+              {{c.nomCom}}
+            </p>
+          </ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-          Wisconsin Territory in 1836.
+          {{c.description}}
         </ion-card-content>
-      
     </ion-col>
   </ion-row>
  
   <ion-fab vertical="center" horizontal="end" slot="fixed" class="watts">
-    
-      <ion-fab-button>
-        <a href="https://wa.me/78784434?text=Bonjour,%je%20suis%20intéressé%20par%20votre%20service">
-          <img src="../../../assets/icon/wattsapp.png" style="width: 40px; height: 40px;"/>
-        </a>
+      <ion-fab-button  href="https://wa.me/+223{{travailleur?.numWhasapp}}?text=Bonjour,%je%20suis%20intéressé%20par%20votre%20service">
+          <img src="../../../assets/icon/wattsapp.png" style="width: 40px; height: 40px;" (click)="contact()"/>
       </ion-fab-button>
-    
-   
   </ion-fab>
   <ion-fab vertical="center" horizontal="end" slot="fixed" class="pencil">
-    <ion-fab-button  [routerLink]="['/accueilclient']">
+    <ion-fab-button  (click)="addDemande(travailleur?.id)">
       <img src="../../../assets/icon/pencil.png" style="width: 35px; height: 35px;"/>
     </ion-fab-button>
   </ion-fab>
-  <ion-fab vertical="center" horizontal="end" slot="fixed" class="home">
+<ion-fab vertical="center" horizontal="end" slot="fixed" class="home">
     <ion-fab-button  [routerLink]="['/accueilclient']">
       <ion-icon name="home"></ion-icon>
     </ion-fab-button>

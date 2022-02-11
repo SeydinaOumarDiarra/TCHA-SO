@@ -15,6 +15,7 @@ customers: any;
 customer: any;
 listeServices: any;
 iconimage = environment.ICONIMAGE;
+nbreNotify: any;
   public slideOptsa = {
     grabCursor: true,
     autoplay: {
@@ -185,12 +186,17 @@ iconimage = environment.ICONIMAGE;
     this.customer = JSON.parse(this.customers);
     this.getAllService();
     this.iconimage;
+
+    this.service.getNotifyClient(this.customer.id).subscribe((dat: any)=>{
+      this.nbreNotify = dat.length;
+    })
   }
 
   getAllService(){
     this.service.getAllServices().subscribe((data:any)=> {
       this.listeServices = data;
-    })
+    });
+
   }
 
 
@@ -207,6 +213,7 @@ iconimage = environment.ICONIMAGE;
     await popover.present();
 
     const{role} = await popover.onDidDismiss();
+    this.service.setByServ(null);
     console.log('Fermer !', role);
   }
 

@@ -12,6 +12,7 @@ export class AppComponent {
     public router: Router
   ) {
     this.sideMenu();
+    
   }
 
   sideMenu(){
