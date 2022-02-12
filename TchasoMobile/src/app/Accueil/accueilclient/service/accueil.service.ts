@@ -31,6 +31,11 @@ export class AccueilService {
     return this.http.get(this.host+`/getNotifyClient/${id}`);
   }
 
+  // Get all notify client
+  public getAllNotifyClient(id: any) {
+    return this.http.get(this.host+`/getAllNotifyClient/${id}`);
+  }
+
   setByServ(data: any){
     this.serv = data;
   }

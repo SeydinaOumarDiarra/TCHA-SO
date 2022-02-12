@@ -5,20 +5,9 @@
         <ion-menu-button ></ion-menu-button>
       </ion-button>
     </ion-buttons>
-      <ion-buttons slot="primary">
-        <ion-button>
-          <b class="icon-notify"><ion-icon name="person"></ion-icon></b>
-        </ion-button>
-        
-      </ion-buttons>
-      <ion-buttons slot="secondary">
-        <ion-button>
-          <!-- <app-connect></app-connect> -->
-          <b class="icon-notify"><ion-icon name="notifications"></ion-icon></b>
-          <ion-badge style="background-color: brown;" *ngIf="nbreNotify !== 0">{{nbreNotify}}</ion-badge>
-          <ion-badge style="background-color:darkslategray;" *ngIf="nbreNotify === 0">{{nbreNotify}}</ion-badge>
-        </ion-button>
-      </ion-buttons>
+    <ion-buttons slot="end">
+      <app-connect></app-connect>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

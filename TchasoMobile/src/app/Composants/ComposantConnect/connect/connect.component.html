@@ -1,3 +1,10 @@
-<p>
-  connect works!
-</p>
+<ion-button slot="primary" [routerLink]="['/client-notify', notifyClient]">
+  <b class="icon-notify"><ion-icon name="notifications"></ion-icon></b>
+  <ion-badge style="background-color: brown;" *ngIf="nbreNotify !== 0">{{nbreNotify}}</ion-badge>
+  <ion-badge style="background-color:darkslategray;" *ngIf="nbreNotify === 0">{{nbreNotify}}</ion-badge>
+</ion-button>
+
+<ion-button slot="secondary">
+  <b class="icon-notify"><ion-icon name="person"></ion-icon></b>
+</ion-button>
+  

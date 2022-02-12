@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TravailleurPageRoutingModule } from './travailleur-routing.module';
 
 import { TravailleurPage } from './travailleur.page';
+import { ConnectComponent } from 'src/app/Composants/ComposantConnect/connect/connect.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TravailleurPage } from './travailleur.page';
     IonicModule,
     TravailleurPageRoutingModule
   ],
-  declarations: [TravailleurPage]
+  declarations: [TravailleurPage, ConnectComponent]
 })
 export class TravailleurPageModule {}

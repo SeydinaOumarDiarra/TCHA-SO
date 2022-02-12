@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ConnectComponent } from './Composants/ComposantConnect/connect/connect.component';
 
 @NgModule({
   declarations: [AppComponent],

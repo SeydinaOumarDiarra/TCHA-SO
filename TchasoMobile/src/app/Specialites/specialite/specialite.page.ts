@@ -13,6 +13,7 @@ export class SpecialitePage implements OnInit {
 tr: any;
 travailleurs: any;
 specialite: any;
+trav: any;
 image = environment.PHOTO;
 
   constructor(
@@ -25,6 +26,7 @@ image = environment.PHOTO;
     this.tr = this.servicePopup.getTravailleurs();
     this.service.getTravailleur(this.tr).subscribe((data: any)=>{
       this.travailleurs = data;
+      this.trav = data;
       this.specialite = this.travailleurs[0].specialite.nomspe;
     });
     this.image;
@@ -33,4 +35,27 @@ image = environment.PHOTO;
   detailTravailleur(){
     this.router.navigate(['travailleur'])
   }
+
+  async initUser() {
+    this.travailleurs= this.trav;
+  }
+
+  async filterList(evt) {
+    this.initUser();
+    const searchTerm = evt.srcElement.value;
+  
+    if (searchTerm && searchTerm !=='') {
+      this.travailleurs = this.travailleurs.filter((item) => {
+        return(
+          item.ville.nomville.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          item.quartier.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          item.genre.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          item.nom.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          item.prenom.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          item.specialite.nomspe.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+      })
+    }
+  }
+
+
 }

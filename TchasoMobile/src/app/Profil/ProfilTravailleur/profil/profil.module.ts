@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import { SwiperModule } from 'swiper/angular';
 
-import { AccueilPageRoutingModule } from './accueil-routing.module';
+import { ProfilPageRoutingModule } from './profil-routing.module';
 
-import { AccueilPage } from './accueil.page';
+import { ProfilPage } from './profil.page';
 import { ConnectnotifyComponent } from 'src/app/Composants/ComposantTravailleur/connectnotify/connectnotify.component';
 
 @NgModule({
@@ -15,9 +14,8 @@ import { ConnectnotifyComponent } from 'src/app/Composants/ComposantTravailleur/
     CommonModule,
     FormsModule,
     IonicModule,
-    SwiperModule,
-    AccueilPageRoutingModule
+    ProfilPageRoutingModule
   ],
-  declarations: [AccueilPage, ConnectnotifyComponent]
+  declarations: [ProfilPage, ConnectnotifyComponent]
 })
-export class AccueilPageModule {}
+export class ProfilPageModule {}

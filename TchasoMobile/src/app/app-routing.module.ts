@@ -47,6 +47,18 @@ const routes: Routes = [
     path: 'ajout-demande',
     loadChildren: () => import('./Demande/ajout-demande/ajout-demande.module').then( m => m.AjoutDemandePageModule)
   },
+  {
+    path: 'client-notify/:id',
+    loadChildren: () => import('./Notifications/client-notify/client-notify.module').then( m => m.ClientNotifyPageModule)
+  },
+  {
+    path: 'lire-notify-client',
+    loadChildren: () => import('./Notifications/lire-notify-client/lire-notify-client.module').then( m => m.LireNotifyClientPageModule)
+  },
+  {
+    path: 'profiltravailleur',
+    loadChildren: () => import('./Profil/ProfilTravailleur/profil/profil.module').then( m => m.ProfilPageModule)
+  },
 ];
 
 @NgModule({

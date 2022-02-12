@@ -11,11 +11,10 @@ import { AccueilService } from './service/accueil.service';
   styleUrls: ['./accueilclient.page.scss'],
 })
 export class AccueilclientPage implements OnInit {
-customers: any;
-customer: any;
+
 listeServices: any;
 iconimage = environment.ICONIMAGE;
-nbreNotify: any;
+
   public slideOptsa = {
     grabCursor: true,
     autoplay: {
@@ -182,14 +181,8 @@ nbreNotify: any;
   ) { }
 
   ngOnInit() {
-    this.customers =  localStorage.getItem('user');
-    this.customer = JSON.parse(this.customers);
     this.getAllService();
     this.iconimage;
-
-    this.service.getNotifyClient(this.customer.id).subscribe((dat: any)=>{
-      this.nbreNotify = dat.length;
-    })
   }
 
   getAllService(){

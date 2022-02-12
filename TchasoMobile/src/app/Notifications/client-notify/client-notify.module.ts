@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccueilclientPageRoutingModule } from './accueilclient-routing.module';
+import { ClientNotifyPageRoutingModule } from './client-notify-routing.module';
 
-import { AccueilclientPage } from './accueilclient.page';
+import { ClientNotifyPage } from './client-notify.page';
 import { ConnectComponent } from 'src/app/Composants/ComposantConnect/connect/connect.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { ConnectComponent } from 'src/app/Composants/ComposantConnect/connect/co
     CommonModule,
     FormsModule,
     IonicModule,
-    AccueilclientPageRoutingModule
+    ClientNotifyPageRoutingModule
   ],
-  declarations: [AccueilclientPage, ConnectComponent]
+  declarations: [ClientNotifyPage, ConnectComponent]
 })
-export class AccueilclientPageModule {}
+export class ClientNotifyPageModule {}

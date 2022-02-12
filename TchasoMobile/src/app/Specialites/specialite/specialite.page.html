@@ -3,9 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="" (click)="goBack()"></ion-back-button>
     </ion-buttons>
-    <ion-row>
-      <a class="icon-person"> <b style="font-size: 15px; color: black;">Seydina </b><ion-icon name="person"></ion-icon></a>
-    </ion-row>
+    <ion-buttons slot="end">
+      <app-connect></app-connect>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,11 @@
   <ion-row class="bare-grise">
     <p style="color: white; margin: 10px 0px 0px 50px;">Spécialité {{specialite}}</p>
   </ion-row>
-
+  <ion-searchbar animated
+  [showCancelButton]="shouldShowCancel"
+  (ionChange)="filterList($event)">
+</ion-searchbar>
+<div *ngIf="travailleurs !== null; else noItems">
   <ion-list>
     <ion-item *ngFor="let tr of travailleurs" [routerLink]="['/travailleur', tr.id]">
       <ion-avatar slot="start">
@@ -26,6 +30,12 @@
       </ion-label>
     </ion-item>
   </ion-list>
+</div>
+<ng-template #noItems>
+  <ion-item>Aucun resultat trouvé</ion-item>
+</ng-template>
+
+  
   <ion-fab vertical="center" horizontal="end" slot="fixed">
     <ion-fab-button  [routerLink]="['/accueilclient']">
       <ion-icon name="home"></ion-icon>

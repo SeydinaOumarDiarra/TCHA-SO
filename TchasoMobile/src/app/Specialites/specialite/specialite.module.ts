@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SpecialitePageRoutingModule } from './specialite-routing.module';
 
 import { SpecialitePage } from './specialite.page';
+import { ConnectComponent } from 'src/app/Composants/ComposantConnect/connect/connect.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SpecialitePage } from './specialite.page';
     IonicModule,
     SpecialitePageRoutingModule
   ],
-  declarations: [SpecialitePage]
+  declarations: [SpecialitePage, ConnectComponent]
 })
 export class SpecialitePageModule {}
