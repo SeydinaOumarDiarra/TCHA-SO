@@ -59,6 +59,54 @@ const routes: Routes = [
     path: 'profiltravailleur',
     loadChildren: () => import('./Profil/ProfilTravailleur/profil/profil.module').then( m => m.ProfilPageModule)
   },
+  {
+    path: 'competences',
+    loadChildren: () => import('./Competence/competences/competences.module').then( m => m.CompetencesPageModule)
+  },
+  {
+    path: 'detail-competence/:id',
+    loadChildren: () => import('./Competence/detail-competence/detail-competence.module').then( m => m.DetailCompetencePageModule)
+  },
+  {
+    path: 'ajout-competence',
+    loadChildren: () => import('./Competence/ajout-competence/ajout-competence.module').then( m => m.AjoutCompetencePageModule)
+  },
+  {
+    path: 'modifier-competence',
+    loadChildren: () => import('./Competence/modifier-competence/modifier-competence.module').then( m => m.ModifierCompetencePageModule)
+  },
+  {
+    path: 'supprimer-competence',
+    loadChildren: () => import('./Competence/supprimer-competence/supprimer-competence.module').then( m => m.SupprimerCompetencePageModule)
+  },
+  {
+    path: 'liste-service',
+    loadChildren: () => import('./ParcoursTravailleur/LesServices/liste-service/liste-service.module').then( m => m.ListeServicePageModule)
+  },
+  {
+    path: 'popupservice2',
+    loadChildren: () => import('./Popups/popupservice2/popupservice2.module').then( m => m.Popupservice2PageModule)
+  },
+  {
+    path: 'les-specialites',
+    loadChildren: () => import('./ParcoursTravailleur/LesSpecialites/les-specialites/les-specialites.module').then( m => m.LesSpecialitesPageModule)
+  },
+  {
+    path: 'les-travailleurs/:id',
+    loadChildren: () => import('./ParcoursTravailleur/LesTravailleurs/les-travailleurs/les-travailleurs.module').then( m => m.LesTravailleursPageModule)
+  },
+  {
+    path: 'ajout-demande2',
+    loadChildren: () => import('./Demande/ajout-demande2/ajout-demande2.module').then( m => m.AjoutDemande2PageModule)
+  },
+  {
+    path: 'travailleur-notify/:id',
+    loadChildren: () => import('./Notifications/travailleur-notify/travailleur-notify.module').then( m => m.TravailleurNotifyPageModule)
+  },
+  {
+    path: 'lire-notify-travailleur',
+    loadChildren: () => import('./Notifications/lire-notify-travailleur/lire-notify-travailleur.module').then( m => m.LireNotifyTravailleurPageModule)
+  },
 ];
 
 @NgModule({

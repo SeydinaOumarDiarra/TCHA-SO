@@ -7,17 +7,18 @@ import { environment } from 'src/environments/environment';
 import { DemandeService } from '../service/demande.service';
 
 @Component({
-  selector: 'app-ajout-demande',
-  templateUrl: './ajout-demande.page.html',
-  styleUrls: ['./ajout-demande.page.scss'],
+  selector: 'app-ajout-demande2',
+  templateUrl: './ajout-demande2.page.html',
+  styleUrls: ['./ajout-demande2.page.scss'],
 })
-export class AjoutDemandePage implements OnInit {
+export class AjoutDemande2Page implements OnInit {
   demande = {motif:''};
   clients: any;
   client: any;
   idTrav: any;
   travailleur: any;
   photo =  environment.PHOTO;
+
   constructor(
     public popover: PopoverController,
     public router: Router,
@@ -63,7 +64,7 @@ export class AjoutDemandePage implements OnInit {
                  'statutdemande': 'non_lu',
                  'statutdemandeclient': 'non_lu',
                  'travailleur': this.travailleur,
-                 'client':this.client,
+                 'travailleurclient':this.client,
                 }
   console.log(demande);
   
@@ -73,6 +74,5 @@ export class AjoutDemandePage implements OnInit {
     this.presentAlertSuccess();
   })
   }
-  
 
 }

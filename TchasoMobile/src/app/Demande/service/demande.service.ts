@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class DemandeService {
   host = environment.URL;
   notifyClient: any;
+  notifyTravailleur: any;
   constructor(private http: HttpClient) { }
 
   // Ajout demande
@@ -27,5 +28,8 @@ export class DemandeService {
 
   setNotifyClient(data: any){this.notifyClient = data}
   getNotifyClient(){return this.notifyClient}
+
+  setNotifyTravailleur(data: any){this.notifyTravailleur = data}
+  getNotifyTravailleur(){return this.notifyTravailleur}
 
 }
