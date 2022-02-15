@@ -52,4 +52,14 @@ public interface DemandeApi {
     })
     void delete_demande(@PathVariable("iddemande") Integer Id);
 
+
+    @GetMapping(value = APP_ROOT +  "/getNotifyClient/{id}")
+    List<Demande> getCpteNotifyClient(@PathVariable("id") Integer Id);
+
+    @GetMapping(value = APP_ROOT +  "/getAllNotifyClient/{id}")
+    List<Demande> getAllNotifyClient(@PathVariable("id") Integer Id);
+
+    @GetMapping(value = APP_ROOT +  "/getAllNotifyTravailleur/{id}")
+    List<Demande> getAllNotifyTravailleur(@PathVariable("id") Integer Id);
+
 }

@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 public class DemandeController implements DemandeApi {
-
     private DemandeService demandeService;
 
     @Autowired
@@ -42,5 +41,20 @@ public class DemandeController implements DemandeApi {
     @Override
     public void delete_demande(Integer Id) {
         demandeService.delete_demande(Id);
+    }
+
+    @Override
+    public List<Demande> getCpteNotifyClient(Integer Id) {
+        return demandeService.CpteNotifyClient(Id);
+    }
+
+    @Override
+    public List<Demande> getAllNotifyClient(Integer Id) {
+        return demandeService.AllNotifyClient(Id);
+    }
+
+    @Override
+    public List<Demande> getAllNotifyTravailleur(Integer Id) {
+        return demandeService.AllNotifyTravailleur(Id);
     }
 }

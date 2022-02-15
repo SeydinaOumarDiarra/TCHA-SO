@@ -17,4 +17,8 @@ public interface DemandeService {
 
     public void delete_demande(Integer Id);
 
+    public List<Demande> CpteNotifyClient(Integer Id);
+    public List<Demande> AllNotifyClient(Integer Id);
+    public List<Demande> AllNotifyTravailleur(Integer Id);
+
 }

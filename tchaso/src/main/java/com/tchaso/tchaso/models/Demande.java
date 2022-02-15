@@ -21,8 +21,14 @@ public class Demande {
     @Column(name = "statutdemande")
     private String statutdemande;
 
+    @Column(name = "statutdemandeclient")
+    private String statutdemandeclient;
+
     @Column(name = "motifdemande")
     private String motifdemande;
+
+    @Column(name = "isaccepet")
+    private Boolean  isaccept;
 
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.actif;
@@ -35,4 +41,7 @@ public class Demande {
 
     @OneToOne
     private Travailleur travailleur;
+
+    @OneToOne
+    private Travailleur travailleurclient;
 }

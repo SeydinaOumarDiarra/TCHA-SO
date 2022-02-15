@@ -30,6 +30,8 @@ public class DemandeServiceImp implements DemandeService {
         dmd.setMotifdemande(demande.getMotifdemande());
         dmd.setStatutdemande(demande.getStatutdemande());
         dmd.setDatedemande(demande.getDatedemande());
+        dmd.setStatutdemandeclient(demande.getStatutdemandeclient());
+        dmd.setIsaccept(demande.getIsaccept());
         return demandeRepository.save(dmd);
     }
 
@@ -54,5 +56,32 @@ public class DemandeServiceImp implements DemandeService {
             return ;
         }
         demandeRepository.delete_demande(Id);
+    }
+
+    @Override
+    public List<Demande> CpteNotifyClient(Integer Id) {
+        if (Id == null ){
+            log.error("client id est null");
+            return null;
+        }
+        return demandeRepository.CpteNotifyClient(Id);
+    }
+
+    @Override
+    public List<Demande> AllNotifyClient(Integer Id) {
+        if (Id == null ){
+            log.error("client id est null");
+            return null;
+        }
+        return demandeRepository.AllNotifyClient(Id);
+    }
+
+    @Override
+    public List<Demande> AllNotifyTravailleur(Integer Id) {
+        if (Id == null ){
+            log.error("travailleur id est null");
+            return null;
+        }
+        return demandeRepository.AllNotifyTravailleur(Id);
     }
 }
