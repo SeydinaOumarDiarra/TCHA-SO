@@ -27,23 +27,24 @@ ion-card{
     box-shadow: 5px 5px 5px #684f0eed;
 }
 ion-button{
-    --border-radius: 0px 50px 50px 0px;
+    --border-radius: 50px 0px 0px 50px;
     --display: block;
     --margin: 0 auto 0px;
     color: #684f0e;
     font-size: 15px;
-    width: 135px;
+    width: 120px;
+    float: right;
     text-transform: lowercase;
 }
 .btn-inscription{
     --background: #684f0e;
     color: #ffff;
     --background-hover: none;
-    width: 120px;
-    float: right;
-    text-align: left;
+    width: 130px;
+    float: left;
+    text-align: center;
     --margin: 0px 0px 0px 30px;
-    --border-radius: 50px 0px 0px 50px;
+    --border-radius: 0px 50px 50px 0px;
 }
 ion-icon{
     font-size: 20px;

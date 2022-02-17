@@ -20,11 +20,11 @@
     <a (click)="reset()" style="margin: 0px 0px 0px 110px; font-size: 14px; color: #684f0e;">Mot de passe oublié ?</a>
     <ion-row>
       <ion-col size="6">
-        <ion-button type="submit" [disabled]="form.invalid" color="warning" expand="block" (click)="onLogin(form)">Se connecter</ion-button>
+        <ion-button expand="block" (click)="onSignIn()" class="btn-inscription">S'inscrire</ion-button>
       </ion-col>
      
       <ion-col size="6">
-        <ion-button expand="block" (click)="onSignIn()" class="btn-inscription">S'inscrire</ion-button>
+        <ion-button type="submit" [disabled]="form.invalid" color="warning" expand="block" (click)="onLogin(form)">Se connecter</ion-button>
       </ion-col>
     </ion-row> 
   </form>

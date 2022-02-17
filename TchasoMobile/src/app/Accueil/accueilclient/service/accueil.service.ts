@@ -41,6 +41,26 @@ export class AccueilService {
     return this.http.get(this.host+`/getAllNotifyTravailleur/${id}`);
   }
 
+  // Modifier client
+  public updateClient(id: any, utilisateur: any) {
+    return this.http.put(this.host+`/updateclient/${id}`, utilisateur);
+  }
+
+  // Modifier travailleur
+  public updateTravailleur(id: any, utilisateur: any) {
+    return this.http.put(this.host+`/updatetravailleur/${id}`, utilisateur);
+  }
+
+  // Verifier login client
+  public checkLogClient(login:any) {
+    return this.http.get(this.host+`/logclient/${login}`);
+  }
+
+  // Verifier login travailleur
+  public checkLogTravailleur(login:any) {
+    return this.http.get(this.host+`/logtravailleur/${login}`);
+  }
+
   setByServ(data: any){
     this.serv = data;
   }

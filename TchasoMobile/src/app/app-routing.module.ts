@@ -107,6 +107,22 @@ const routes: Routes = [
     path: 'lire-notify-travailleur',
     loadChildren: () => import('./Notifications/lire-notify-travailleur/lire-notify-travailleur.module').then( m => m.LireNotifyTravailleurPageModule)
   },
+  {
+    path: 'inscriptiontravailleur-suite',
+    loadChildren: () => import('./Inscription/inscriptiontravailleur-suite/inscriptiontravailleur-suite.module').then( m => m.InscriptiontravailleurSuitePageModule)
+  },
+  {
+    path: 'profil-client',
+    loadChildren: () => import('./Profil/ProfilClient/profil-client/profil-client.module').then( m => m.ProfilClientPageModule)
+  },
+  {
+    path: 'modifier-pwd',
+    loadChildren: () => import('./Profil/ChangePswrd/modifier-pwd/modifier-pwd.module').then( m => m.ModifierPwdPageModule)
+  },
+  {
+    path: 'modifier-infos',
+    loadChildren: () => import('./Profil/ChangeInfos/modifier-infos/modifier-infos.module').then( m => m.ModifierInfosPageModule)
+  },
 ];
 
 @NgModule({

@@ -23,16 +23,16 @@ export class AppComponent {
         url : "/accueil"
       },
       {
-        title : "services",
+        title : "A propos",
+        icon:  "bag-handle-outline",
+        url : "/reset"
+      },
+      {
+        title : "Services",
         icon:  "person-circle-outline",
         url : "/profile"
       },
      
-      {
-        title : "Reset Password",
-        icon:  "bag-handle-outline",
-        url : "/reset"
-      },
       {
         title : "Déconnexion",
         icon: "log-out-outline",

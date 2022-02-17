@@ -16,12 +16,12 @@
     <ion-list>
       <ion-item  *ngIf="noti?.travailleurclient !== null">
         <ion-avatar slot="start">
-          <ion-img src="{{image}} + {{noti?.travailleurclient.id}}"></ion-img>
+          <ion-img src="{{image}} + {{noti?.travailleur?.id}}"></ion-img>
         </ion-avatar>
         <ion-label>
-          <h2>{{noti?.travailleurclient.nom}} {{noti?.travailleurclient.prenom}}</h2>
+          <h2>{{noti?.travailleur.nom}} {{noti?.travailleur.prenom}}</h2>
           <h3>
-            Travailleur - {{noti?.travailleurclient.specialite.nomspe}}
+            Travailleur - {{noti?.travailleur.specialite.nomspe}}
             <span>{{noti?.datedemande| date: 'dd-MM-Y'}}</span>
           </h3>
         </ion-label>
@@ -41,14 +41,40 @@
     </ion-list>
     <ion-row>
       <ion-col size="1"></ion-col>
-      <ion-col size="10">
+      <ion-col size="10" *ngIf="noti?.client !== null">
         {{noti?.motifdemande}}
       </ion-col>
+      <ion-col size="10" *ngIf="noti?.travailleurclient !== null">
+        <p *ngIf="noti?.isaccept === true">
+          Salut {{noti?.travailleurclient.nom}} {{noti?.travailleurclient.prenom}}, je confirme votre demande.
+        <br>Merci pour votre consideration.
+        </p>
+        <p *ngIf="noti?.isaccept === false">
+          Salut {{noti?.travailleurclient.nom}} {{noti?.travailleurclient.prenom}}, désolé je ne suis pas en mesure de satisfaire votre demande.
+        <br>Merci pour votre consideration.
+        </p>
+      </ion-col>
     </ion-row><br><br>
-    <ion-row>
+    <ion-row *ngIf="noti?.client !== null">
       <ion-col size="1"></ion-col>
       <ion-col size="10">
-        <ion-row>
+        <ion-row  *ngIf="noti?.isaccept === true">
+          <ion-col size="6">
+            <ion-button color="warning" (click)="confirmer(noti)" style="float: right;"disabled="disabled">Confirmer</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" (click)="decliner(noti)">Décliner</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row  *ngIf="noti?.isaccept === false">
+          <ion-col size="6">
+            <ion-button color="warning" (click)="confirmer(noti)" style="float: right;">Confirmer</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" (click)="decliner(noti)" disabled="disabled">Décliner</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row  *ngIf="noti?.isaccept === null">
           <ion-col size="6">
             <ion-button color="warning" (click)="confirmer(noti)" style="float: right;">Confirmer</ion-button>
           </ion-col>

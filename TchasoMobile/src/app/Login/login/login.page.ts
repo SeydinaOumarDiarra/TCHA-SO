@@ -24,9 +24,8 @@ export class LoginPage implements OnInit {
 
   async presentAlertIdentifiant(){
     const alert = await this.alertController.create({
-      header:'alert',
-      subHeader: 'Identifiant incorrect',
-      message: 'Mot de passe ou nom d\'utilisateur incorrect !',
+      subHeader: 'Erreur',
+      message: 'indentifiants incorrects ou compte inactif  !',
       buttons: ['ok']
     });
     await alert.present();
@@ -40,13 +39,13 @@ export class LoginPage implements OnInit {
   });
   await load.present();
   this.service.logTravailleur(form.value['username'], form.value['password'], 'travailleur').subscribe((travailleur: any)=>{
-    if(travailleur !== null){
+    if(travailleur !== null && travailleur.etat === 'actif'){
       load.dismiss();
       localStorage.setItem('user', JSON.stringify(travailleur));
       this.router.navigate(['/accueil']);
     }else{
       this.service.logClient(form.value['username'], form.value['password'], 'client').subscribe((client: any)=>{
-        if(client !== null){
+        if(client !== null && client.etat === 'actif'){
           load.dismiss();
           localStorage.setItem('user', JSON.stringify(client));
           this.router.navigate(['/accueilclient']);

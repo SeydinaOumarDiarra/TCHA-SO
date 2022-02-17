@@ -12,7 +12,7 @@ import { LireNotifyClientPage } from '../lire-notify-client/lire-notify-client.p
   styleUrls: ['./client-notify.page.scss'],
 })
 export class ClientNotifyPage implements OnInit {
-notify: any;
+notify: any = [];
 id: any;
 image = environment.PHOTO;
   constructor(
@@ -25,8 +25,11 @@ image = environment.PHOTO;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.serviceA.getAllNotifyClient(this.id).subscribe((dt:any)=>{
-      this.notify = dt;
-      console.log(dt);
+      for(let i=0; i<dt.length; i++){
+        if(dt[i].etat == 'actif'){
+          this.notify.push(dt[i]);
+        }
+      }
     });
     this.image;
   }

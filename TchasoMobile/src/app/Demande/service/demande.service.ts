@@ -26,6 +26,11 @@ export class DemandeService {
     return this.http.put(this.host+`/updatedemande/${id}`, demande);
   }
 
+  // Modifier demande
+  public SupprimerDemande(id: any) {
+    return this.http.delete(this.host+`/demande/delette/${id}`);
+  }
+
   setNotifyClient(data: any){this.notifyClient = data}
   getNotifyClient(){return this.notifyClient}
 

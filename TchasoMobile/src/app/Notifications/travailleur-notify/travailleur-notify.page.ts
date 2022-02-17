@@ -11,9 +11,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./travailleur-notify.page.scss'],
 })
 export class TravailleurNotifyPage implements OnInit {
-  notify: any;
+  notify: any=[];
   id: any;
   image = environment.PHOTO;
+  customers: any;
+  customer: any;
 
   constructor(
     public serviceA: AccueilService,
@@ -24,10 +26,15 @@ export class TravailleurNotifyPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.customers =  localStorage.getItem('user');
+    this.customer = JSON.parse(this.customers);
     this.id = this.route.snapshot.params['id'];
-    this.serviceA.getAllNotifyTravailleur(this.id).subscribe((dt:any)=>{
-      this.notify = dt;
-      console.log(dt);
+    this.serviceA.getAllNotifyTravailleur(this.customer.id).subscribe((dt:any)=>{
+      for(let i=0; i<dt.length; i++){
+        if(dt[i].etat == 'actif'){
+          this.notify.push(dt[i]);
+        }
+      }
     });
     this.image;
   }

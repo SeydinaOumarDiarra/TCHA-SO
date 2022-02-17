@@ -23,7 +23,7 @@
     </div>
   </div>
   <ion-row>
-    <ion-col size="10">
+    <ion-col size="12">
       <ion-card>
         <ion-item lines="none">
           <ion-avatar slot="start">
@@ -38,21 +38,21 @@
           <ion-label text-wrap>{{travailleur?.ville.nomville}}, {{travailleur?.quartier}}</ion-label>
         </ion-item>
       </ion-card>
-
-      
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-card-header>
-      <ion-card-title style="font-size: 25px;  font-weight: bold;">Compétences</ion-card-title>
-    </ion-card-header>
+    <ion-col size="1"></ion-col>
+    <ion-col size="10">
+      <ion-card-header class="cptce">
+        <ion-card-title style="font-size: 18px;  font-weight: bold; color:white">Mes compétences</ion-card-title>
+      </ion-card-header>
+    </ion-col>
   </ion-row>
   <ion-row *ngFor="let c of competences">
     <ion-col size="12">
         <ion-card-header>
           <ion-card-title>
-           
-            <p style="font-size: 20px; color: #684f0e;">
+            <p style="font-size: 15px; color: #684f0e;">
               <ion-icon name="checkmark-outline" style="font-weight: bold;"></ion-icon>
               {{c.nomCom}}
             </p>
@@ -62,13 +62,14 @@
           {{c.description}}
         </ion-card-content>
     </ion-col>
+    <ion-item-divider></ion-item-divider>
   </ion-row>
  
-  <ion-fab vertical="center" horizontal="end" slot="fixed" class="watts">
+  <!-- <ion-fab vertical="center" horizontal="end" slot="fixed" class="watts">
       <ion-fab-button  href="https://wa.me/+223{{travailleur?.numWhasapp}}?text=Bonjour,%je%20suis%20intéressé%20par%20votre%20service">
           <img src="../../../assets/icon/wattsapp.png" style="width: 40px; height: 40px;" (click)="contact()"/>
       </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
   <ion-fab vertical="center" horizontal="end" slot="fixed" class="pencil">
     <ion-fab-button  (click)="addDemande(travailleur?.id)">
       <img src="../../../assets/icon/pencil.png" style="width: 35px; height: 35px;"/>

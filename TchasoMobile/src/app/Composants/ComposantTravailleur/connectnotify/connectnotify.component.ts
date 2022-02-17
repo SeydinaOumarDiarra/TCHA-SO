@@ -31,7 +31,7 @@ export class ConnectnotifyComponent implements OnInit {
       }
       console.log("demande ",dat);
       
-      this.notifyTravailleur = dat[0].client.id;     
+      this.notifyTravailleur = dat[0].travailleur.id;     
       this.nbreNotify = this.tabNotify.length;
     })
   }
