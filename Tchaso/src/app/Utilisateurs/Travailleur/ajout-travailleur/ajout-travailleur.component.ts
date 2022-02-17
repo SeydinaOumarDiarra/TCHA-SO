@@ -113,24 +113,27 @@ export class AjoutTravailleurComponent implements OnInit {
           'nom': form.value['nom'], 'prenom': form.value['prenom'], 'administrateur': this.adminConnect
         }
         this.serviceT.addTravailleur(this.travailleurs, this.photo[0], this.piece[0]).subscribe((tr:any)=>{
-          this.serviceS.detailSpecialite(form.value['specialite']).subscribe((spec: any)=>{this.specialiteId = spec});
-          this.serviceVille.detailVille(form.value['ville']).subscribe((ville: any)=>{this.villeId = ville});
-
-          tr.nom = form.value['nom'],
-          tr.prenom = form.value['prenom'],
-          tr.genre = form.value['genre'],
-          tr.type = 'travailleur',
-          tr.etat = 'actif',
-          tr.administrateur = this.adminConnect,
-          tr.login = form.value['username'],
-          tr.password = "Tcha"+ form.value['prenom'].substr(0, 3)+ form.value['nom'].substr(0, 3),
-          tr.quartier = form.value['quartier'],
-          tr.numWhasapp = form.value['numWhasapp'],
-          tr.specialite = this.specialiteId,
-          tr.ville = this.villeId
-
-          let trav = tr;
-          this.serviceT.updateTravailleur(trav.id, trav).subscribe((worker: any)=>{this.showToastSuccess();})
+          this.serviceS.detailSpecialite(form.value['specialite']).subscribe((spec: any)=>{
+            this.specialiteId = spec;
+            this.serviceVille.detailVille(form.value['ville']).subscribe((ville: any)=>{
+              this.villeId = ville;
+              tr.nom = form.value['nom'],
+              tr.prenom = form.value['prenom'],
+              tr.genre = form.value['genre'],
+              tr.type = 'travailleur',
+              tr.etat = 'actif',
+              tr.administrateur = this.adminConnect,
+              tr.login = form.value['username'],
+              tr.password = "Tcha"+ form.value['prenom'].substr(0, 3)+ form.value['nom'].substr(0, 3),
+              tr.quartier = form.value['quartier'],
+              tr.numWhasapp = form.value['numWhasapp'],
+              tr.specialite = this.specialiteId,
+              tr.ville = this.villeId
+    
+              let trav = tr;
+              this.serviceT.updateTravailleur(trav.id, trav).subscribe((worker: any)=>{this.showToastSuccess();})
+            });
+          });
         })
       }
     })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ServiceutilisateurService } from '../service/serviceutilisateur.service';
 
 @Component({
@@ -11,18 +12,20 @@ export class UtilisateurComponent implements OnInit {
   utilisateurs: any;
   admins: any;
   workers: any;
-  customers: any;
+  customers: any ;
   adminEtat = false;
   clientEtat = false;
   travailleurEtat = false;
   travailleurs: any;
   clients: any;
+  photo = environment.PHOTO;
 
   constructor(
     private userService: ServiceutilisateurService,
   ) { }
 
   ngOnInit(): void {
+    this.photo
     this.userService.getAllAdmins().subscribe((data: any)=>{
       this.admins = data;
   });

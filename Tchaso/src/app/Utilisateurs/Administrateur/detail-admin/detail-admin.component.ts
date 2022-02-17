@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { ServiceutilisateurService } from '../../service/serviceutilisateur.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { ServiceutilisateurService } from '../../service/serviceutilisateur.serv
 export class DetailAdminComponent implements OnInit {
   admin: any;
   id: any;
+  
   constructor(
     private service: ServiceutilisateurService,
     private route: ActivatedRoute,
@@ -19,7 +21,7 @@ export class DetailAdminComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.service.detailAdmin(this.id).subscribe((data: any)=>{
       this.admin = data;
-      })
+      });
   }
 
 }

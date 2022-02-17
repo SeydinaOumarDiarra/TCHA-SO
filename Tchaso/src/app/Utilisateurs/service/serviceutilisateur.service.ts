@@ -68,5 +68,8 @@ export class ServiceutilisateurService {
     return this.http.delete(this.host+"/client/delette/"+id);
   }
 
-
+  // Gestion des demandes
+  public getAllDemandes(){
+    return this.http.get(this.host+"/demande/all")
+  }
 }

@@ -30,6 +30,11 @@ import { DetailClientComponent } from './Utilisateurs/Client/detail-client/detai
 import { DetailAdminComponent } from './Utilisateurs/Administrateur/detail-admin/detail-admin.component';
 import { DetailSpecialiteComponent } from './Specialites/detail-specialite/detail-specialite.component';
 import { ProfilComponent } from './Profil/profil/profil.component';
+import { DetailTravailleurComponent } from './Utilisateurs/Travailleur/detail-travailleur/detail-travailleur.component';
+import { AjoutCompetenceComponent } from './Competence/ajout-competence/ajout-competence.component';
+import { ModifierCompetenceComponent } from './Competence/modifier-competence/modifier-competence.component';
+import { TravailleursAttenteComponent } from './Utilisateurs/Travailleur/travailleurs-attente/travailleurs-attente.component';
+import { StatistiquesComponent } from './Statistique/statistiques/statistiques.component';
 
 
 @NgModule({
@@ -57,6 +62,11 @@ import { ProfilComponent } from './Profil/profil/profil.component';
     DetailAdminComponent,
     DetailSpecialiteComponent,
     ProfilComponent,
+    DetailTravailleurComponent,
+    AjoutCompetenceComponent,
+    ModifierCompetenceComponent,
+    TravailleursAttenteComponent,
+    StatistiquesComponent,
   ],
   imports: [
     BrowserModule,

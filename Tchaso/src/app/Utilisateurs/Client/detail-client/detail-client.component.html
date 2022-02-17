@@ -43,9 +43,14 @@
                             <button class="btn btn-orange" style="background-color: #684f0e; color: white;" [routerLink]="['/modifierclient', client.id]">
                                 <i class="fa fa-edit" aria-hidden="true"></i> Modifier</button>
                         </div>
-                        <div class="col-md-6 col-sm-6 text-center">
-                            <button class="btn btn-orange" style="background-color: #e75500; color: white;">
-                                <i class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i> Supprimer</button>
+                        <div class="col-md-6 col-sm-6 text-center" *ngIf="client?.etat === 'actif'">
+                            <button class="btn btn-orange" style="background-color: orangered; color: white;" (click)="desactiver(client.id)">
+                                <i class="fa fa-trash" aria-hidden="true"></i> Désactiver</button>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 text-center" *ngIf="client?.etat === 'inactif'">
+                            <button class="btn btn-orange" style="background-color: orangered; color: white;" (click)="activer(client.id)">
+                                <i class=" fas fa-check" aria-hidden="true"></i> Activer</button>
                         </div>
                     </div>
                 </div>

@@ -146,7 +146,7 @@
                          <table class="table no-wrap" *ngIf="travailleurEtat === true">
                             <thead>
                                 <tr>
-                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Photo</b></th>
                                     <th class="border-top-0"><b>Nom</b></th>
                                     <th class="border-top-0"><b>Prénom</b></th>
                                     <th class="border-top-0"><b>Spécialité</b></th>
@@ -155,16 +155,15 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
-                                    <td class="txt-oflo">{{liste?.id}}</td>
+                                    <td class="txt-oflo"><img src="{{photo}} + {{liste.id}}" style="height: 25px; border-radius: 50px;"></td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
                                     <td class="txt-oflo">{{liste?.specialite.nomspe}}</td>
-                                    <th class="border-top-0"><b>Action</b></th>
                                     <td>
                                         <span class="text-success alignement">
                                             <a > <i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
-                                            <a ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailtravailleur', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>

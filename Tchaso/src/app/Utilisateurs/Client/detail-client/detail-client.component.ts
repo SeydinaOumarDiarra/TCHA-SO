@@ -13,12 +13,33 @@ export class DetailClientComponent implements OnInit {
   constructor(
     private service: ServiceutilisateurService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.service.detailClient(this.id).subscribe((data: any)=>{
     this.client = data;
+    })
+  }
+
+  activer(data: any){
+    this.client.etat = "actif";
+    this.service.updateClient(this.client.id, this.client).subscribe((client: any)=>{
+      let url: string = "/detail-client/" + client.id
+    //window.location.reload();
+    this.router.navigateByUrl(url, {skipLocationChange: true}).then(()=>
+    this.router.navigate(['detail-client', client.id]));
+    })
+    
+  }
+  desactiver(data: any){
+    this.client.etat = "inactif";
+    this.service.updateClient(this.client.id, this.client).subscribe((client: any)=>{
+      let url: string = "/detail-client/" + client.id
+    //window.location.reload();
+    this.router.navigateByUrl(url, {skipLocationChange: true}).then(()=>
+    this.router.navigate(['detail-client', client.id]));
     })
   }
 
