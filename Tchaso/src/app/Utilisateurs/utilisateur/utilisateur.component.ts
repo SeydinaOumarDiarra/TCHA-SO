@@ -31,6 +31,7 @@ export class UtilisateurComponent implements OnInit {
   });
   this.userService.getAllTravailleurs().subscribe((data: any)=>{
     this.workers = data;
+    
   });
   this.userService.getAllClients().subscribe((data: any)=>{
     this.customers = data;

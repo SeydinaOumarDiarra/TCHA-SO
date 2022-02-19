@@ -18,6 +18,7 @@ import { AjoutAdminComponent } from './Utilisateurs/Administrateur/ajout-admin/a
 import { DetailAdminComponent } from './Utilisateurs/Administrateur/detail-admin/detail-admin.component';
 import { ModifierAdminComponent } from './Utilisateurs/Administrateur/modifier-admin/modifier-admin.component';
 import { DetailClientComponent } from './Utilisateurs/Client/detail-client/detail-client.component';
+import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/modifier-client.component';
 import { AjoutTravailleurComponent } from './Utilisateurs/Travailleur/ajout-travailleur/ajout-travailleur.component';
 import { DetailTravailleurComponent } from './Utilisateurs/Travailleur/detail-travailleur/detail-travailleur.component';
 import { ModifierTravailleurComponent } from './Utilisateurs/Travailleur/modifier-travailleur/modifier-travailleur.component';
@@ -32,24 +33,24 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[GuardService] },
 
   // Gestion services
-  { path: 'services', component: ServiceComponent },
-  { path: 'ajoutservice', component: AjoutServiceComponent },
-  { path: 'modifierservice/:id', component: ModifierServiceComponent },
+  { path: 'services', component: ServiceComponent, canActivate:[GuardService] },
+  { path: 'ajoutservice', component: AjoutServiceComponent, canActivate:[GuardService] },
+  { path: 'modifierservice/:id', component: ModifierServiceComponent, canActivate:[GuardService] },
 
   // Gestion specialités
-  { path: 'specialites', component: SpecialiteComponent },
-  { path: 'ajoutspecialite', component: AjoutSpecialiteComponent },
-  { path: 'modifierspecialite/:id', component: ModifierSpecialiteComponent },
-  { path: 'detailspecialite/:id', component: DetailSpecialiteComponent },
+  { path: 'specialites', component: SpecialiteComponent, canActivate:[GuardService] },
+  { path: 'ajoutspecialite', component: AjoutSpecialiteComponent, canActivate:[GuardService] },
+  { path: 'modifierspecialite/:id', component: ModifierSpecialiteComponent, canActivate:[GuardService] },
+  { path: 'detailspecialite/:id', component: DetailSpecialiteComponent, canActivate:[GuardService] },
 
   // Gestion villes
-  { path: 'villes', component: VilleComponent },
-  { path: 'ajoutville', component: AjoutVilleComponent },
-  { path: 'modifierville/:id', component: ModifierVilleComponent },
+  { path: 'villes', component: VilleComponent, canActivate:[GuardService] },
+  { path: 'ajoutville', component: AjoutVilleComponent, canActivate:[GuardService] },
+  { path: 'modifierville/:id', component: ModifierVilleComponent, canActivate:[GuardService] },
 
   // Gestion utilisateurs
   { path: 'utilisateurs', component: UtilisateurComponent },
-  { path: 'profil', component: ProfilComponent },
+  { path: 'profil', component: ProfilComponent, canActivate:[GuardService] },
 
   { path: 'ajoutadmin', component: AjoutAdminComponent },
   { path: 'modifieradmin/:id', component: ModifierAdminComponent },
@@ -60,14 +61,15 @@ const routes: Routes = [
   { path: 'detailtravailleur/:id', component: DetailTravailleurComponent },
   { path: 'travailleur-attente', component: TravailleursAttenteComponent },
 
+  { path: 'modifierclient/:id', component: ModifierClientComponent },
   { path: 'detailclient/:id', component: DetailClientComponent },
 
   // Gestion competences
-  { path: 'ajoutcompetence/:id', component: AjoutCompetenceComponent },
-  { path: 'modifiercompetence/:id', component: ModifierCompetenceComponent },
+  { path: 'ajoutcompetence/:id', component: AjoutCompetenceComponent, canActivate:[GuardService] },
+  { path: 'modifiercompetence/:id', component: ModifierCompetenceComponent, canActivate:[GuardService] },
 
    // Gestion statistiques
-   { path: 'statistiques', component: StatistiquesComponent },
+   { path: 'statistiques', component: StatistiquesComponent, canActivate:[GuardService] },
 ];
 
 @NgModule({

@@ -59,7 +59,7 @@ export class ServiceutilisateurService {
     return this.http.get(this.host+"/client/all")
   }
   public updateClient(id: any, utilisateur: any) {
-    return this.http.put(this.host+`/updateclient${id}`, utilisateur);
+    return this.http.put(this.host+`/updateclient/${id}`, utilisateur);
   }
   detailClient(id:any){
     return this.http.get(this.host+"/client/"+id)

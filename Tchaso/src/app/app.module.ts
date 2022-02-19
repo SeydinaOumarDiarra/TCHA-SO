@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from "primeng/dialog";
+import { ButtonModule } from "primeng/button";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +37,7 @@ import { AjoutCompetenceComponent } from './Competence/ajout-competence/ajout-co
 import { ModifierCompetenceComponent } from './Competence/modifier-competence/modifier-competence.component';
 import { TravailleursAttenteComponent } from './Utilisateurs/Travailleur/travailleurs-attente/travailleurs-attente.component';
 import { StatistiquesComponent } from './Statistique/statistiques/statistiques.component';
+import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/modifier-client.component';
 
 
 @NgModule({
@@ -67,6 +70,7 @@ import { StatistiquesComponent } from './Statistique/statistiques/statistiques.c
     ModifierCompetenceComponent,
     TravailleursAttenteComponent,
     StatistiquesComponent,
+    ModifierClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,8 @@ import { StatistiquesComponent } from './Statistique/statistiques/statistiques.c
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    DialogModule, 
+    ButtonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
