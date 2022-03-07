@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
 import { ChartsModule  } from 'ng2-charts';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import {ToastModule} from 'primeng/toast';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +47,7 @@ import { CorbeilSpecialiteComponent } from './Corbeil/corbeil-specialite/corbeil
 import { CorbeilVilleComponent } from './Corbeil/corbeil-ville/corbeil-ville.component';
 import { CorbeilUtilisateurComponent } from './Corbeil/corbeil-utilisateur/corbeil-utilisateur.component';
 import { DetatilServiceComponent } from './Services/detatil-service/detatil-service.component';
+import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout2-specialite.component';
 
 
 @NgModule({
@@ -83,6 +86,7 @@ import { DetatilServiceComponent } from './Services/detatil-service/detatil-serv
     CorbeilVilleComponent,
     CorbeilUtilisateurComponent,
     DetatilServiceComponent,
+    Ajout2SpecialiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,9 +98,10 @@ import { DetatilServiceComponent } from './Services/detatil-service/detatil-serv
     ButtonModule,
     ChartsModule,
     BrowserAnimationsModule,
+    ToastModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

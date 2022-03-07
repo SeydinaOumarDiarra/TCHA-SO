@@ -8,7 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class ServivesserviceService {
   host = environment.URL
+  idservice: any;
   constructor(private http: HttpClient) { }
+
+  setIdService(serv: any){this.idservice = serv}
+  getIdService(){return this.idservice}
 
   public addService(service: any, image: File): Observable<any> {
     const formData: FormData = new FormData();
