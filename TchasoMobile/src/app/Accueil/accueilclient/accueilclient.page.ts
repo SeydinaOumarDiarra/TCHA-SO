@@ -12,7 +12,7 @@ import { AccueilService } from './service/accueil.service';
 })
 export class AccueilclientPage implements OnInit {
 
-listeServices: any;
+listeServices: any=[];
 iconimage = environment.ICONIMAGE;
 
   public slideOptsa = {
@@ -187,7 +187,12 @@ iconimage = environment.ICONIMAGE;
 
   getAllService(){
     this.service.getAllServices().subscribe((data:any)=> {
-      this.listeServices = data;
+      for(let i=0; i<data.length; i++){
+        if(data[i].etat == 'actif'){
+          this.listeServices.push(data[i]);
+        }
+      }
+     
     });
 
   }

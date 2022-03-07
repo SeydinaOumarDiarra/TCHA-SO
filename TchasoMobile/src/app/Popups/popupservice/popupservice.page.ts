@@ -14,6 +14,7 @@ import { PopupService } from '../service/popup.service';
 export class PopupservicePage implements OnInit {
 serviceP: any;
 serv: any;
+dats: any=[];
 travails: any = [];
 travaileurSp: TravailleurSpecialite[] = new Array;
 cpte = 0;
@@ -28,17 +29,30 @@ iconimage = environment.ICONIMAGE;
   ngOnInit() {
     this.serv = this.serviceAccueil.getByServ();    
     this.serviceP = this.serviceAccueil.getByServicePopup();
-
+    console.log(this.serviceP);
+    
       for(let i=0; i<this.serviceP.length; i++){
-        let t = new TravailleurSpecialite();
-        this.serviceAccueil.getTravailleur(this.serviceP[i].id).subscribe((dat: any)=>{
-          console.log(dat.length);
-          t.id = this.serviceP[i].id;
-          t.specialite = this.serviceP[i].nomspe;
-          t.total = dat.length;
-          this.travaileurSp.push(t);
-
-        })
+        if(this.serviceP[i].etat == "actif"){
+          let t = new TravailleurSpecialite();
+          this.serviceAccueil.getTravailleur(this.serviceP[i].id).subscribe((dat: any)=>{
+            
+              console.log(dat);
+              for(let j=0; j<dat.length; j++){
+                if(dat[j].etat == 'actif'){
+                  this.dats.push(dat[j]);
+                }
+              }
+              console.log(this.dats.length);
+              
+              t.id = this.serviceP[i].id;
+              t.specialite = this.serviceP[i].nomspe;
+              t.total = dat.length;
+  
+              this.travaileurSp.push(t);
+           
+          })
+        }
+       
       }
       console.log(this.travaileurSp);
       
