@@ -56,8 +56,9 @@
                                     <td class="txt-oflo">{{liste.description}}</td>
                                     <td>
                                         <span class="text-success alignement">
-                                            <a [routerLink]="['/modifierservice', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
-                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
+                                            <a [routerLink]="['/modifierservice', liste.id]"> <i class="fa fa-edit" style="color: #f5bb20;" aria-hidden="true"></i></a>
+                                            <a (click)="alertConfirmation(liste.id)"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <a [routerLink]="['/detailservice', liste.id]"><i style="color: #684f0e;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>

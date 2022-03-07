@@ -17,6 +17,7 @@ export class AjoutServiceComponent implements OnInit {
   imgURL: any;
   icon: File | any;
   public message: any;
+  messageNomService: any;
 
   constructor(
     private service: ServivesserviceService,
@@ -61,7 +62,9 @@ export class AjoutServiceComponent implements OnInit {
   AjoutService(form: NgForm) {
     const formData: FormData = new FormData();
     formData.append("image", this.icon[0], this.icon[0].name);
-    
+    if ((form.value['nom'].length > 50)){
+      this.messageNomService = "Le nom du service ne doit pas dépasser 50 caractères"
+    }
     this.services = {'nomser': form.value['nom'], 'description': form.value['description'], 'administrateur': this.adminConnect}
     this.service.addService(this.services, this.icon[0]).subscribe((data: any)=> {
       

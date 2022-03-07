@@ -54,8 +54,8 @@
                                     <td class="txt-oflo">{{liste.nomville}}</td>
                                     <td>
                                         <span class="text-success alignement">
-                                            <a [routerLink]="['/modifierville', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>
-                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true" onclick ="return(confirm('Etes-vous certain de vouloir supprimer ce service ?'));"></i></a>
+                                            <a [routerLink]="['/modifierville', liste.id]"> <i class="fa fa-edit" style="color: #f5bb20;" aria-hidden="true"></i></a>
+                                            <a (click)="alertConfirmation(liste.id)"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
                                         </span>
                                     </td>
                                 </tr>

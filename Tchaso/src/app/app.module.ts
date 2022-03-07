@@ -7,6 +7,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
+import { ChartsModule  } from 'ng2-charts';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +40,11 @@ import { ModifierCompetenceComponent } from './Competence/modifier-competence/mo
 import { TravailleursAttenteComponent } from './Utilisateurs/Travailleur/travailleurs-attente/travailleurs-attente.component';
 import { StatistiquesComponent } from './Statistique/statistiques/statistiques.component';
 import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/modifier-client.component';
+import { CorbeilComponent } from './Corbeil/corbeil/corbeil.component';
+import { CorbeilSpecialiteComponent } from './Corbeil/corbeil-specialite/corbeil-specialite.component';
+import { CorbeilVilleComponent } from './Corbeil/corbeil-ville/corbeil-ville.component';
+import { CorbeilUtilisateurComponent } from './Corbeil/corbeil-utilisateur/corbeil-utilisateur.component';
+import { DetatilServiceComponent } from './Services/detatil-service/detatil-service.component';
 
 
 @NgModule({
@@ -71,6 +78,11 @@ import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/m
     TravailleursAttenteComponent,
     StatistiquesComponent,
     ModifierClientComponent,
+    CorbeilComponent,
+    CorbeilSpecialiteComponent,
+    CorbeilVilleComponent,
+    CorbeilUtilisateurComponent,
+    DetatilServiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,12 +90,13 @@ import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/m
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    DialogModule, 
+    DialogModule,
     ButtonModule,
+    ChartsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,10 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
 import { AjoutCompetenceComponent } from './Competence/ajout-competence/ajout-competence.component';
 import { ModifierCompetenceComponent } from './Competence/modifier-competence/modifier-competence.component';
+import { CorbeilSpecialiteComponent } from './Corbeil/corbeil-specialite/corbeil-specialite.component';
+import { CorbeilUtilisateurComponent } from './Corbeil/corbeil-utilisateur/corbeil-utilisateur.component';
+import { CorbeilVilleComponent } from './Corbeil/corbeil-ville/corbeil-ville.component';
+import { CorbeilComponent } from './Corbeil/corbeil/corbeil.component';
 import { GuardService } from './Guard/guard.service';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './Profil/profil/profil.component';
 import { AjoutServiceComponent } from './Services/ajout-service/ajout-service.component';
+import { DetatilServiceComponent } from './Services/detatil-service/detatil-service.component';
 import { ModifierServiceComponent } from './Services/modifier-service/modifier-service.component';
 import { ServiceComponent } from './Services/service/service.component';
 import { AjoutSpecialiteComponent } from './Specialites/ajout-specialite/ajout-specialite.component';
@@ -36,6 +41,7 @@ const routes: Routes = [
   { path: 'services', component: ServiceComponent, canActivate:[GuardService] },
   { path: 'ajoutservice', component: AjoutServiceComponent, canActivate:[GuardService] },
   { path: 'modifierservice/:id', component: ModifierServiceComponent, canActivate:[GuardService] },
+  { path: 'detailservice/:id', component: DetatilServiceComponent, canActivate:[GuardService] },
 
   // Gestion specialités
   { path: 'specialites', component: SpecialiteComponent, canActivate:[GuardService] },
@@ -70,6 +76,12 @@ const routes: Routes = [
 
    // Gestion statistiques
    { path: 'statistiques', component: StatistiquesComponent, canActivate:[GuardService] },
+
+    // Gestion statistiques
+    { path: 'corbeil', component: CorbeilComponent, canActivate:[GuardService] },
+    { path: 'corbeil-specialite', component: CorbeilSpecialiteComponent, canActivate:[GuardService] },
+    { path: 'corbeil-ville', component: CorbeilVilleComponent, canActivate:[GuardService] },
+    { path: 'corbeil-utilisateur', component: CorbeilUtilisateurComponent, canActivate:[GuardService] },
 ];
 
 @NgModule({

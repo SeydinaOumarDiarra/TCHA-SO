@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { ServivevilleService } from '../serviveville.service';
 
 @Component({
@@ -8,9 +10,10 @@ import { ServivevilleService } from '../serviveville.service';
 })
 export class VilleComponent implements OnInit {
   searchText= '';
-  listeVilles: any;
+  listeVilles: any=[];
   constructor(
-    public service: ServivevilleService
+    public service: ServivevilleService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -19,8 +22,36 @@ export class VilleComponent implements OnInit {
 
   getAllVille(){
     this.service.getAllVilles().subscribe((data:any)=> {
-      this.listeVilles = data;
+      for(let i=0; i< data.length; i++){
+        if(data[i].etat == 'actif'){
+          this.listeVilles.push(data[i]);
+        }
+      }
     })
+  }
+
+  deleteVille(id: any){
+    this.service.deleteVille(id).subscribe((data: any)=>{})
+  }
+
+
+  alertConfirmation(id: any) {
+    Swal.fire({
+      title: 'ATTENTION',
+      text: 'Êtes vous sûr de vouloir supprimer cette ville ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Supprimer',
+      cancelButtonText: 'Annuler',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteVille(id);
+        Swal.fire('Suppression!', 'Ville supprimée avec succès.', 'success');
+        window.location.reload();
+        this.router.navigateByUrl('ville', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['ville']));
+      }
+    });
   }
 
 }

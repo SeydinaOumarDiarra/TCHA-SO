@@ -1,5 +1,7 @@
 <app-header></app-header>
 <app-menu></app-menu>
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 <div class="page-wrapper">
     <div class="page-breadcrumb bg-white">
         <div class="row align-items-center sous-header">
@@ -14,18 +16,17 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <!-- <div style="display: block">
-                <canvas mdbChart
-                    [chartType]="chartType"
-                    [datasets]="chartDatasets"
-                    [labels]="chartLabels"
-                    [colors]="chartColors"
-                    [options]="chartOptions"
-                    [legend]="true"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)">
+            {{customers}}
+            <div style="display: block">
+                <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
                 </canvas>
-              </div> -->
+              </div>
         </div>
     </div>
 </div>

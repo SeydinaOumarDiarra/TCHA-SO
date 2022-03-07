@@ -4,7 +4,11 @@
 .t{
     background-color: black;
     color: white;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
 }
+
 
 .notification-badges {
     li {

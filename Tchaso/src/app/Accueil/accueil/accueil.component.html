@@ -24,7 +24,7 @@
                                     style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                             </div>
                         </li>
-                        <li class="ms-auto"><span class="counter text-success">{{nbreclient}}</span></li>
+                        <li class="ms-auto"><span class="counter" style="color: #684f0e;"><b>{{nbreclient}}</b></span></li>
                     </ul>
                 </div>
             </div>
@@ -37,20 +37,20 @@
                                     style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                             </div>
                         </li>
-                        <li class="ms-auto"><span class="counter text-purple">{{nbretravailleur}}</span></li>
+                        <li class="ms-auto"><span class="counter" style="color: #f5bb20;"><b>{{nbretravailleur}}</b></span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="white-box analytics-info">
                     <h3 class="box-title">Total Demandes effectuées</h3>
-                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0" style="color: #f5bb20;">
                         <li>
                             <div id="sparklinedash3"><canvas width="67" height="30"
                                     style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                             </div>
                         </li>
-                        <li class="ms-auto"><span class="counter text-info">{{nbredemande}}</span>
+                        <li class="ms-auto"><span class="counter" style="color: #000000;"><b>{{nbredemande}}</b></span>
                         </li>
                     </ul>
                 </div>
@@ -96,7 +96,7 @@
                                         <td class="txt-oflo">{{liste.genre}}</td>
                                         <td>
                                             <span class="text-success alignement">
-                                                <a [routerLink]="['/detailtravailleur', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                                <a [routerLink]="['/detailtravailleur', liste.id]"><i style="color: #684f0e;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                             </span>
                                         </td>
                                     </tr>

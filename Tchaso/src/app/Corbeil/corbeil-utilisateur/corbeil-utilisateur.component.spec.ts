@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatistiquesComponent } from './statistiques.component';
+import { CorbeilUtilisateurComponent } from './corbeil-utilisateur.component';
 
-
-describe('StatistiquesComponent', () => {
-  let component: StatistiquesComponent;
-  let fixture: ComponentFixture<StatistiquesComponent>;
+describe('CorbeilUtilisateurComponent', () => {
+  let component: CorbeilUtilisateurComponent;
+  let fixture: ComponentFixture<CorbeilUtilisateurComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatistiquesComponent ]
+      declarations: [ CorbeilUtilisateurComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatistiquesComponent);
+    fixture = TestBed.createComponent(CorbeilUtilisateurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

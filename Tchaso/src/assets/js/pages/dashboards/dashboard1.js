@@ -43,7 +43,7 @@ $(function () {
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#7ace4c'
+            barColor: '#684f0e'
         });
         $('#sparklinedash2').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',
@@ -51,7 +51,7 @@ $(function () {
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#7460ee'
+            barColor: '#f5bb20'
         });
         $('#sparklinedash3').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',
@@ -59,7 +59,7 @@ $(function () {
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#11a0f8'
+            barColor: '#000000'
         });
         $('#sparklinedash4').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',

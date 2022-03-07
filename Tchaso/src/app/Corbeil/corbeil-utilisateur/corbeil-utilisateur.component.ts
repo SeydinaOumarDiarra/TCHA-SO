@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceutilisateurService } from 'src/app/Utilisateurs/service/serviceutilisateur.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
-import { ServiceutilisateurService } from '../service/serviceutilisateur.service';
 
 @Component({
-  selector: 'app-utilisateur',
-  templateUrl: './utilisateur.component.html',
-  styleUrls: ['./utilisateur.component.scss']
+  selector: 'app-corbeil-utilisateur',
+  templateUrl: './corbeil-utilisateur.component.html',
+  styleUrls: ['./corbeil-utilisateur.component.scss']
 })
-export class UtilisateurComponent implements OnInit {
+export class CorbeilUtilisateurComponent implements OnInit {
+
   searchText = '';
   utilisateurs: any;
-  admins: any =[];
-  workers: any =[];
-  customers: any =[];
+  admins: any = [];
+  workers: any = [];
+  customers: any = [];
   adminEtat = false;
   clientEtat = false;
   travailleurEtat = false;
@@ -31,21 +32,21 @@ export class UtilisateurComponent implements OnInit {
     this.photo
     this.userService.getAllAdmins().subscribe((data: any)=>{
       for(let i=0; i< data.length; i++){
-        if(data[i].etat == "actif"){
+        if(data[i].etat == "inactif"){
           this.admins.push(data[i]);
         }
-      }   
+      }
   });
   this.userService.getAllTravailleurs().subscribe((data: any)=>{
     for(let i=0; i< data.length; i++){
-      if(data[i].etat == "actif"){
+      if(data[i].etat == "inactif"){
         this.workers.push(data[i]);
       }
-    }     
+    }    
   });
   this.userService.getAllClients().subscribe((data: any)=>{
     for(let i=0; i< data.length; i++){
-      if(data[i].etat == "actif"){
+      if(data[i].etat == "inactif"){
         this.customers.push(data[i]);
       }
     }  
@@ -69,7 +70,9 @@ export class UtilisateurComponent implements OnInit {
       this.clientEtat = false;
       this.travailleurEtat = false;
       this.adminEtat = true;
-      this.utilisateurs = this.admins;
+      this.utilisateurs = [].concat(this.admins);
+      console.log(this.admins);
+      
     }
 
     if(event.target.value == 'Travailleurs'){
@@ -80,76 +83,83 @@ export class UtilisateurComponent implements OnInit {
     }
   }
 
-
-  deleteAdmin(id: any){
-    this.userService.deleteAdmin(id).subscribe((data: any)=>{})
+  restaurerAdmin(id: any){
+    this.userService.detailAdmin(id).subscribe((dat: any)=>{
+      dat.etat = 'actif';
+      this.userService.updateAdmin(id, dat).subscribe((data: any)=>{console.log(data);});
+    })
   }
 
-  deleteTravailleur(id: any){
-    this.userService.deleteTravailleur(id).subscribe((data: any)=>{})
+  restaurerTravailleur(id: any){
+    this.userService.detailTravailleur(id).subscribe((dat: any)=>{
+      dat.etat = 'actif';
+      this.userService.updateTravailleur(id, dat).subscribe((data: any)=>{console.log(data);});
+    })
   }
 
-  deleteClient(id: any){
-    this.userService.deleteClient(id).subscribe((data: any)=>{})
+  restaurerClient(id: any){
+    this.userService.detailClient(id).subscribe((dat: any)=>{
+      dat.etat = 'actif';
+      this.userService.updateClient(id, dat).subscribe((data: any)=>{console.log(data);});
+    })
   }
 
 
   alertConfirmationAdmin(id: any) {
     Swal.fire({
-      title: 'ATTENTION',
-      text: 'Êtes vous sûr de vouloir supprimer cet administrateur ?',
+      title: 'RESTAURATION',
+      text: 'Êtes vous sûr de vouloir restaurer cet administrateur ?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Supprimer',
+      confirmButtonText: 'Restaurer',
       cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.value) {
-        this.deleteAdmin(id);
-        Swal.fire('Suppression!', 'Administrateur supprimé avec succès.', 'success');
+        this.restaurerAdmin(id);
+        Swal.fire('Restauration!', 'Administrateur restauré avec succès.', 'success');
         window.location.reload();
-        this.router.navigateByUrl('utilisateurs', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['utilisateurs']));
+        this.router.navigateByUrl('corbeil-utilisateur', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['corbeil-utilisateur']));
       }
     });
   }
 
   alertConfirmationTravailleur(id: any) {
     Swal.fire({
-      title: 'ATTENTION',
-      text: 'Êtes vous sûr de vouloir supprimer ce travailleur ?',
+      title: 'RESTAURATION',
+      text: 'Êtes vous sûr de vouloir restaurer ce travailleur ?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Supprimer',
+      confirmButtonText: 'Restaurer',
       cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.value) {
-        this.deleteTravailleur(id);
-        Swal.fire('Suppression!', 'Travailleur supprimé avec succès.', 'success');
+        this.restaurerTravailleur(id);
+        Swal.fire('Restauration!', 'Travailleur restauré avec succès.', 'success');
         window.location.reload();
-        this.router.navigateByUrl('utilisateurs', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['utilisateurs']));
+        this.router.navigateByUrl('corbeil-utilisateur', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['corbeil-utilisateur']));
       }
     });
   }
 
   alertConfirmationClient(id: any) {
     Swal.fire({
-      title: 'ATTENTION',
-      text: 'Êtes vous sûr de vouloir supprimer ce client ?',
+      title: 'RESTAURATION',
+      text: 'Êtes vous sûr de vouloir restaurer ce client ?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Supprimer',
+      confirmButtonText: 'Restaurer',
       cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.value) {
-        this.deleteClient(id);
-        Swal.fire('Suppression!', 'Client supprimé avec succès.', 'success');
+        this.restaurerClient(id);
+        Swal.fire('Restauration!', 'Client restauré avec succès.', 'success');
         window.location.reload();
-        this.router.navigateByUrl('utilisateurs', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['utilisateurs']));
+        this.router.navigateByUrl('corbeil-utilisateur', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['corbeil-utilisateur']));
       }
     });
   }
-    
-    
+
 }

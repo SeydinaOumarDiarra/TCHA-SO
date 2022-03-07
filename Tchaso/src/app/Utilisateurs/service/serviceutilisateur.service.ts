@@ -72,4 +72,12 @@ export class ServiceutilisateurService {
   public getAllDemandes(){
     return this.http.get(this.host+"/demande/all")
   }
+
+  // count clients
+  public getCpteClient(){
+    return this.http.get(this.host+"/count/client")
+  }
+  public  getCpteClientKal(){
+    return this.http.get(this.host+"/count/client")
+  }
 }

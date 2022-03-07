@@ -32,6 +32,11 @@ export class ServivesserviceService {
     return this.http.delete(this.host+"/service/delette/"+id);
   }
 
+  // Get specialites par service
+  public SpecialitesByService(id: any){
+    return this.http.get(this.host+`/spec/${id}`)
+  }
+
   public getIcon(id:any) {
     return this.http.get(this.host+"/iconservice/"+id);
   }
