@@ -7,7 +7,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
-import { ChartsModule  } from 'ng2-charts';
+//import { ChartsModule  } from 'ng2-charts';
+import {ChartModule} from 'primeng/chart';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import {ToastModule} from 'primeng/toast';
 
@@ -48,6 +49,7 @@ import { CorbeilVilleComponent } from './Corbeil/corbeil-ville/corbeil-ville.com
 import { CorbeilUtilisateurComponent } from './Corbeil/corbeil-utilisateur/corbeil-utilisateur.component';
 import { DetatilServiceComponent } from './Services/detatil-service/detatil-service.component';
 import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout2-specialite.component';
+import { Ajout2TravailleurComponent } from './Utilisateurs/Travailleur/ajout2-travailleur/ajout2-travailleur.component';
 
 
 @NgModule({
@@ -87,6 +89,7 @@ import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout
     CorbeilUtilisateurComponent,
     DetatilServiceComponent,
     Ajout2SpecialiteComponent,
+    Ajout2TravailleurComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,8 @@ import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout
     AppRoutingModule,
     DialogModule,
     ButtonModule,
-    ChartsModule,
+    //ChartModule,
+    //ChartsModule,
     BrowserAnimationsModule,
     ToastModule,
     ToastrModule.forRoot(),

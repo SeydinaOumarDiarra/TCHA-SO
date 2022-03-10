@@ -133,7 +133,7 @@
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
                                     <td>
                                         <span class="text-success alignement">
-                                            <a > <i class="fa fa-edit" aria-hidden="true" style="color: #f5bb20;"></i></a>
+                                            <a  [routerLink]="['/modifierclient', liste?.id]"> <i class="fa fa-edit" aria-hidden="true" style="color: #f5bb20;"></i></a>
                                             <a (click)="alertConfirmationClient(liste.id)"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
                                             <a [routerLink]="['/detailclient', liste.id]"><i style="color: #684f0e;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>
@@ -160,8 +160,8 @@
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
                                     <td class="txt-oflo">{{liste?.specialite?.nomspe}}</td>
                                     <td>
-                                        <span class="text-success alignement">
-                                            <a > <i class="fa fa-edit" aria-hidden="true" style="color: #f5bb20;"></i></a>
+                                        <span class="text-success alignement"> 
+                                            <a  [routerLink]="['/modifiertravailleur', liste?.id]"> <i class="fa fa-edit" aria-hidden="true" style="color: #f5bb20;"></i></a>
                                             <a (click)="alertConfirmationTravailleur(liste.id)"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
                                             <a [routerLink]="['/detailtravailleur', liste.id]"><i style="color: #684f0e;" class="fas fa-info-circle" aria-hidden="true"></i></a>
                                         </span>

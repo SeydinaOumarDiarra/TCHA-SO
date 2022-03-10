@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicespecialiteService } from 'src/app/Specialites/servicespecialite.service';
+import { ServiceutilisateurService } from 'src/app/Utilisateurs/service/serviceutilisateur.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class CorbeilSpecialiteComponent implements OnInit {
   searchText= '';
   listeSpecialites: any = [];
-  constructor(public service: ServicespecialiteService, public router: Router) { }
+  constructor(public service: ServicespecialiteService, public serviceUser: ServiceutilisateurService, public router: Router) { }
 
   ngOnInit(): void {
     this.getAllSpecialite(); 
@@ -33,6 +34,25 @@ export class CorbeilSpecialiteComponent implements OnInit {
       this.service.updateSpecialite(id, dat).subscribe((data: any)=>{console.log(data);});
     })
   }
+
+  // restaurerSpecialiteAndTravailleur(id: any){
+  //   this.service.detailSpecialite(id).subscribe((spe: any)=>{
+  //     this.service.getTravailleurBySpecialite(spe.id).subscribe((trav: any)=>{
+  //       if(trav.length > 0){
+  //         spe.etat = 'actif';
+  //         this.service.updateSpecialite(spe.id, spe).subscribe((data: any)=>{
+  //           for(let i=0; i< trav.length; i++){
+  //             this.serviceUser.detailTravailleur(trav[i].id).subscribe((dat: any)=>{
+  //               dat.etat = 'actif';
+  //               this.serviceUser.updateTravailleur(dat.id, dat).subscribe((data: any)=>{console.log(data);});
+  //             })
+  //           }
+  //         });
+
+  //       }
+  //     })
+  //   })
+  // }
 
 
   alertConfirmation(id: any) {

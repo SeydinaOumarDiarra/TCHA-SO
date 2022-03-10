@@ -1,6 +1,7 @@
 import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicespecialiteService } from 'src/app/Specialites/servicespecialite.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { ServivesserviceService } from '../servivesservice.service';
@@ -16,6 +17,7 @@ export class ServiceComponent implements OnInit {
   iconimage = environment.ICONIMAGE;
   constructor(
     public service: ServivesserviceService,
+    public serviceSpe: ServicespecialiteService,
     public router: Router
   ) { }
 
@@ -38,23 +40,60 @@ export class ServiceComponent implements OnInit {
     this.service.deleteService(id).subscribe((data: any)=>{})
   }
 
+  deleteServiceSpecialite(id: any){
+    this.service.SpecialitesByService(id).subscribe((datas: any)=>{
+      if (datas.length > 0){
+        this.service.deleteService(id).subscribe((data: any)=>{})
+        for(let i=0; i<datas.length; i++){
+          this.serviceSpe.deleteSpecialite(datas[i].id).subscribe((spe:any)=>{});
+        }
+      }
+    })
+    this.service.deleteService(id).subscribe((data: any)=>{})
+  }
+
 
   alertConfirmation(id: any) {
-    Swal.fire({
-      title: 'ATTENTION',
-      text: 'Êtes vous sûr de vouloir supprimer cette ville ?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Supprimer',
-      cancelButtonText: 'Annuler',
-    }).then((result) => {
-      if (result.value) {
-        this.deleteService(id);
-        Swal.fire('Suppression!', 'Service supprimé avec succès.', 'success');
-        window.location.reload();
-        this.router.navigateByUrl('services', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['services']));
+    this.service.SpecialitesByService(id).subscribe((data: any)=>{
+
+      if (data.length > 0){
+        Swal.fire({
+          title: 'ATTENTION',
+          text: 'Ce service contient des spécialités, êtes vous sûr de vouloir supprimer ce service ?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Supprimer',
+          cancelButtonText: 'Annuler',
+        }).then((result) => {
+          if (result.value) {
+            this.deleteServiceSpecialite(id);
+            Swal.fire('Suppression!', 'Service supprimé avec succès.', 'success');
+            window.location.reload();
+            this.router.navigateByUrl('services', {skipLocationChange: true}).then(()=>
+            this.router.navigate(['services']));
+          }
+        });
       }
-    });
+      if (data.length == 0){
+        Swal.fire({
+          title: 'ATTENTION',
+          text: 'êtes vous sûr de vouloir supprimer ce service ?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Supprimer',
+          cancelButtonText: 'Annuler',
+        }).then((result) => {
+          if (result.value) {
+            this.deleteService(id);
+            Swal.fire('Suppression!', 'Service supprimé avec succès.', 'success');
+            window.location.reload();
+            this.router.navigateByUrl('services', {skipLocationChange: true}).then(()=>
+            this.router.navigate(['services']));
+          }
+        });
+      }
+ 
+    })
+    
   }
 }

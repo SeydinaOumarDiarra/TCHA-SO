@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AjoutSpecialiteComponent } from 'src/app/Specialites/ajout-specialite/ajout-specialite.component';
 import { Ajout2SpecialiteComponent } from 'src/app/Specialites/ajout2-specialite/ajout2-specialite.component';
+import { ServicespecialiteService } from 'src/app/Specialites/servicespecialite.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 import { ServivesserviceService } from '../servivesservice.service';
 
 @Component({
@@ -14,14 +16,16 @@ import { ServivesserviceService } from '../servivesservice.service';
 export class DetatilServiceComponent implements OnInit {
   searchText= '';
   service: any;
-  listeSpecialites: any;
+  listeSpecialites: any=[];
   iconimage = environment.ICONIMAGE;
   id: any;
   ref: DynamicDialogRef | undefined;
 
   constructor(
     private services: ServivesserviceService,
+    private serviceSpe: ServicespecialiteService,
     private route: ActivatedRoute,
+    public router: Router,
     public dialoService: DialogService
   ) {}
 
@@ -32,7 +36,12 @@ export class DetatilServiceComponent implements OnInit {
     });
 
     this.services.SpecialitesByService(this.id).subscribe((data: any)=>{
-      this.listeSpecialites = data;
+      for(let i=0; i<data.length; i++){
+        if(data[i].etat == "actif"){
+          this.listeSpecialites.push(data[i]);
+        }
+      }
+     
     });
 
     this.iconimage;
@@ -45,6 +54,32 @@ export class DetatilServiceComponent implements OnInit {
         width: '30%',
         // contentStyle: {"max-height": "500px", "overflow": "auto"},
         // baseZIndex: 10000
+    });
+  }
+
+
+  deleteSpecialite(id: any){
+    this.serviceSpe.deleteSpecialite(id).subscribe((data: any)=>{})
+  }
+
+
+  alertConfirmation(id: any) {
+    Swal.fire({
+      title: 'ATTENTION',
+      text: 'Êtes vous sûr de vouloir supprimer cette spécialité ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Supprimer',
+      cancelButtonText: 'Annuler',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteSpecialite(id);
+        Swal.fire('Suppression!', 'Spécialité supprimée avec succès.', 'success');
+        let url: string = "/detailservice/" + this.id
+        window.location.reload();
+        this.router.navigateByUrl(url, {skipLocationChange: true}).then(()=>
+        this.router.navigate([url]));
+      }
     });
   }
 

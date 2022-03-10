@@ -6,9 +6,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ServicespecialiteService {
-  
   host = environment.URL
+  idspecialite: any;
   constructor(private http: HttpClient) { }
+
+  setIdSpecialite(serv: any){this.idspecialite = serv}
+  getIdSpecialite(){return this.idspecialite}
 
   public addSpecialite(specialite: any) {
     return this.http.post(this.host+"/specialite/ajout", specialite)
@@ -28,5 +31,10 @@ export class ServicespecialiteService {
 
   public deleteSpecialite(id:any) {
     return this.http.delete(this.host+"/specialite/delette/"+id);
+  }
+
+   // Get travailleurs par spécialité
+   public getTravailleurBySpecialite(id: any) {
+    return this.http.get(this.host+`/trava/${id}`);
   }
 }

@@ -41,6 +41,12 @@ export class ServiceutilisateurService {
   public updateTravailleur(id: any, utilisateur: any) {
     return this.http.put(this.host+`/updatetravailleur/${id}`, utilisateur);
   }
+  public updateTravailleurWithFile(id: any, travailleur: any, photo: File, piece: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append("image", photo);
+    formData.append("piece", piece);
+    return this.http.put(this.host+`/updatetravailleurwithfile/${id}`, formData)
+  }
   detailTravailleur(id:any){
     return this.http.get(this.host+"/travailleur/"+id)
   }

@@ -3,7 +3,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ServiceutilisateurService } from 'src/app/Utilisateurs/service/serviceutilisateur.service';
 import { StatistiqueService } from '../service/statistique.service';
-import { map } from 'rxjs/operators';
+import { map, retryWhen } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,97 +13,69 @@ import { Observable } from 'rxjs';
 })
 export class StatistiquesComponent implements OnInit {
   customers: any;
-  copte: any = [];
-  nbreClient = 0;
-  dats: any;
-  tab: any = new Array;
-  ac:any;
-valeur!:any;
-ListClient:any=[];
-  agenciesData: number = 0;
-  valueObj: any;
-  useralerts: any;
+  outsideData: number = 0;
+  basicData: any;
+  basicOptions: any;
+  
   constructor(
     public statservive: StatistiqueService,
     public userService: ServiceutilisateurService,
-      ) 
-  {}
+    ) {}
 
-
-  //  cpteKal(): Observable<number>{     
-  //   return this.userService.getAllClients() as any;
-  //   //console.log("========",parseInt(data.toString()));
-     
-  //       }
   ngOnInit() {  
-    this.getAlerts();
-    // this.cpte()
-    // this.userService.getCpteClient().subscribe(data =>{    
-    //   });
-    // this.someMethod().subscribe(val => {
-    //   // console.log(val); // here the value is available
-    //   this.ac = val;
-    //   console.log(this.ac);
-    // });
-    // console.log("valllllllllllllllll==",this.cpteKal().toPromise());
-    
-    
+    //this.getAlerts();    
+    // this.basicData = {
+    //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'],
+    //   datasets: [
+    //     {
+    //       label: 'Vente',
+    //       backgroundColor: '#42A5F5',
+    //       data: [65, 59, 80, 81, 56, 55, 40,36,67,33,62,56]
+    //     },
+    //     {
+    //       label: 'Achat',
+    //       backgroundColor: '#FFA726',
+    //       data: [28, 48, 40, 19, 86, 27, 90,65, 59, 80, 81, 56]
+    //     }
+    //   ]
+    // }
   }
-  // someMethod() {
-  //   return this.userService.getCpteClient().pipe(map((value: any) => {
-  //          return this.valueObj = value; 
-  //      }));
-  //   };
 
-    getAlerts(){
-      this.userService.getCpteClient()
-             .subscribe((data) => {
-                     console.log('Init', data);
-                     this.setUsersArray(+data);
-                      console.log('Inside', this.useralerts);
+
+
+
+
+
+
+
+
+
+
+
+    // getAlerts(){
+    //   this.userService.getCpteClient().subscribe((data:any) => {
+    //            if(data) {
+    //             this.getNumberData(data);
+    //            }
+    //           });
+    //  }
      
-                 },
-                 (error) => console.log(error));
-         console.log('Outside', this.useralerts);
-     };
-     
-     setUsersArray(data:number){
-        this.useralerts= data;
-        this.ac = this.useralerts;
-     }
-  
-//   async get(){
-//     var data = await this.userService.getCpteClient().toPromise(); //returns a json 
-//     // var dataString = data.toString(); //Stringify the json to turn it to object
-//     // var dataObj = JSON.parse(data.toString());
-
-//     this.agenciesData = JSON.parse(data.toString()); //assign your variable to it
-//     console.log(this.agenciesData);
-// }
-  //  cpte(){
-  //   //this.ac = 0
-    
-  //    this.userService.getCpteClient().subscribe(data =>{
-  //    this.ac = data;       
-  //    });
-  //   // console.log("second value", JSON.stringify(this.ac));
-  //   // return this.ac;
-  //  }
-
-  
- 
+    //  getNumberData(data:any){
+    //    this.outsideData = data;
+    //    console.log('outsideData', this.outsideData);
+    //  }
  
 
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
+  // barChartOptions: ChartOptions = {
+  //   responsive: true,
+  // };
   
-  barChartLabels: Label[] = ['Clients', 'Homme', 'Femme'];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-  barChartData: ChartDataSets[] = [
-    {data:[3, 2, 1], label: 'Clients',backgroundColor: 'blue, green, blue' }
-  ];
+  // barChartLabels: Label[] = ['Clients', 'Homme', 'Femme'];
+  // barChartType: ChartType = 'bar';
+  // barChartLegend = true;
+  // barChartPlugins = [];
+  // barChartData: ChartDataSets[] = [
+  //   {data:[this.outsideData, 2, 1], label: 'Clients',backgroundColor: 'blue, green, blue' }
+  // ];
  
 }
