@@ -7,10 +7,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
-//import { ChartsModule  } from 'ng2-charts';
-import {ChartModule} from 'primeng/chart';
+import { ChartsModule  } from 'ng2-charts';
+//import {ChartModule} from 'primeng/chart';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import {ToastModule} from 'primeng/toast';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -100,7 +101,8 @@ import { Ajout2TravailleurComponent } from './Utilisateurs/Travailleur/ajout2-tr
     DialogModule,
     ButtonModule,
     //ChartModule,
-    //ChartsModule,
+    NgxPaginationModule,
+    ChartsModule,
     BrowserAnimationsModule,
     ToastModule,
     ToastrModule.forRoot(),

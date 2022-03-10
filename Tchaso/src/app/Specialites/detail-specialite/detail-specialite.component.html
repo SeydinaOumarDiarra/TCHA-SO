@@ -96,7 +96,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor= 'let liste of workers | filter:searchText'>
+                                <tr *ngFor= 'let liste of workers | filter:searchText  | paginate : {itemsPerPage : 4, currentPage: p}'>
                                     <td class="txt-oflo"><img src="{{photo}} + {{liste?.id}}" style="height: 25px; border-radius: 50px;"></td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
@@ -109,7 +109,8 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>                      
+                         <pagination-controls style="margin-left: 50%; background-color: #684f0e;" (pageChange)="p = $event"></pagination-controls>
                     </div>
                 </div>
             </div>

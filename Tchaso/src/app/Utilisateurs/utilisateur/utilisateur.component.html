@@ -73,7 +73,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor= 'let liste of customers | filter:searchText'>
+                                <tr *ngFor= 'let liste of customers | filter:searchText | paginate : {itemsPerPage : 5, currentPage: p}'>
                                     <td class="txt-oflo">{{liste?.id}}</td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
@@ -87,7 +87,7 @@
                                 </tr>
                             </tbody>
                         </table>
-
+                        <pagination-controls style="margin-left: 50%; background-color: #684f0e;" (pageChange)="p = $event"></pagination-controls>
                         <!-- Affichage Administrateurs -->
                         <table class="table no-wrap" *ngIf="adminEtat === true">
                             <thead>
@@ -100,7 +100,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText | paginate : {itemsPerPage : 5, currentPage: p}'>
                                     <td class="txt-oflo">{{liste.id}}</td>
                                     <td class="txt-oflo">{{liste.nom}}</td>
                                     <td class="txt-oflo">{{liste.prenom}}</td>
@@ -115,7 +115,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                         <!-- Affichage client -->
                         <table class="table no-wrap" *ngIf="clientEtat === true">
                             <thead>
@@ -127,7 +126,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText | paginate : {itemsPerPage : 5, currentPage: p}'>
                                     <td class="txt-oflo">{{liste?.id}}</td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
@@ -141,7 +140,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                          <!-- Affichage travailleurs -->
                          <table class="table no-wrap" *ngIf="travailleurEtat === true">
                             <thead>
@@ -154,7 +152,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText'>
+                                <tr *ngFor= 'let liste of utilisateurs | filter:searchText | paginate : {itemsPerPage : 5, currentPage: p}'>
                                     <td class="txt-oflo"><img src="{{photo}} + {{liste?.id}}" style="height: 25px; border-radius: 50px;"></td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
@@ -169,7 +167,7 @@
                                 </tr>
                             </tbody>
                         </table>
-
+                       
                     </div>
                 </div>
             </div>

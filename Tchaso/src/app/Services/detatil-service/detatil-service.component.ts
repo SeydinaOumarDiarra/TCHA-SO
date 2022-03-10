@@ -15,6 +15,7 @@ import { ServivesserviceService } from '../servivesservice.service';
 })
 export class DetatilServiceComponent implements OnInit {
   searchText= '';
+  p: number = 1;
   service: any;
   listeSpecialites: any=[];
   iconimage = environment.ICONIMAGE;

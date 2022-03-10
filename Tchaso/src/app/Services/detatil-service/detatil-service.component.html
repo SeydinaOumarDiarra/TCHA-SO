@@ -74,7 +74,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let liste of listeSpecialites | filter:searchText">
+                                <tr *ngFor="let liste of listeSpecialites | filter:searchText | paginate : {itemsPerPage : 4, currentPage: p}">
                                     <td class="txt-oflo">{{liste.id}}</td>
                                     <td class="txt-oflo">{{liste.nomspe}}</td>
                                     <td>
@@ -87,6 +87,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <pagination-controls style="margin-left: 50%; background-color: #684f0e;" (pageChange)="p = $event"></pagination-controls>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import { ServivevilleService } from '../serviveville.service';
 export class VilleComponent implements OnInit {
   searchText= '';
   listeVilles: any=[];
+  p: number = 1;
   constructor(
     public service: ServivevilleService,
     public router: Router

@@ -13,6 +13,7 @@ import { ServivesserviceService } from '../servivesservice.service';
 })
 export class ServiceComponent implements OnInit {
   searchText= '';
+  p: number = 1;
   listeServices: any = [];
   iconimage = environment.ICONIMAGE;
   constructor(

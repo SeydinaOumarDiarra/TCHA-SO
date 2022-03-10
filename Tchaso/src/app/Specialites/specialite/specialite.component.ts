@@ -11,6 +11,7 @@ import { ServicespecialiteService } from '../servicespecialite.service';
 })
 export class SpecialiteComponent implements OnInit {
   searchText= '';
+  p: number = 1;
   listeSpecialites: any = [];
   constructor(public service: ServicespecialiteService, public serviceUser: ServiceutilisateurService, public router: Router) { }
 

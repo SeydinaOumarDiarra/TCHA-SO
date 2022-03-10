@@ -11,6 +11,8 @@ import { ServiceutilisateurService } from '../service/serviceutilisateur.service
 })
 export class UtilisateurComponent implements OnInit {
   searchText = '';
+  p: number = 1;
+  a: number = 1;
   utilisateurs: any;
   admins: any =[];
   workers: any =[];

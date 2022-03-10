@@ -50,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let liste of listeServices| filter:searchText">
+                                <tr *ngFor="let liste of listeServices| filter:searchText | paginate : {itemsPerPage : 5, currentPage: p}">
                                     <td class="txt-oflo"><img src="{{iconimage}} + {{liste.id}}" style="height: 25px;"></td>
                                     <td class="txt-oflo">{{liste.nomser}}</td>
                                     <td class="txt-oflo">{{liste.description}}</td>
@@ -64,6 +64,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <pagination-controls style="margin-left: 50%; background-color: #684f0e;" (pageChange)="p = $event"></pagination-controls>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StatistiqueService {
-  nbreClient: any;
+  nbreClient: any = 0;
 
   constructor() { }
 

@@ -14,6 +14,7 @@ import { ServicespecialiteService } from '../servicespecialite.service';
 })
 export class DetailSpecialiteComponent implements OnInit {
   searchText = '';
+  p: number = 1;
   id: any;
   specialite: any;
   workers: any =[];

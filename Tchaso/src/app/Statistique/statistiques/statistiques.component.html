@@ -15,33 +15,28 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-
-            <!-- <div class="card card-box a b">
-                <div class="card-head">
-                  <header><span>hh</span></header>
-                  <div class="tools">
-                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                    <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-                    <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
-                  <canvas id="bar-chart"></canvas>
-                </div>
-              </div> -->
-
-            <!-- <div style="display: block">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+                    <canvas baseChart
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType" >
+                    </canvas>
+            </div>
+            <div class="col-lg-4 col-sm-4">
                 <canvas baseChart
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [plugins]="barChartPlugins"
-                [legend]="barChartLegend"
-                [chartType]="barChartType">
+                    [datasets]="barChartData2"
+                    [labels]="barChartLabels2"
+                    [options]="barChartOptions2"
+                    [plugins]="barChartPlugins2"
+                    [legend]="barChartLegend2"
+                    [chartType]="barChartType2" >
                 </canvas>
-              </div> -->
+        </div>
+            
         </div>
     </div>
 </div>
