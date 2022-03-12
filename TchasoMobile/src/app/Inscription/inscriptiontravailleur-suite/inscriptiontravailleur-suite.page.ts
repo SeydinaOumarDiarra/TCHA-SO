@@ -94,6 +94,8 @@ export class InscriptiontravailleurSuitePage implements OnInit {
 
         this.service.addTravailleur(this.travailleurs, this.photo, this.piece).subscribe((tr:any)=>{
           this.service.detailSpecialite(special).subscribe((spec: any)=>{
+            console.log(this.debutincrit.email);
+            
             this.specialiteId = spec;
               tr.nom = this.debutincrit.nom,
               tr.prenom = this.debutincrit.prenom,
@@ -105,9 +107,12 @@ export class InscriptiontravailleurSuitePage implements OnInit {
               tr.quartier = this.debutincrit.quartier,
               tr.ville = this.debutincrit.ville,
               tr.numWhasapp = this.debutincrit.numWhasapp,
+              tr.email = this.debutincrit.email,
               tr.specialite = this.specialiteId
     
               let trav = tr;
+              console.log(trav);
+              
               this.service.updateTravailleur(trav.id, trav).subscribe((worker: any)=>{
                 load.dismiss();
                 this.router.navigate(['login']);

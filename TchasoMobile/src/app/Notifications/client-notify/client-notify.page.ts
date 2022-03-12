@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { AccueilService } from 'src/app/Accueil/accueilclient/service/accueil.service';
 import { DemandeService } from 'src/app/Demande/service/demande.service';
@@ -20,6 +20,7 @@ image = environment.PHOTO;
     public serviceD: DemandeService,
     private route: ActivatedRoute,
     public popover: PopoverController,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -55,6 +56,8 @@ image = environment.PHOTO;
     console.log('Fermer !', role);
   }
 
- 
+  accueil(){
+    this.router.navigate(['accueilclient'])
+  }
 
 }

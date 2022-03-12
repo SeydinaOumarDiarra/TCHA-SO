@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,22 +6,29 @@ import { Router } from '@angular/router';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   navigate: any;
+  customers: any;
+  customer: any;
   constructor(
     public router: Router
   ) {
     this.sideMenu();
+  }
+  ngOnInit() {
+    this.customers =  localStorage.getItem('user');
+    this.customer = JSON.parse(this.customers);
+    console.log(this.customer);
     
   }
 
   sideMenu(){
     this.navigate = [
-      {
-        title : "Accueil",
-        icon: "home",
-        url : "/accueil"
-      },
+      // {
+      //   title : "Accueil",
+      //   icon: "home",
+      //   url : "/accueil"
+      // },
       {
         title : "A propos",
         icon:  "bag-handle-outline",
@@ -43,7 +50,7 @@ export class AppComponent {
   }
 
   deconnexion(){
-    localStorage.removeItem('userClient');
+    localStorage.removeItem('user');
     localStorage.clear();
     this.router.navigateByUrl('/accueilclient')
   }

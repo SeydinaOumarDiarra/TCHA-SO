@@ -39,7 +39,7 @@ export class InscriptiontravailleurPage implements OnInit {
     await load.present();
     this.service.detailVille(form.value['ville']).subscribe((vil: any)=>{
       let customer = {nom: form.value["nom"], prenom: form.value["prenom"], genre: form.value["genre"], 
-                      numWhasapp: form.value["telephone"], ville: vil,quartier: form.value["quartier"], 
+                      numWhasapp: form.value["telephone"], email: form.value["email"], ville: vil,quartier: form.value["quartier"], 
                       etat: 'inactif', type: 'travailleur'
                     };
       localStorage.setItem('customerinscri', JSON.stringify(customer));

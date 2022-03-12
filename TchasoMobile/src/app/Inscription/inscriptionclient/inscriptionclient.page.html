@@ -22,7 +22,7 @@
           <ion-icon name="body" style="margin-left: 120px;"></ion-icon>
         </ion-item>
         <ion-item>
-          <ion-input required name="telephone" type="number" #telephone="ngModel" [(ngModel)]="client.telephone" placeholder="Votre numéro" minlength="8" maxlength="8"></ion-input>
+          <ion-input required name="telephone" type="number" #telephone="ngModel" [(ngModel)]="client.telephone" placeholder="Votre numéro" pattern=".{8,8}"></ion-input>
           <ion-icon name="call"></ion-icon>
         </ion-item>
         <ion-item>

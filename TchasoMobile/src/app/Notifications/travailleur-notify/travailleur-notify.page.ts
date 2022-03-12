@@ -50,5 +50,9 @@ export class TravailleurNotifyPage implements OnInit {
     })
   }
 
+  accueil(){
+    this.router.navigate(['accueil']);
+  }
+
 
 }
