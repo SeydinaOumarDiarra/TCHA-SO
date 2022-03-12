@@ -13,11 +13,19 @@
                     </b>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                 <h4 class="page-title">DETAIL TRAVAILLEUR</h4>
             </div>
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                <div class="d-md-flex"></div>
+            <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                        <li> 
+                            <a (click)="show(travailleur.id)" class="btn btn-orange">
+                                <b>{{nbredemande}} demande (s)</b>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
         <!-- /.col-lg-12 -->

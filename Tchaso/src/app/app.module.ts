@@ -51,6 +51,8 @@ import { CorbeilUtilisateurComponent } from './Corbeil/corbeil-utilisateur/corbe
 import { DetatilServiceComponent } from './Services/detatil-service/detatil-service.component';
 import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout2-specialite.component';
 import { Ajout2TravailleurComponent } from './Utilisateurs/Travailleur/ajout2-travailleur/ajout2-travailleur.component';
+import { DemandebytravailleurComponent } from './Demande/demandebytravailleur/demandebytravailleur.component';
+import { ChangepasswordComponent } from './Utilisateurs/changepassword/changepassword.component';
 
 
 @NgModule({
@@ -91,6 +93,8 @@ import { Ajout2TravailleurComponent } from './Utilisateurs/Travailleur/ajout2-tr
     DetatilServiceComponent,
     Ajout2SpecialiteComponent,
     Ajout2TravailleurComponent,
+    DemandebytravailleurComponent,
+    ChangepasswordComponent,
   ],
   imports: [
     BrowserModule,

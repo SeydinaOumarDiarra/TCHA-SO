@@ -73,7 +73,7 @@ export class StatistiquesComponent implements OnInit {
     this.barChartLegend = true;
     this.barChartPlugins = [];
     this.barChartData = [
-      {data:[dat.length, this.cpteHom, this.cpteFem], label: 'Statistique Clients' ,backgroundColor: ['black', '#f5bb20', '#684f0e'], hoverBackgroundColor: ['none','none','none'] }
+      {data:[dat.length, this.cpteHom, this.cpteFem], label: 'Statistique Clients' ,backgroundColor: ['black', '#f5bb20', '#684f0e'], hoverBackgroundColor: ['black','#f5bb20','#684f0e'] }
     ]; 
 
   })
@@ -101,12 +101,9 @@ getTravailleur(){
     this.barChartLegend2 = true;
     this.barChartPlugins2 = [];
     this.barChartData2 = [
-      {data:[dat.length, this.cpteHom2, this.cpteFem2], label: 'Statistique Travailleurs' ,backgroundColor: ['black', '#f5bb20', '#684f0e'], hoverBackgroundColor: ['none','none','none'] }
+      {data:[dat.length, this.cpteHom2, this.cpteFem2], label: 'Statistique Travailleurs' ,backgroundColor: ['black', '#f5bb20', '#684f0e'], hoverBackgroundColor: ['black','#f5bb20','#684f0e'] }
     ]; 
-
   })
- 
-
 }
   
  

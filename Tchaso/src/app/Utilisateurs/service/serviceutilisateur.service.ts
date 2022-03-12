@@ -7,9 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ServiceutilisateurService {
-
+  idtravailleur: any
   host = environment.URL
   constructor(private http: HttpClient) { }
+
+  setIdTravailleur(data: any){this.idtravailleur = data}
+  getIdTravailleur(){return this.idtravailleur}
 
   // Gestion Administrateur
   public addAdmin(admin: any) {
@@ -47,9 +50,15 @@ export class ServiceutilisateurService {
     formData.append("piece", piece);
     return this.http.put(this.host+`/updatetravailleurwithfile/${id}`, formData)
   }
+
   detailTravailleur(id:any){
     return this.http.get(this.host+"/travailleur/"+id)
   }
+
+  demandeByTravailleur(id:any){
+    return this.http.get(this.host+"/demandeByTravailleur/"+id)
+  }
+
   public deleteTravailleur(id:any) {
     return this.http.delete(this.host+"/travailleur/delette/"+id);
   }

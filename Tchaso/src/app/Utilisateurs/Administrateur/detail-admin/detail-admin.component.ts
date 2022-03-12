@@ -24,4 +24,6 @@ export class DetailAdminComponent implements OnInit {
       });
   }
 
+  
+
 }
