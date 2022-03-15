@@ -33,7 +33,7 @@
                                     <label class="col-md-12 p-0">Nom *</label>
                                     <div class="col-md-12 border-bottom p-0">
                                         <input type="text" placeholder="Saisissez le nom"
-                                                    class="form-control p-0 border-0" name="nom" ngModel  #nom="ngModel" required>
+                                                    class="form-control p-0 border-0" name="nom" ngModel  #nom="ngModel" required minlength="5" maxlength="50">
                                         <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
                                             Le nom est obligatoire
                                         </div>
@@ -43,7 +43,7 @@
                                     <label class="col-md-12 p-0">Prénom *</label>
                                     <div class="col-md-12 border-bottom p-0">
                                         <input type="text" placeholder="Saisissez le prénom"
-                                                    class="form-control p-0 border-0" name="prenom" ngModel  #prenom="ngModel" required>
+                                                    class="form-control p-0 border-0" name="prenom" ngModel  #prenom="ngModel" required minlength="5" maxlength="50">
                                         <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">
                                             Le prénom est obligatoire
                                         </div>
@@ -120,7 +120,7 @@
                                     <label class="col-md-12 p-0">Quartier *</label>
                                     <div class="col-md-12 border-bottom p-0">
                                         <input type="text" placeholder="Saisissez le quartier"
-                                                    class="form-control p-0 border-0" name="quartier" ngModel  #quartier="ngModel" required>
+                                                    class="form-control p-0 border-0" name="quartier" ngModel  #quartier="ngModel" required minlength="5" maxlength="30">
                                         <div [hidden]="quartier.valid || quartier.pristine" class="alert alert-danger">
                                             Le quartier est obligatoire
                                         </div>
@@ -130,7 +130,7 @@
                                     <label class="col-md-12 p-0">Nom d'utilisateur *</label>
                                     <div class="col-md-12 border-bottom p-0">
                                         <input type="text" placeholder="Saisissez le nom d'utilisateur"
-                                                    class="form-control p-0 border-0" name="username" ngModel  #username="ngModel" required>
+                                                    class="form-control p-0 border-0" name="username" ngModel  #username="ngModel" required minlength="3" maxlength="20">
                                         <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
                                             Le nom d'utilisateur est obligatoire
                                         </div>

@@ -69,8 +69,8 @@
                                 <div class="form-group mb-4">
                                     <label class="col-md-12 p-0">Email *</label>
                                     <div class="col-md-12 border-bottom p-0">
-                                        <input type="email" placeholder="Saisissez l'email"
-                                                    class="form-control p-0 border-0" name="email" ngModel  #email="ngModel" required>
+                                        <input type="email" placeholder="Saisissez l'email (xxxx@yyy.zzz)"
+                                                    class="form-control p-0 border-0" name="email" ngModel  #email="ngModel" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                         <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
                                             L'email est obligatoire
                                         </div>
@@ -80,7 +80,7 @@
                                     <label class="col-md-12 p-0">Nom d'utilsateur *</label>
                                     <div class="col-md-12 border-bottom p-0">
                                         <input type="text" placeholder="Saisissez le nom d'utilisateur"
-                                                    class="form-control p-0 border-0" name="login" ngModel  #login="ngModel" required>
+                                                    class="form-control p-0 border-0" name="login" ngModel  #login="ngModel" required minlength="3" maxlength="20">
                                         <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
                                             Le nom d'utilisateur est obligatoire
                                         </div>

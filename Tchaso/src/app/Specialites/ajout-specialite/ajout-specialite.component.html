@@ -46,7 +46,7 @@
                                 <label class="col-md-12 p-0">Nom spécialité *</label>
                                 <div class="col-md-12 border-bottom p-0">
                                     <input type="textarea" placeholder="Saisissez la spécialité"
-                                                class="form-control p-0 border-0" name="nom" ngModel #nom="ngModel" required>
+                                                class="form-control p-0 border-0" name="nom" ngModel #nom="ngModel" required minlength="5" maxlength="50">
                                     <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
                                         Le nom est obligatoire
                                     </div>

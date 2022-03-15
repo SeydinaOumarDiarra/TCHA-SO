@@ -34,7 +34,7 @@
                                 <label class="col-md-12 p-0">Nom Ville *</label>
                                 <div class="col-md-12 border-bottom p-0">
                                     <input type="text" placeholder="Saisissez un nom service"
-                                                class="form-control p-0 border-0" name="nomville" ngModel  #nomville="ngModel" required>
+                                                class="form-control p-0 border-0" name="nomville" ngModel  #nomville="ngModel" required  minlength="5" maxlength="50">
                                     <div [hidden]="nomville.valid || nomville.pristine" class="alert alert-danger">
                                         Le nom de la ville est obligatoire
                                     </div>
