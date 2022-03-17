@@ -86,6 +86,7 @@ export class InscriptiontravailleurSuitePage implements OnInit {
 
     this.service.checkLogTravailleur(form.value['username']).subscribe((login: any)=>{
       if(login != null){
+        load.dismiss();
         this.presentAlertUsername();
       }else{
         this.travailleurs = {'nom': form.value['nom'], 'prenom': form.value['prenom']}
