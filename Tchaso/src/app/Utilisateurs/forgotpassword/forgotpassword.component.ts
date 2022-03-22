@@ -36,9 +36,12 @@ tab: any = [];
         }
       }
       if(this.tab.length > 0 ){
-        this.router.navigateByUrl('', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['']));
-       this.showSuccessToast();
+        this.service.forgotPassword(this.tab[0].email).subscribe((data: any)=>{
+          this.router.navigateByUrl('', {skipLocationChange: true}).then(()=>
+          this.router.navigate(['']));
+         this.showSuccessToast();
+        })
+       
       }else{
         this.showErrorToast();
       }

@@ -31,6 +31,11 @@ export class ServiceutilisateurService {
     return this.http.delete(this.host+"/administrateur/delette/"+id);
   }
 
+  // Gestion des demandes
+  public forgotPassword(email: any){
+    return this.http.get(this.host+"/reinitialiser/"+ email)
+  }
+
   // Gestion Travailleur
   public addTravailleur(travailleur: any, photo: File, piece: File): Observable<any> {
     const formData: FormData = new FormData();
