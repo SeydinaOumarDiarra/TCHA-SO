@@ -59,6 +59,8 @@ export class AjoutCompetencePage implements OnInit {
     load.dismiss();
     this.popover.dismiss();
     this.presentAlertSuccess();
+    this.router.navigateByUrl('competences', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['competences']));
   })
   }
 

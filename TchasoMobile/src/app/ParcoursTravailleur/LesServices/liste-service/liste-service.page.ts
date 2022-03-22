@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./liste-service.page.scss'],
 })
 export class ListeServicePage implements OnInit {
-  listeServices: any;
+  listeServices: any=[];
   iconimage = environment.ICONIMAGE;
   constructor(
     public router: Router,
@@ -24,9 +24,14 @@ export class ListeServicePage implements OnInit {
     this.iconimage;
   }
 
+
   getAllService(){
     this.service.getAllServices().subscribe((data:any)=> {
-      this.listeServices = data;
+      for(let i=0; i<data.length; i++){
+      if(data[i].etat == 'actif'){
+        this.listeServices.push(data[i]);
+      }
+    }
     });
   }
 
