@@ -69,6 +69,7 @@
                                     <th class="border-top-0"><b>#</b></th>
                                     <th class="border-top-0"><b>Nom</b></th>
                                     <th class="border-top-0"><b>Prénom</b></th>
+                                    <th class="border-top-0"><b>Genre</b></th>
                                     <th class="border-top-0"><b>Action</b></th>
                                 </tr>
                             </thead>
@@ -77,6 +78,7 @@
                                     <td class="txt-oflo">{{liste?.id}}</td>
                                     <td class="txt-oflo">{{liste?.nom}}</td>
                                     <td class="txt-oflo">{{liste?.prenom}}</td>
+                                    <td class="txt-oflo">{{liste?.genre}}</td>
                                     <td>
                                         <span class="text-success alignement">
                                             <a [routerLink]="['/modifierclient', liste?.id]"> <i class="fa fa-edit" style="color: #f5bb20;" aria-hidden="true"></i></a>

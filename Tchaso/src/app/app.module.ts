@@ -53,6 +53,8 @@ import { Ajout2SpecialiteComponent } from './Specialites/ajout2-specialite/ajout
 import { Ajout2TravailleurComponent } from './Utilisateurs/Travailleur/ajout2-travailleur/ajout2-travailleur.component';
 import { DemandebytravailleurComponent } from './Demande/demandebytravailleur/demandebytravailleur.component';
 import { ChangepasswordComponent } from './Utilisateurs/changepassword/changepassword.component';
+import { ForgotpasswordComponent } from './Utilisateurs/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './Utilisateurs/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -95,6 +97,8 @@ import { ChangepasswordComponent } from './Utilisateurs/changepassword/changepas
     Ajout2TravailleurComponent,
     DemandebytravailleurComponent,
     ChangepasswordComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,

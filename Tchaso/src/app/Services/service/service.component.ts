@@ -60,11 +60,14 @@ export class ServiceComponent implements OnInit {
       if (data.length > 0){
         Swal.fire({
           title: 'ATTENTION',
-          text: 'Ce service contient des spécialités, êtes vous sûr de vouloir supprimer ce service ?',
+          text: 'Ce service contient des spécialités, êtes vous sûr de vouloir le supprimer ?',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Supprimer',
+          confirmButtonColor:'#684f0e',
           cancelButtonText: 'Annuler',
+          cancelButtonColor: '#f5bb20',
+          reverseButtons: true
         }).then((result) => {
           if (result.value) {
             this.deleteServiceSpecialite(id);
@@ -82,7 +85,10 @@ export class ServiceComponent implements OnInit {
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Supprimer',
+          confirmButtonColor:'#684f0e',
           cancelButtonText: 'Annuler',
+          cancelButtonColor: '#f5bb20',
+          reverseButtons: true
         }).then((result) => {
           if (result.value) {
             this.deleteService(id);

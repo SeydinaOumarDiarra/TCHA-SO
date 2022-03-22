@@ -24,6 +24,7 @@ import { DetailAdminComponent } from './Utilisateurs/Administrateur/detail-admin
 import { ModifierAdminComponent } from './Utilisateurs/Administrateur/modifier-admin/modifier-admin.component';
 import { DetailClientComponent } from './Utilisateurs/Client/detail-client/detail-client.component';
 import { ModifierClientComponent } from './Utilisateurs/Client/modifier-client/modifier-client.component';
+import { ResetpasswordComponent } from './Utilisateurs/resetpassword/resetpassword.component';
 import { AjoutTravailleurComponent } from './Utilisateurs/Travailleur/ajout-travailleur/ajout-travailleur.component';
 import { DetailTravailleurComponent } from './Utilisateurs/Travailleur/detail-travailleur/detail-travailleur.component';
 import { ModifierTravailleurComponent } from './Utilisateurs/Travailleur/modifier-travailleur/modifier-travailleur.component';
@@ -57,6 +58,7 @@ const routes: Routes = [
   // Gestion utilisateurs
   { path: 'utilisateurs', component: UtilisateurComponent },
   { path: 'profil', component: ProfilComponent, canActivate:[GuardService] },
+  { path: 'ffsftejsfbhdvmzhbgsxffsojdpodhfefbvhe', component: ResetpasswordComponent },
 
   { path: 'ajoutadmin', component: AjoutAdminComponent },
   { path: 'modifieradmin/:id', component: ModifierAdminComponent },

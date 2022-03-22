@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ForgotpasswordComponent } from '../Utilisateurs/forgotpassword/forgotpassword.component';
 import { ServiceloginService } from './servicelogin.service';
 
 @Component({
@@ -11,10 +13,12 @@ import { ServiceloginService } from './servicelogin.service';
 })
 export class LoginComponent implements OnInit {
 
+  ref: DynamicDialogRef | undefined;
   constructor(
      private service: ServiceloginService,
      private route: Router,
-     private toast: ToastrService
+     private toast: ToastrService,
+     public dialoService: DialogService
      ) { }
 
   ngOnInit(): void {
@@ -36,6 +40,13 @@ export class LoginComponent implements OnInit {
           }
         }
       )
+  }
+
+  show() {
+    this.ref = this.dialoService.open(ForgotpasswordComponent, {
+        header: 'Récupération de mot de passe',
+        width: '30%',
+    });
   }
 
 }

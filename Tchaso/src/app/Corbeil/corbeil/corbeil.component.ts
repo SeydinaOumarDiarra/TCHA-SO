@@ -72,7 +72,9 @@ export class CorbeilComponent implements OnInit {
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Restaurer',
+          confirmButtonColor:'#684f0e',
           cancelButtonText: 'Annuler',
+          cancelButtonColor: '#f5bb20',
         }).then((result) => {
           if (result.value) {
             this.restaurerServiceAndSpecialite(id);
@@ -86,11 +88,14 @@ export class CorbeilComponent implements OnInit {
       if (data.length == 0){
         Swal.fire({
           title: 'ATTENTION',
-          text: 'êtes vous sûr de vouloir supprimer ce service ?',
+          text: 'êtes vous sûr de vouloir restaurer ce service ?',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Restaurer',
+          confirmButtonColor:'#684f0e',
           cancelButtonText: 'Annuler',
+          cancelButtonColor: '#f5bb20',
+      reverseButtons: true
         }).then((result) => {
           if (result.value) {
             this.restaurerService(id);

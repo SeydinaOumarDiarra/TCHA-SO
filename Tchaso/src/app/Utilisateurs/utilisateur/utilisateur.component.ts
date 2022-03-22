@@ -103,7 +103,10 @@ export class UtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Supprimer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
+      reverseButtons: true
     }).then((result) => {
       if (result.value) {
         this.deleteAdmin(id);
@@ -122,7 +125,10 @@ export class UtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Supprimer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
+      reverseButtons: true
     }).then((result) => {
       if (result.value) {
         this.deleteTravailleur(id);
@@ -141,7 +147,10 @@ export class UtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Supprimer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
+      reverseButtons: true
     }).then((result) => {
       if (result.value) {
         this.deleteClient(id);

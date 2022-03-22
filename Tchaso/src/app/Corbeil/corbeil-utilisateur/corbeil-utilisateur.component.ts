@@ -112,7 +112,9 @@ export class CorbeilUtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Restaurer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
     }).then((result) => {
       if (result.value) {
         this.restaurerAdmin(id);
@@ -131,7 +133,9 @@ export class CorbeilUtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Restaurer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
     }).then((result) => {
       if (result.value) {
         this.restaurerTravailleur(id);
@@ -150,7 +154,9 @@ export class CorbeilUtilisateurComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Restaurer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
     }).then((result) => {
       if (result.value) {
         this.restaurerClient(id);

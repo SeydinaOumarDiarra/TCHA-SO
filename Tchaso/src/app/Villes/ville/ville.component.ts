@@ -43,7 +43,10 @@ export class VilleComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Supprimer',
+      confirmButtonColor:'#684f0e',
       cancelButtonText: 'Annuler',
+      cancelButtonColor: '#f5bb20',
+      reverseButtons: true
     }).then((result) => {
       if (result.value) {
         this.deleteVille(id);
