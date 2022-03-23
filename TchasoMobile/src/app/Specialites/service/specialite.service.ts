@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class SpecialiteService {
   host = environment.URL;
   tra: any;
+  travcomment: any;
   
   constructor(private http: HttpClient) { }
 
@@ -16,6 +17,13 @@ export class SpecialiteService {
   }
   getTrav(){
     return this.tra;
+  }
+
+  setTravComment(data: any){
+    this.travcomment = data
+  }
+  getTravComment(){
+    return this.travcomment;
   }
    // Get travailleurs par spécialité
    public getTravailleur(id: any) {

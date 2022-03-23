@@ -14,6 +14,14 @@
     <h2>{{travailleur?.prenom}} {{travailleur?.nom}}</h2>
   </div>
   <div class="space-between">
+    <div class="followings">
+      <ion-badge color="warning" mode="ios">42</ion-badge>
+      <ion-icon name="star-outline" style="height: 20px; width: 20px;"></ion-icon>
+    </div>
+    <div class="followings" (click)="comment(travailleur)">
+      <ion-badge color="warning" mode="ios">{{nbreComment}}</ion-badge>
+      <ion-icon name="chatbox-ellipses-outline" style="height: 20px; width: 20px; font-size: 30px;"></ion-icon>
+    </div>
   </div>
   <div class="flex">
     <div class="border-white">
@@ -22,6 +30,7 @@
       </div>
     </div>
   </div>
+  
   <ion-row>
     <ion-col size="12">
       <ion-card>

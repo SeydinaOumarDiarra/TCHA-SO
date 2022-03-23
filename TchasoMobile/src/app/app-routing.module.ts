@@ -123,6 +123,10 @@ const routes: Routes = [
     path: 'modifier-infos',
     loadChildren: () => import('./Profil/ChangeInfos/modifier-infos/modifier-infos.module').then( m => m.ModifierInfosPageModule)
   },
+  {
+    path: 'commentaire',
+    loadChildren: () => import('./Commentaires/commentaire/commentaire.module').then( m => m.CommentairePageModule)
+  },
 ];
 
 @NgModule({

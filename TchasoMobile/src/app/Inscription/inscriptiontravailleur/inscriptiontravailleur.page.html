@@ -10,10 +10,18 @@
           <ion-input required name="nom" type="text" #nom="ngModel" [(ngModel)]="worker.nom" placeholder="Votre nom"></ion-input>
           <ion-icon name="person"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="nom.invalid && nom.touched" style="margin-left: 20px;">
+            Le nom est obligatoire
+        </ion-text>
+
         <ion-item>
           <ion-input required name="prenom" type="text" #prenom="ngModel" [(ngModel)]="worker.prenom" placeholder="Votre prénom"></ion-input>
           <ion-icon name="person"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="prenom.invalid && prenom.touched" style="margin-left: 20px;">
+          Le prénom est obligatoire
+        </ion-text>
+
         <ion-item>
           <ion-select required name="genre" #genre="ngModel" placeholder="Genre" [(ngModel)]="worker.genre" style="width: 100px;">
             <ion-select-option value="Homme">Homme</ion-select-option>
@@ -21,10 +29,18 @@
           </ion-select>
           <ion-icon name="body" style="margin-left: 120px;"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="genre.invalid && genre.touched" style="margin-left: 20px;">
+          Le genre est obligatoire
+        </ion-text>
+
         <ion-item>
           <ion-input required name="telephone" type="number" #telephone="ngModel" [(ngModel)]="worker.telephone" placeholder="Votre numéro" pattern=".{8,8}"></ion-input>
           <ion-icon name="call"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="telephone.invalid && telephone.touched" style="margin-left: 20px;">
+          Le numéro de téléphone est obligatoire et doit être de 8 chiffres
+        </ion-text>
+
         <ion-item>
           <ion-input name="email" type="text" #email="ngModel" [(ngModel)]="worker.email" placeholder="Votre email"></ion-input>
           <ion-icon name="send"></ion-icon>
@@ -35,10 +51,18 @@
           </ion-select>
           <ion-icon name="logo-markdown" style="margin-left: 120px;"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="ville.invalid && ville.touched" style="margin-left: 20px;">
+          La ville est obligatoire
+        </ion-text>
+
         <ion-item>
           <ion-input required name="quartier" type="text" #quartier="ngModel" [(ngModel)]="worker.quartier"  placeholder="Votre quartier"></ion-input>
           <ion-icon name="pin"></ion-icon>
         </ion-item>
+        <ion-text color="danger" *ngIf="quartier.invalid && quartier.touched" style="margin-left: 20px;">
+          Le quartier est obligatoire
+        </ion-text>
+
       </ion-list>
     </ion-card>
     <ion-row>

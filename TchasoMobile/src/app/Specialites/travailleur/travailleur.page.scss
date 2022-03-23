@@ -47,7 +47,12 @@ ion-fab {
 .space-between {
     display: flex;
     justify-content: space-between;
-    padding: -10px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
+    margin-top: -50px!important;
+    // justify-content: space-between;
+    color: white;
+    // margin-top: -50px!important;
+    // margin-left: 10px;
 }
 .followings {
     display: flex;
@@ -72,7 +77,7 @@ ion-fab {
 .flex {
     display: flex;
     justify-content: center;
-    margin-top: -68px;
+    margin-top: -40px;
 }
 .tweet {
     margin-top: -10px!important;

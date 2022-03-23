@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ViewWillEnter } from '@ionic/angular';
+import { CommentaireService } from 'src/app/Commentaires/commentaire.service';
 import { AjoutDemandePage } from 'src/app/Demande/ajout-demande/ajout-demande.page';
 import { environment } from 'src/environments/environment';
 import { SpecialiteService } from '../service/specialite.service';
@@ -14,10 +15,12 @@ export class TravailleurPage implements OnInit {
   id: any;
   travailleur: any;
   competences: any;
+  nbreComment: any;
   image = environment.PHOTO;
 
   constructor(
     public service: SpecialiteService,
+    public serviceCom: CommentaireService,
     private activatedRoute: ActivatedRoute,
     private route : Router,
     public popover: PopoverController,
@@ -31,8 +34,16 @@ export class TravailleurPage implements OnInit {
       this.service.getCompetenceByTravailleur(this.id).subscribe((dt: any)=>{
         this.competences = dt;
       })
+
+      this.serviceCom.getCommmentaireByTravailleur(this.id).subscribe((dat: any)=>{        
+        this.nbreComment = dat.length;      
+      })
       this.image;
   }
+
+
+
+
 
   async addDemande(data: any){
     this.service.setTrav(data);
@@ -46,8 +57,10 @@ export class TravailleurPage implements OnInit {
     console.log('Fermer !', role);
   }
 
-  contact(){
-    console.log("okk");
+  comment(id: any){
+   this.service.setTravComment(id);
+    this.route.navigate(['commentaire']);
   }
+
 
 }
