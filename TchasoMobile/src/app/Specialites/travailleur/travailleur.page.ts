@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PopoverController, ViewWillEnter } from '@ionic/angular';
 import { CommentaireService } from 'src/app/Commentaires/commentaire.service';
 import { AjoutDemandePage } from 'src/app/Demande/ajout-demande/ajout-demande.page';
+import { AddNotationPage } from 'src/app/Notations/add-notation/add-notation.page';
+import { NotationService } from 'src/app/Notations/Services/notation.service';
 import { environment } from 'src/environments/environment';
 import { SpecialiteService } from '../service/specialite.service';
 
@@ -16,11 +18,13 @@ export class TravailleurPage implements OnInit {
   travailleur: any;
   competences: any;
   nbreComment: any;
+  nbreNote: any;
   image = environment.PHOTO;
 
   constructor(
     public service: SpecialiteService,
     public serviceCom: CommentaireService,
+    public serviceNote: NotationService,
     private activatedRoute: ActivatedRoute,
     private route : Router,
     public popover: PopoverController,
@@ -37,6 +41,20 @@ export class TravailleurPage implements OnInit {
 
       this.serviceCom.getCommmentaireByTravailleur(this.id).subscribe((dat: any)=>{        
         this.nbreComment = dat.length;      
+      })
+
+      this.serviceNote.getNotationByTravailleur(this.id).subscribe((nt: any)=>{
+        if(nt.length == 0){
+          this.nbreNote = 0
+        }else{
+          let somme = 0;
+          let moyenne = 0;
+          for(let i = 0; i< nt.length; i++){
+            somme = somme + nt[i].note
+          }
+          moyenne = somme/nt.length;
+          this.nbreNote = Math.trunc(moyenne);          
+        }
       })
       this.image;
   }
@@ -60,6 +78,18 @@ export class TravailleurPage implements OnInit {
   comment(id: any){
    this.service.setTravComment(id);
     this.route.navigate(['commentaire']);
+  }
+
+  async note(data: any){
+    this.serviceNote.setTravNotation(data);
+    const popover = await this.popover.create({
+      component: AddNotationPage,
+      cssClass:'taille',
+      translucent: false
+    });
+    await popover.present();
+    const{role} = await popover.onDidDismiss();
+    console.log('Fermer !', role);
   }
 
 

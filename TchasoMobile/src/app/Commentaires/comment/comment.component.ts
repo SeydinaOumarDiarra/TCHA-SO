@@ -43,7 +43,7 @@ export class CommentComponent implements OnInit, ViewWillEnter{
     this.service.AjoutCommentaire(commentaire).subscribe((data: any)=>{
       //this.commentaire
       form.reset();
-      this.router.navigateByUrl('commentaire')
+      this.router.navigateByUrl('commentaire');
     })
     
   }

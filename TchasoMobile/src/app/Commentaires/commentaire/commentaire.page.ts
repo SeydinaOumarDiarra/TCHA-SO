@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewWillEnter } from '@ionic/angular';
 import { SpecialiteService } from 'src/app/Specialites/service/specialite.service';
 import { CommentaireService } from '../commentaire.service';
 
@@ -8,7 +7,7 @@ import { CommentaireService } from '../commentaire.service';
   templateUrl: './commentaire.page.html',
   styleUrls: ['./commentaire.page.scss'],
 })
-export class CommentairePage implements OnInit, ViewWillEnter {
+export class CommentairePage implements OnInit {
   comment: any;
   travailleur: any;
   
@@ -25,12 +24,7 @@ export class CommentairePage implements OnInit, ViewWillEnter {
   }
 
   ionViewWillEnter() {
-    this.travailleur = this.serviceSpe.getTravComment();
-    this.service.getCommmentaireByTravailleur(this.travailleur.id).subscribe((dat: any)=>{
-      console.log(dat);
-      
-      this.comment = dat;      
-    })
+   
   }
 
 }

@@ -127,6 +127,11 @@ const routes: Routes = [
     path: 'commentaire',
     loadChildren: () => import('./Commentaires/commentaire/commentaire.module').then( m => m.CommentairePageModule)
   },
+  {
+    path: 'add-notation',
+    loadChildren: () => import('./Notations/add-notation/add-notation.module').then( m => m.AddNotationPageModule)
+  }
+  
 ];
 
 @NgModule({

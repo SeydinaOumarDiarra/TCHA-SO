@@ -11,7 +11,7 @@ export class CommentaireService {
 
   constructor(private http: HttpClient) { }
 
-  // Ajout demande
+  // Ajout commentaire
   public AjoutCommentaire(comment: any){
     return this.http.post(this.host+'/comment/ajout', comment)
   }

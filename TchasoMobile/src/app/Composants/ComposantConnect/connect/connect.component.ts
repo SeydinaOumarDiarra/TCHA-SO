@@ -22,7 +22,7 @@ export class ConnectComponent implements OnInit {
     
     this.service.getAllNotifyClient(this.customer.id).subscribe((dat: any)=>{
       for(let i =0; i<dat.length; i++){
-        if(dat[i].statutdemandeclient == "non_lu"){
+        if(dat[i].statutdemandeclient == "non_lu" && dat[i].isaccept != null){
           this.tabNotify.push(dat[i]);
         }
       }
