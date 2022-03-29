@@ -28,6 +28,7 @@
                     <td class="txt-oflo">{{liste?.datedemande| date: 'dd-MM-Y à H:mm'}}</td>
                     <td class="txt-oflo"> 
                         <b *ngIf="liste.isaccept == false" style="color: brown;">non accepté</b>
+                        <b *ngIf="liste.isaccept == null" style="color: rgb(235, 163, 8);">en cours</b>
                         <b *ngIf="liste.isaccept == true" style="color: rgb(42, 165, 128);">accepté</b>
                     </td>
                     <td class="txt-oflo">{{liste.client.nom}} {{liste.client.prenom}}</td>
