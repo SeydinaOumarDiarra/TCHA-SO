@@ -47,6 +47,10 @@ export class Ajout2SpecialiteComponent implements OnInit {
         this.specialite = {'service': data, 'nomspe': form.value['nom'], 'description': form.value['description']};
         this.service.addSpecialite(this.specialite).subscribe((data: any)=> {
           this.showToastSuccess();
+          let url: string = "/detailservice/" + this.idservice
+          window.location.reload();
+          this.router.navigateByUrl(url, {skipLocationChange: true}).then(()=>
+          this.router.navigate(['detailservice', this.idservice]));
         })
       })
     }else{
